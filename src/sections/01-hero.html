@@ -7,6 +7,19 @@
       <span class="hero__line hero__line--accent" data-hero-line><span>Торопов</span></span>
     </h1>
 
+    <!-- Навигация по направлениям в первом экране — как на старом сайте.
+         Она же строка-дескриптор из ТЗ (блок 01), только кликабельная.
+         Полные названия и фото — в блоке 02 ниже по странице. -->
+    <nav class="hero__dirs" aria-label="Направления" data-hero-intro>
+      <ul class="hero__dirs-list">
+        <li><a class="hero__dir" href="/weddings">Свадьба</a></li>
+        <li><a class="hero__dir" href="/cityholiday">Городской праздник</a></li>
+        <li><a class="hero__dir" href="/korporat">Корпоратив</a></li>
+        <li><a class="hero__dir" href="/privatparty">Частная вечеринка</a></li>
+        <li><a class="hero__dir" href="/graduationday">Выпускной</a></li>
+      </ul>
+    </nav>
+
     <!-- Главное фото: оригинал 16:9 целиком на планшете/десктопе, кадр 4:3 по центру дивана на мобиле -->
     <figure class="hero__media" data-hero-media>
       <img class="hero__tape" src="/decor/tape.webp" alt="" width="480" height="150" decoding="async">
@@ -20,7 +33,6 @@
     </figure>
 
     <div class="hero__side">
-      <p class="hero__desc" data-hero-intro>свадьбы · городские праздники · корпоративы · частные вечеринки</p>
       <p class="hero__lead" data-hero-intro>Ведущий, артист и <span class="nowrap">ивент-менеджер</span> с&nbsp;<span class="nowrap">17-летним</span> стажем</p>
       <div class="hero__actions" data-hero-intro>
         <a class="btn btn--primary btn--l" href="#form" data-magnetic>

@@ -2,8 +2,8 @@
    01 · HERO [dark] — ударная.
    Фото hero-portrait горизонтальное (1920×1080, 16:9, светлая студия), поэтому
    композиция не «портрет справа во всю высоту», а:
-     ряд 1 — нумерация; ряд 2 — H1 во всю ширину;
-     ряд 3 — слева дескриптор, лид и кнопки, справа фото 16:9 целиком (без обрезки).
+     ряд 1 — нумерация; ряд 2 — H1 во всю ширину; ряд 3 — пилюли направлений;
+     ряд 4 — слева лид и кнопки, справа фото 16:9 целиком (без обрезки).
    Лаймовый H1 не заходит на светлое фото: лайм на белом запрещён (ДС §2).
    ========================================================================== */
 .hero {
@@ -19,7 +19,7 @@
   z-index: 1;
   display: grid;
   grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
-  grid-template-rows: auto auto 1fr;
+  grid-template-rows: auto auto auto 1fr;
   column-gap: var(--grid-gap);
   align-content: start;
   padding-right: calc(var(--gutter) + var(--vmarquee-w));
@@ -40,11 +40,32 @@
 .hero__line > span { display: inline-block; }
 .hero__line--accent { color: var(--acid); }
 
+/* ---------- Направления в первом экране (пилюля = тег §7, но кликабельный) ---------- */
+.hero__dirs { grid-column: 1 / -1; grid-row: 3; margin-top: var(--s-6); }
+.hero__dirs-list { display: flex; flex-wrap: wrap; gap: var(--s-3); }
+.hero__dir {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--s-3) var(--s-5);
+  border: var(--hairline) solid var(--line-dark);
+  border-radius: var(--r-pill);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: var(--tr-label);
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
+}
+.hero__dir:hover { background: var(--acid); border-color: var(--acid); color: var(--ink-900); }
+.hero__dir:active { background: var(--acid-deep); border-color: var(--acid-deep); }
+
 /* ---------- Фото ---------- */
 .hero__media {
   position: relative;
   grid-column: 6 / -1;
-  grid-row: 3;
+  grid-row: 4;
   align-self: start;
   margin-top: var(--s-6);
 }
@@ -103,25 +124,19 @@
 /* ---------- Текст и кнопки ---------- */
 .hero__side {
   grid-column: 1 / span 5;
-  grid-row: 3;
+  grid-row: 4;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: var(--s-5);
   margin-top: var(--s-6);
 }
-.hero__desc {
+.hero__lead {
   max-width: 30ch;
   font-size: var(--fs-lead);
   font-weight: 500;
   line-height: var(--lh-lead);
   text-wrap: balance;
-}
-.hero__lead {
-  max-width: 30ch;
-  font-size: var(--fs-body);
-  line-height: var(--lh-body);
-  color: var(--muted-on-dark);
 }
 .hero__actions { display: flex; flex-wrap: wrap; gap: var(--s-4); margin-top: var(--s-3); }
 
@@ -167,11 +182,14 @@
 @media (max-width: 767px) {
   .hero { padding-top: calc(var(--header-h) + var(--s-5)); padding-bottom: var(--s-7); }
   .hero__inner { grid-template-rows: none; padding-right: var(--gutter); }
-  .hero__media, .hero__side { grid-column: 1 / -1; grid-row: auto; }
+  .hero__dirs, .hero__media, .hero__side { grid-column: 1 / -1; grid-row: auto; }
   .hero__media { margin-top: var(--s-7); }
   .hero__picture { aspect-ratio: 4 / 3; }        /* мобильный кадр 4:3 из <picture> */
   .hero__tape { width: 40%; }
-  .hero__desc, .hero__lead { max-width: none; }
+  .hero__lead { max-width: none; }
+  .hero__dirs { margin-top: var(--s-5); }
+  .hero__dirs-list { gap: var(--s-2); }
+  .hero__dir { min-height: var(--tap-min); }   /* тач-зона 48px (ДС §7) */
   .hero__actions, .hero__actions .btn { width: 100%; }
   .hero__actions .btn { justify-content: space-between; }
   .vmarquee { display: none; }
