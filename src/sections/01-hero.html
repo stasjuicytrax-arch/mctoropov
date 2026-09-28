@@ -1,0 +1,44 @@
+<section class="sec sec--dark sec--rail hero" id="top" data-theme="dark" aria-labelledby="hero-title">
+  <div class="container hero__inner">
+    <p class="rail rail--hero" data-hero-intro><span class="rail__num">01</span><span class="rail__sep">/</span><span>Ведущий мероприятий</span></p>
+
+    <h1 class="hero__title" id="hero-title">
+      <span class="hero__line" data-hero-line><span>Стас</span></span>
+      <span class="hero__line hero__line--accent" data-hero-line><span>Торопов</span></span>
+    </h1>
+
+    <!-- Главное фото: оригинал 16:9 целиком на планшете/десктопе, кадр 4:3 по центру дивана на мобиле -->
+    <figure class="hero__media" data-hero-media>
+      <img class="hero__tape" src="/decor/tape.webp" alt="" width="480" height="150" decoding="async">
+      <picture class="hero__picture">
+        <source media="(max-width: 767px)" type="image/avif" srcset="/img/hero-portrait-m-480.avif 480w, /img/hero-portrait-m-960.avif 960w, /img/hero-portrait-m-1440.avif 1440w" sizes="calc(100vw - 40px)">
+        <source media="(max-width: 767px)" type="image/webp" srcset="/img/hero-portrait-m-480.webp 480w, /img/hero-portrait-m-960.webp 960w, /img/hero-portrait-m-1440.webp 1440w" sizes="calc(100vw - 40px)">
+        <source type="image/avif" srcset="/img/hero-portrait-480.avif 480w, /img/hero-portrait-960.avif 960w, /img/hero-portrait-1440.avif 1440w, /img/hero-portrait-1920.avif 1920w" sizes="(max-width: 1279px) 60vw, 720px">
+        <source type="image/webp" srcset="/img/hero-portrait-480.webp 480w, /img/hero-portrait-960.webp 960w, /img/hero-portrait-1440.webp 1440w, /img/hero-portrait-1920.webp 1920w" sizes="(max-width: 1279px) 60vw, 720px">
+        <img src="/img/hero-portrait-1440.jpg" alt="Стас Торопов в чёрной футболке и солнцезащитных очках лежит на чёрном кожаном диване в белой студии" width="1920" height="1080" fetchpriority="high" decoding="async">
+      </picture>
+    </figure>
+
+    <div class="hero__side">
+      <p class="hero__desc" data-hero-intro>свадьбы · городские праздники · корпоративы · частные вечеринки</p>
+      <p class="hero__lead" data-hero-intro>Ведущий, артист и <span class="nowrap">ивент-менеджер</span> с&nbsp;<span class="nowrap">17-летним</span> стажем</p>
+      <div class="hero__actions" data-hero-intro>
+        <a class="btn btn--primary btn--l" href="#form" data-magnetic>
+          <span class="btn__label">Узнать условия</span>
+          <span class="btn__arrow">{{icon:arrow-up-right}}</span>
+        </a>
+        <a class="btn btn--secondary btn--l" href="/presentation.pdf" download data-magnetic data-goal="presentation">
+          <span class="btn__label">Скачать презентацию</span>
+          <span class="btn__arrow">{{icon:download}}</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="vmarquee" aria-hidden="true">
+    <div class="vmarquee__track" data-vmarquee>
+      <span>Битва роботов · День города · 3000 ивентов ·</span>
+      <span>Битва роботов · День города · 3000 ивентов ·</span>
+    </div>
+  </div>
+</section>

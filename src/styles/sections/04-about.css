@@ -1,0 +1,90 @@
+/* ==========================================================================
+   04 · КТО Я ТАКОЙ [dark] — полароид слева, H2 + notched-факты справа,
+   миссия крупной цитатой, регалии узкой полосой снизу
+   ========================================================================== */
+.about__grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+  row-gap: var(--s-10);
+}
+.about__photo-col { grid-column: 1 / span 5; padding-top: var(--s-9); }
+.about__text-col  { grid-column: 7 / -1; }
+
+.polaroid--about { max-width: calc(var(--container) * .36); }
+
+.about__title { margin-bottom: var(--s-6); }
+.about__exp {
+  max-width: var(--measure);
+  margin-bottom: var(--s-8);
+  font-size: var(--fs-lead);
+  font-weight: 500;
+  line-height: var(--lh-lead);
+  text-wrap: pretty;
+}
+.about__facts { display: grid; gap: var(--grid-gap); }
+
+/* ---------- Миссия ---------- */
+.about__mission {
+  grid-column: 2 / -1;
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-h2);
+  line-height: var(--lh-h2);
+  letter-spacing: var(--tr-h2);
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+/* ---------- Регалии ---------- */
+.regalia {
+  margin-top: var(--s-10);
+  padding-top: var(--s-6);
+  border-top: var(--hairline) solid var(--line-dark);
+}
+.regalia__title {
+  margin-bottom: var(--s-6);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 700;
+  letter-spacing: var(--tr-label);
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--acid);
+}
+.regalia__list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--s-6) var(--grid-gap);
+}
+.regalia__item { display: grid; align-content: start; gap: var(--s-2); }
+.regalia__role,
+.regalia__ch {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 700;
+  letter-spacing: var(--tr-label);
+  line-height: var(--lh-small);
+  text-transform: uppercase;
+}
+.regalia__role { color: var(--muted-on-dark); }
+.regalia__ch   { color: var(--acid); }
+.regalia__name { font-size: var(--fs-body); font-weight: 600; line-height: var(--lh-small); }
+
+/* ---------- Адаптив ---------- */
+@media (max-width: 1279px) {
+  .about__photo-col { grid-column: 1 / span 3; padding-top: var(--s-7); }
+  .about__text-col  { grid-column: 4 / -1; }
+  .about__mission   { grid-column: 1 / -1; }
+  .regalia__list    { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 767px) {
+  .about__grid { row-gap: var(--s-8); }
+  .about__mission { font-size: var(--fs-h3); line-height: var(--lh-h2); }   /* 30px uppercase: «ПОВСЕДНЕВНЫХ» не влезает в 350 */
+  .about__photo-col, .about__text-col { grid-column: 1 / -1; }
+  .about__photo-col { padding: var(--s-5) var(--s-6) 0; }
+  .polaroid--about { max-width: none; }
+  .about__exp { margin-bottom: var(--s-7); }
+  .regalia { margin-top: var(--s-8); }
+  .regalia__list { grid-template-columns: minmax(0, 1fr); gap: var(--s-5); }
+}

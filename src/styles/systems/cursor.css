@@ -1,0 +1,89 @@
+/* Кастомный курсор (§8.10, ТЗ §7). Только мышь/трекпад и ширина ≥ 768.
+   Все состояния анимируют только scale/opacity/цвет — без пересчёта раскладки. */
+.cursor { display: none; }
+.has-cursor .cursor { display: block; }
+.has-cursor, .has-cursor a, .has-cursor button, .has-cursor [data-cursor] { cursor: none; }
+
+.cursor__follow,
+.cursor__dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-cursor);
+  pointer-events: none;
+  will-change: transform;
+}
+.cursor__dot {
+  width: var(--cursor-dot);
+  height: var(--cursor-dot);
+  border-radius: var(--r-pill);
+  background: var(--acid);
+  transition: opacity var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out);
+}
+
+.cursor__ring,
+.cursor__pill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  translate: -50% -50%;
+  border-radius: var(--r-pill);
+}
+.cursor__ring {
+  width: var(--cursor-ring);
+  height: var(--cursor-ring);
+  border: var(--hairline) solid var(--white);
+  transition:
+    scale var(--dur-base) var(--ease-out), opacity var(--dur-fast) var(--ease-out),
+    background-color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
+}
+.cursor__pill {
+  display: flex;
+  align-items: center;
+  height: var(--btn-s);
+  padding-inline: var(--s-5);
+  background: var(--acid);
+  color: var(--ink-900);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 700;
+  letter-spacing: var(--tr-label);
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0;
+  scale: .5;
+  transition: opacity var(--dur-fast) var(--ease-out), scale var(--dur-base) var(--ease-out);
+}
+
+/* кликабельный: кольцо растёт до 64 и заливается лаймом */
+/* mix-blend difference: на тёмном кольцо остаётся лаймовым, а над лаймовой кнопкой
+   инвертирует её текст, а не перекрывает его */
+.cursor[data-state="link"] .cursor__ring { scale: var(--cursor-scale-active); background: var(--acid); border-color: var(--acid); }
+.cursor[data-state="link"] .cursor__follow { mix-blend-mode: difference; }   /* на fixed-контейнере: у него свой stacking context */
+.cursor[data-state="link"] .cursor__dot { opacity: 0; }
+
+/* над фото / видео: кольцо уходит, появляется pill с подписью */
+.cursor[data-state="view"] .cursor__ring,
+.cursor[data-state="play"] .cursor__ring { opacity: 0; scale: .5; }
+.cursor[data-state="view"] .cursor__pill,
+.cursor[data-state="play"] .cursor__pill { opacity: 1; scale: 1; }
+.cursor[data-state="view"] .cursor__dot,
+.cursor[data-state="play"] .cursor__dot { opacity: 0; }
+
+/* на лаймовых и бумажных секциях — инверсия в чёрный */
+.cursor[data-theme="acid"] .cursor__dot,
+.cursor[data-theme="light"] .cursor__dot { background: var(--ink-900); }
+.cursor[data-theme="acid"] .cursor__ring,
+.cursor[data-theme="light"] .cursor__ring { border-color: var(--ink-900); }
+.cursor[data-theme="light"][data-state="link"] .cursor__ring { background: var(--ink-900); border-color: var(--ink-900); }
+.cursor[data-theme="light"][data-state="link"] .cursor__follow { mix-blend-mode: normal; }
+.cursor[data-theme="light"] .cursor__pill { background: var(--ink-900); color: var(--acid); }
+/* на лайме заливка лаймом бессмысленна — кольцо растёт контуром */
+.cursor[data-theme="acid"][data-state="link"] .cursor__ring { background: transparent; border-color: var(--ink-900); }
+.cursor[data-theme="acid"][data-state="link"] .cursor__follow { mix-blend-mode: normal; }
+.cursor[data-theme="acid"] .cursor__pill { background: var(--ink-900); color: var(--acid); }
+
+.cursor.is-hidden .cursor__dot,
+.cursor.is-hidden .cursor__follow { opacity: 0; }
+.cursor__follow { transition: opacity var(--dur-fast) var(--ease-out); }

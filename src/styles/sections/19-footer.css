@@ -1,0 +1,81 @@
+/* ==========================================================================
+   19 · ФУТЕР [dark] — колонки ссылок, гигантский вордмарк во всю ширину
+   (тот же warp, что в хедере), ссылки с маркерным подчёркиванием
+   ========================================================================== */
+.footer { padding-block: var(--sec-pad) var(--s-7); overflow-x: clip; }
+
+.footer__cols {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--s-7) var(--grid-gap);
+}
+.footer__h {
+  margin-bottom: var(--s-5);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 700;
+  letter-spacing: var(--tr-label);
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--acid);
+}
+.footer__list { display: grid; gap: var(--s-3); }
+.footer__link {
+  position: relative;
+  display: inline-block;
+  overflow-wrap: anywhere;   /* длинный e-mail в узкой колонке переносится, а не режется */
+  padding-block: var(--s-1);
+  font-size: var(--fs-body);
+  line-height: var(--lh-small);
+}
+/* маркерное подчёркивание: штрих прорисовывается слева направо */
+.footer__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: calc(var(--hairline) * 3);
+  border-radius: var(--r-pill);
+  background: var(--magenta);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform var(--dur-marker) var(--ease-out);
+}
+.footer__link:hover::after,
+.footer__link:focus-visible::after { transform: scaleX(1); }
+
+.footer__mark {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: var(--s-10);
+  font-size: calc((100vw - var(--gutter) * 2) / 7);   /* 7 букв Unbounded 900 ≈ 6.8em — во всю ширину контейнера с запасом */
+  line-height: var(--lh-display);
+  letter-spacing: 0;
+  color: var(--white);
+}
+@media (min-width: 1600px) {
+  .footer__mark { font-size: calc(var(--container) / 7); }
+}
+.footer__mark:hover { color: var(--acid); }
+
+.footer__legal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--s-4);
+  margin-top: var(--s-7);
+  padding-top: var(--s-5);
+  border-top: var(--hairline) solid var(--line-dark);
+  font-size: var(--fs-small);
+  color: var(--muted-on-dark);
+}
+.footer__legal .footer__link { font-size: var(--fs-small); }
+
+@media (max-width: 1279px) {
+  .footer__cols { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 767px) {
+  .footer__mark { margin-top: var(--s-8); }
+}

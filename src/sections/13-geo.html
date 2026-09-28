@@ -1,0 +1,38 @@
+<section class="sec sec--acid sec--rail geo" id="geo" data-theme="acid" data-tear="3" aria-labelledby="geo-title" data-geo>
+  <span class="asterisk geo__asterisk" aria-hidden="true">{{icon:asterisk}}</span>
+
+  <div class="container geo__grid">
+    <div class="geo__col">
+      <p class="rail"><span class="rail__num">12</span></p>
+      <h2 class="h2 geo__title" id="geo-title" data-reveal="lines">География работы на мероприятиях</h2>
+      <ol class="geo__list">
+          <li class="geo__city" data-city="perm"><span class="geo__num">01</span><span class="geo__name">Пермь</span></li>
+          <li class="geo__city" data-city="ekb"><span class="geo__num">02</span><span class="geo__name">Екатеринбург</span></li>
+          <li class="geo__city" data-city="sochi"><span class="geo__num">03</span><span class="geo__name">Сочи</span></li>
+          <li class="geo__city" data-city="msk"><span class="geo__num">04</span><span class="geo__name">Москва</span></li>
+          <li class="geo__city" data-city="spb"><span class="geo__num">05</span><span class="geo__name">Санкт-Петербург</span></li>
+          <li class="geo__city" data-city="tmn"><span class="geo__num">06</span><span class="geo__name">Тюмень</span></li>
+          <li class="geo__city" data-city="izh"><span class="geo__num">07</span><span class="geo__name">Ижевск</span></li>
+      </ol>
+    </div>
+
+    <!-- Схема, а не карта (ТЗ блок 13): равнопромежуточная проекция с поправкой на широту, маршруты — из Перми -->
+    <figure class="geo__map" aria-hidden="true">
+      <svg class="geo__svg" viewBox="0 0 720 540" role="presentation">
+        <path class="geo__route" data-city="ekb" d="M492.2 120.7 Q533.7 120.6 561.8 151.2" pathLength="1"/>
+        <path class="geo__route" data-city="sochi" d="M492.2 120.7 Q425.2 354.2 227.6 495.4" pathLength="1"/>
+        <path class="geo__route" data-city="msk" d="M492.2 120.7 Q356.0 215.6 194 179.2" pathLength="1"/>
+        <path class="geo__route" data-city="spb" d="M492.2 120.7 Q275.1 175.1 77.1 70.6" pathLength="1"/>
+        <path class="geo__route" data-city="tmn" d="M492.2 120.7 Q571.4 99.2 640.8 143.1" pathLength="1"/>
+        <path class="geo__route" data-city="izh" d="M492.2 120.7 Q474.5 146.5 443.5 150.9" pathLength="1"/>
+        <g class="geo__point geo__point--hub" data-city="perm"><circle class="geo__halo" cx="492.2" cy="120.7" r="16"/><circle class="geo__dot" cx="492.2" cy="120.7" r="9"/><text class="geo__label" x="492.2" y="98.7" text-anchor="middle">Пермь</text></g>
+        <g class="geo__point" data-city="ekb"><circle class="geo__halo" cx="561.8" cy="151.2" r="16"/><circle class="geo__dot" cx="561.8" cy="151.2" r="6"/><text class="geo__label" x="561.8" y="181.2" text-anchor="middle">Екатеринбург</text></g>
+        <g class="geo__point" data-city="sochi"><circle class="geo__halo" cx="227.6" cy="495.4" r="16"/><circle class="geo__dot" cx="227.6" cy="495.4" r="6"/><text class="geo__label" x="243.6" y="500.4" text-anchor="start">Сочи</text></g>
+        <g class="geo__point" data-city="msk"><circle class="geo__halo" cx="194" cy="179.2" r="16"/><circle class="geo__dot" cx="194" cy="179.2" r="6"/><text class="geo__label" x="180" y="205.2" text-anchor="middle">Москва</text></g>
+        <g class="geo__point" data-city="spb"><circle class="geo__halo" cx="77.1" cy="70.6" r="16"/><circle class="geo__dot" cx="77.1" cy="70.6" r="6"/><text class="geo__label" x="93.1" y="58.599999999999994" text-anchor="start">Санкт-Петербург</text></g>
+        <g class="geo__point" data-city="tmn"><circle class="geo__halo" cx="640.8" cy="143.1" r="16"/><circle class="geo__dot" cx="640.8" cy="143.1" r="6"/><text class="geo__label" x="640.8" y="123.1" text-anchor="middle">Тюмень</text></g>
+        <g class="geo__point" data-city="izh"><circle class="geo__halo" cx="443.5" cy="150.9" r="16"/><circle class="geo__dot" cx="443.5" cy="150.9" r="6"/><text class="geo__label" x="429.5" y="180.9" text-anchor="middle">Ижевск</text></g>
+      </svg>
+    </figure>
+  </div>
+</section>

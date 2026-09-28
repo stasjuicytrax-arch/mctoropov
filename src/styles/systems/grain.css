@@ -1,0 +1,36 @@
+/* Зерно (§8.7): полноэкранный оверлей, opacity из токена, 8 шагов подрагивания.
+   Бленд — normal, а не overlay: overlay на #0A0A0B математически обнуляется (2·base·blend ≈ 0),
+   и зерно превращается в «пыль», которую ДС прямо запрещает. PNG нейтральный по среднему,
+   поэтому normal не поднимает чёрный заметно, но зерно ВИДНО и на чёрном, и на лайме. */
+/* рамка во весь экран режет слой 200 %: иначе фиксированный слой расширяет страницу по горизонтали */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-grain);
+  overflow: hidden;
+  pointer-events: none;
+}
+.grain::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: url("/decor/grain.png") repeat;
+  opacity: var(--grain-opacity);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .grain::before { animation: grain-jitter 1s steps(var(--grain-steps)) infinite; }
+}
+@keyframes grain-jitter {
+  0%    { translate: 0 0; }
+  12.5% { translate: -5% -10%; }
+  25%   { translate: -15% 5%; }
+  37.5% { translate: 7% -25%; }
+  50%   { translate: -5% 25%; }
+  62.5% { translate: -15% 10%; }
+  75%   { translate: 15% 0; }
+  87.5% { translate: 0 15%; }
+  100%  { translate: -10% 10%; }
+}

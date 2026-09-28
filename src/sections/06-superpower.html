@@ -1,0 +1,22 @@
+<section class="sec sec--dark superpower" id="superpower" data-theme="dark" data-tear="4" aria-labelledby="superpower-title" data-superpower>
+  <!-- «Фон слегка искажается при движении курсора» (ТЗ блок 06) — искажение применяется к самому слову,
+       только пока курсор движется; в покое фильтр снят, текст чистый -->
+  <svg class="superpower__filter" aria-hidden="true" focusable="false">
+    <filter id="superpower-warp" x="-5%" y="-20%" width="110%" height="140%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency=".012 .03" numOctaves="2" seed="4" result="noise" data-superpower-noise/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="0" xChannelSelector="R" yChannelSelector="G" data-superpower-disp/>
+    </filter>
+  </svg>
+
+  <div class="container superpower__inner">
+    <span class="cross superpower__cross superpower__cross--tl" aria-hidden="true">{{icon:plus}}</span>
+    <span class="cross superpower__cross superpower__cross--br" aria-hidden="true">{{icon:plus}}</span>
+
+    <p class="rail rail--center"><span class="rail__num">05</span><span class="rail__sep">/</span><span>Суперспособность</span></p>
+    <h2 class="superpower__title" id="superpower-title">
+      <span class="superpower__accent" data-reveal="morph" data-superpower-word>Адаптация</span>
+      <span class="superpower__rest" data-reveal="morph">к&nbsp;аудитории</span>
+    </h2>
+    <p class="superpower__text" data-reveal="fade">Чувствую настроение гостей и&nbsp;меняюсь прямо по&nbsp;ходу мероприятия, когда это необходимо</p>
+  </div>
+</section>

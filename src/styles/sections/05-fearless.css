@@ -1,0 +1,117 @@
+/* ==========================================================================
+   05 · Я НЕ БОЮСЬ [acid] — pin: заголовок и счётчик слева, пункты едут вправо
+   ========================================================================== */
+.fearless { padding-block: 0; }
+
+.fearless__pin {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 100dvh;
+  padding-block: var(--sec-pad);
+  overflow: clip;
+}
+.fearless__grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+  align-items: center;
+}
+.fearless__aside { grid-column: 1 / span 5; }
+.fearless__title {
+  font-size: var(--fs-h1);
+  line-height: var(--lh-h1);
+  letter-spacing: var(--tr-h1);
+}
+
+.fearless__count {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-3);
+  margin-top: var(--s-7);
+  font-family: var(--font-display);
+  font-weight: var(--fw-display);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.fearless__count-win {
+  display: inline-block;
+  height: 1em;
+  overflow: clip;
+  font-size: var(--fs-display);
+  letter-spacing: var(--tr-display);
+}
+.fearless__count-roll {
+  display: flex;
+  flex-direction: column;
+  transform: translateY(calc(var(--i, 0) * -1em));
+  transition: transform var(--dur-base) var(--ease-out);
+}
+.fearless__count-roll span { display: block; height: 1em; }
+.fearless__count-total { font-size: var(--fs-h3); color: var(--muted-on-acid); }
+
+.fearless__viewport { grid-column: 6 / -1; }
+.fearless__track { display: flex; flex-direction: column; gap: var(--s-8); }
+.fearless__item {
+  display: grid;
+  align-content: center;
+  gap: var(--s-5);
+}
+.fearless__num {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 700;
+  letter-spacing: var(--tr-label);
+  line-height: 1;
+}
+.fearless__text {
+  font-family: var(--font-display);
+  font-size: calc(var(--fs-h2) * .9);   /* 7 колонок: «С БОЛЬШИМИ» должно влезать от 1280 */
+  font-weight: var(--fw-display);
+  line-height: var(--lh-h2);
+  letter-spacing: var(--tr-h2);
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.fearless__asterisk {
+  position: absolute;
+  top: var(--s-9);
+  right: var(--gutter);
+  width: var(--s-10);
+  height: var(--s-10);
+  color: var(--ink-900);
+}
+
+/* ---------- Базовое состояние (без JS, мобайл, reduced-motion): вертикальный список ----------
+   Заголовок липнет к верху, пункты идут столбиком. Счётчик не нужен. */
+.fearless__count { display: none; }
+.fearless__grid { align-items: start; }
+.fearless__aside { position: sticky; top: calc(var(--header-h) + var(--s-7)); }
+
+/* ---------- JS + десктоп: pin и горизонтальная лента ---------- */
+.fearless.is-pinned .fearless__grid { align-items: center; }
+.fearless.is-pinned .fearless__aside { position: static; }
+.fearless.is-pinned .fearless__count { display: flex; }
+.fearless.is-pinned .fearless__viewport { overflow: clip; }
+.fearless.is-pinned .fearless__track { flex-direction: row; gap: 0; will-change: transform; }
+.fearless.is-pinned .fearless__item {
+  flex: 0 0 100%;
+  padding-right: var(--s-7);
+  opacity: var(--o-dim);
+  transition: opacity var(--dur-base) var(--ease-out);
+}
+.fearless.is-pinned .fearless__item[aria-current] { opacity: 1; }
+
+@media (max-width: 1279px) {
+  .fearless__aside, .fearless__viewport { grid-column: 1 / -1; }
+  .fearless__aside { position: static; }
+  .fearless__viewport { margin-top: var(--s-7); }
+  .fearless__count { margin-top: var(--s-5); }
+  .fearless__count-win { font-size: var(--fs-h1); }
+}
+@media (max-width: 767px) {
+  .fearless__pin { min-height: 0; }
+  .fearless__track { gap: var(--s-7); }
+  .fearless__asterisk { top: var(--s-7); width: var(--s-7); height: var(--s-7); }
+}

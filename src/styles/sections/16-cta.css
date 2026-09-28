@@ -1,0 +1,48 @@
+/* ==========================================================================
+   16 · ГЛАВНЫЙ CTA [acid] — ударная: гигантский заголовок на весь экран,
+   чёрная кнопка с жёсткой тенью, вращающийся астериск в фоне
+   ========================================================================== */
+.cta {
+  display: flex;
+  align-items: center;
+  min-height: 100dvh;
+  padding-block: var(--sec-pad-hero);
+  overflow: clip;
+}
+.cta__asterisk {
+  position: absolute;
+  z-index: 0;
+  right: calc(var(--s-11) * -1);
+  bottom: calc(var(--s-10) * -1);
+  width: calc(var(--s-12) * 3);
+  height: calc(var(--s-12) * 3);
+  color: var(--acid-deep);
+}
+.cta__inner { position: relative; z-index: 1; }
+.cta__title {
+  max-width: 16ch;
+  font-family: var(--font-display);
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-display);
+  line-height: var(--lh-h1);
+  letter-spacing: var(--tr-h1);
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.cta__btn { margin-top: var(--s-8); box-shadow: var(--shadow-hard-deep); }
+.cta__btn:hover { box-shadow: var(--shadow-hard); background: var(--ink-800); }
+@media (prefers-reduced-motion: no-preference) {
+  .cta__btn:hover .btn__arrow { animation: cta-nudge var(--dur-slow) var(--ease-out) infinite; }
+}
+/* «пульс стрелки при наведении» (ТЗ) — только пока курсор на кнопке */
+@keyframes cta-nudge {
+  0%, 100% { translate: 0 0; }
+  50% { translate: var(--s-1) calc(var(--s-1) * -1); }
+}
+
+@media (max-width: 767px) {
+  .cta { min-height: 0; padding-block: var(--sec-pad-hero); }
+  .cta__title { font-size: var(--fs-h2); line-height: var(--lh-h2); }
+  .cta__btn { width: 100%; justify-content: space-between; margin-top: var(--s-7); }
+  .cta__asterisk { width: calc(var(--s-12) * 1.5); height: calc(var(--s-12) * 1.5); right: calc(var(--s-9) * -1); bottom: calc(var(--s-8) * -1); }
+}

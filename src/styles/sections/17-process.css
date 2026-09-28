@@ -1,0 +1,76 @@
+/* ==========================================================================
+   17 · ПРОЦЕСС [dark] — pin: три notched-карточки с гигантскими номерами,
+   соединённые линией, которая прорисовывается по скроллу; карточки загораются по очереди
+   ========================================================================== */
+.process { padding-block: 0; }
+.process__pin {
+  display: flex;
+  align-items: center;
+  min-height: 100dvh;
+  padding-block: var(--sec-pad);
+}
+.process__pin > .container { width: 100%; }
+.process__title { margin-bottom: var(--s-9); }
+
+.process__stage { position: relative; }
+.process__line {
+  position: absolute;
+  z-index: 0;
+  top: calc(var(--card-pad) + var(--fs-display) * .43);
+  left: 0;
+  width: 100%;
+  height: var(--s-1);
+  overflow: visible;
+}
+.process__line path { fill: none; vector-effect: non-scaling-stroke; stroke-width: calc(var(--hairline) * 2); }
+.process__line-base { stroke: var(--line-dark); }
+.process__line-fill { stroke: var(--acid); stroke-dasharray: 1; stroke-dashoffset: 1; }
+
+.process__steps {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--grid-gap);
+}
+.process__step {
+  display: grid;
+  grid-template-columns: none;
+  align-content: start;
+  gap: var(--s-6);
+  min-height: calc(var(--s-12) * 1.6);
+  transition: background-color var(--dur-base) var(--ease-out), color var(--dur-base) var(--ease-out);
+}
+.process__num {
+  font-family: var(--font-display);
+  font-size: var(--fs-display);
+  font-weight: var(--fw-display);
+  line-height: var(--lh-display);
+  letter-spacing: var(--tr-display);
+  color: var(--muted-on-dark);
+  transition: color var(--dur-base) var(--ease-out);
+}
+.process__text {
+  max-width: 24ch;
+  font-size: var(--fs-lead);
+  font-weight: 500;
+  line-height: var(--lh-lead);
+  text-wrap: pretty;
+}
+.process__step.is-lit { background: var(--acid); color: var(--ink-900); }
+.process__step.is-lit .process__num { color: var(--ink-900); }
+
+/* без pin (мобайл, reduced-motion, без JS): все карточки видны, линия дорисована */
+.process:not(.is-pinned) .process__line-fill { stroke-dashoffset: 0; }
+
+@media (max-width: 1279px) {
+  .process__steps { grid-template-columns: minmax(0, 1fr); }
+  .process__line { display: none; }
+  .process__step { min-height: 0; }
+  .process__pin { min-height: 0; }
+  .process__title { margin-bottom: var(--s-7); }
+}
+
+@media (max-width: 767px) {
+  .process__title { font-size: calc(var(--fs-h2) * .8); }   /* «СОТРУДНИЧЕСТВА» — 14 букв, в 350px на полном h2 не влезает */
+}

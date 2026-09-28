@@ -1,0 +1,66 @@
+<section class="sec sec--light sec--rail artist" id="artist" data-theme="light" data-tear="1" aria-labelledby="artist-title" data-artist>
+  <div class="container artist__grid">
+    <div class="artist__head">
+      <p class="rail"><span class="rail__num">10</span></p>
+      <h2 class="h2 artist__title" id="artist-title" data-reveal="lines">База артиста</h2>
+    </div>
+
+    <!-- Петля 12 s без звука (scripts/cut-video.mjs). Играет только в зоне видимости; при reduced-motion — постер -->
+    <figure class="artist__video" data-cursor="play" data-artist-video>
+      <video class="artist__video-el" muted loop playsinline preload="none" width="1280" height="620" poster="/video/artist-loop-poster.webp" aria-label="Стас Торопов на сцене перед залом, видео без звука">
+        <source src="/video/artist-loop.webm" type="video/webm">
+        <source src="/video/artist-loop.mp4" type="video/mp4">
+      </video>
+      <button class="icon-btn artist__toggle" type="button" aria-pressed="false" data-artist-toggle>
+        <span class="visually-hidden" data-artist-toggle-label>Поставить видео на паузу</span>
+        <span class="artist__icon-pause">{{icon:player-pause}}</span>
+        <span class="artist__icon-play">{{icon:player-play}}</span>
+      </button>
+    </figure>
+
+    <div class="artist__text">
+      <p class="artist__lead" data-reveal="fade">Официальный ведущий международного техношоу «Битва Роботов»</p>
+      <p class="artist__body" data-reveal="fade">Опыт артиста помогает мне импровизировать и&nbsp;управлять своим эмоциональным состоянием так, чтобы зритель сохранял интерес.</p>
+
+      <ul class="artist__cases" data-reveal="up">
+        <li class="artist__case" data-reveal-item>
+          <span class="artist__case-num">30&nbsp;000 <span class="artist__case-unit">зрителей</span></span>
+          <span class="artist__case-name">«Битва роботов» в&nbsp;Сочи, 2017</span>
+          <span class="artist__case-meta">Главный медиацентр · XIX Всемирный фестиваль молодёжи и&nbsp;студентов</span>
+        </li>
+        <li class="artist__case" data-reveal-item>
+          <span class="artist__case-num">15&nbsp;000 <span class="artist__case-unit">зрителей</span></span>
+          <span class="artist__case-name">День металлурга в&nbsp;Чусовом</span>
+          <span class="artist__case-meta">250 лет Чусовскому металлургическому заводу</span>
+        </li>
+        <li class="artist__case" data-reveal-item>
+          <span class="artist__case-num">7 <span class="artist__case-unit">акселераторов</span></span>
+          <span class="artist__case-name">Финал GenerationS в&nbsp;Сколково</span>
+          <span class="artist__case-meta">III Московский корпоративный венчурный саммит, финальная питч-сессия</span>
+        </li>
+      </ul>
+    </div>
+
+    <figure class="artist__photo artist__photo--arena">
+      <div class="artist__frame" data-parallax-inner>
+        <picture>
+          <source type="image/avif" srcset="/img/artist-arena-480.avif 480w, /img/artist-arena-960.avif 960w, /img/artist-arena-1440.avif 1440w" sizes="(max-width: 767px) 90vw, 45vw">
+          <source type="image/webp" srcset="/img/artist-arena-480.webp 480w, /img/artist-arena-960.webp 960w, /img/artist-arena-1440.webp 1440w" sizes="(max-width: 767px) 90vw, 45vw">
+          <img src="/img/artist-arena-960.jpg" alt="Полная арена, зрители с фонариками телефонов у сцены" width="1440" height="960" loading="lazy" decoding="async">
+        </picture>
+      </div>
+      <figcaption class="artist__cap">Чарт Фест в&nbsp;Перми, УДС «Молот», 3000 зрителей</figcaption>
+    </figure>
+
+    <figure class="artist__photo artist__photo--stage">
+      <div class="artist__frame" data-parallax-inner>
+        <picture>
+          <source type="image/avif" srcset="/img/artist-stage-480.avif 480w, /img/artist-stage-896.avif 896w" sizes="(max-width: 767px) 90vw, 28vw">
+          <source type="image/webp" srcset="/img/artist-stage-480.webp 480w, /img/artist-stage-896.webp 896w" sizes="(max-width: 767px) 90vw, 28vw">
+          <img src="/img/artist-stage-896.jpg" alt="Стас Торопов с микрофоном на сцене спиной к залу, в зале — огни телефонов" width="896" height="1120" loading="lazy" decoding="async">
+        </picture>
+      </div>
+      <figcaption class="artist__cap">На сцене МОТ, Моя Мишель, Винтаж и&nbsp;Стас Торопов</figcaption>
+    </figure>
+  </div>
+</section>

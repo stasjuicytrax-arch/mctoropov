@@ -1,0 +1,246 @@
+/* ==========================================================================
+   STAS TOROPOV — DESIGN TOKENS v1.0
+   Единственный источник значений. Хардкод цветов/размеров в компонентах запрещён.
+   ========================================================================== */
+
+:root {
+  /* ---------- COLOR / base ---------- */
+  --ink-900: #0A0A0B;
+  --ink-800: #111113;
+  --ink-700: #1A1A1D;
+  --paper:   #F2F0EA;
+  --paper-2: #E4E1D8;
+  --white:   #FFFFFF;
+
+  /* ---------- COLOR / accent ---------- */
+  --acid:       #C9F24D;
+  --acid-deep:  #A8D426;
+  --magenta:    #FF3D9A;
+  --violet:     #7B2CF5; /* только 3D-объект и свечения */
+
+  /* ---------- COLOR / utility ---------- */
+  --muted-on-dark: rgba(255,255,255,.58);
+  --muted-on-acid: rgba(10,10,11,.66);
+  --line-dark:     rgba(255,255,255,.12);
+  --line-light:    rgba(10,10,11,.14);
+  --glow-acid:     0 0 48px rgba(201,242,77,.35);
+  --shadow-hard:   4px 4px 0 var(--ink-900);
+
+  /* ---------- TYPE / families ---------- */
+  --font-display: "Unbounded", "Druk Wide Cyr", system-ui, sans-serif;
+  --font-text:    "Onest", "Golos Text", system-ui, sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, monospace;
+
+  /* ---------- TYPE / scale ---------- */
+  --fs-display: clamp(52px, 11vw,  168px);
+  --fs-h1:      clamp(40px, 7.2vw, 104px);
+  --fs-h2:      clamp(30px, 4.6vw, 64px);
+  --fs-h3:      clamp(22px, 2.4vw, 34px);
+  --fs-lead:    clamp(17px, 1.5vw, 22px);
+  --fs-body:    clamp(15px, 1.15vw, 17px);
+  --fs-small:   13px;
+  --fs-label:   11px;
+  --fs-map-label: 15px; /* подписи схемы — в единицах viewBox 720, на экране ≈ fs-label */
+
+  --lh-display: .86;
+  --lh-h1:      .90;
+  --lh-h2:      .94;
+  --lh-h3:      1.06;
+  --lh-body:    1.60;
+  --lh-marquee: 1.12;   /* display в бегущих строках: запас под Й и выносные */
+
+  --tr-display: -.03em;
+  --tr-h1:      -.025em;
+  --tr-h2:      -.02em;
+  --tr-label:   .14em;
+
+  /* ---------- SPACE (база 4px) ---------- */
+  --s-1: 4px;   --s-2: 8px;   --s-3: 12px;  --s-4: 16px;
+  --s-5: 24px;  --s-6: 32px;  --s-7: 48px;  --s-8: 64px;
+  --s-9: 80px;  --s-10: 120px; --s-11: 160px; --s-12: 200px;
+
+  /* ---------- LAYOUT ---------- */
+  --container:      1440px;
+  --container-wide: 1720px;
+  --gutter:         80px;
+  --grid-cols:      12;
+  --grid-gap:       24px;
+
+  --sec-pad:         var(--s-10); /* обычная секция */
+  --sec-pad-hero:    var(--s-11); /* ударная */
+  --sec-pad-tight:   var(--s-8);  /* сжатая */
+
+  /* ---------- RADIUS ---------- */
+  --r-0:     0;
+  --r-card:  20px;
+  --r-notch: 28px; /* размер среза угла */
+  --r-pill:  999px;
+
+  /* ---------- CONTROL SIZES ---------- */
+  --btn-l: 64px;
+  --btn-m: 52px;
+  --btn-s: 44px;
+  --icon-btn: 56px;
+  --tap-min: 48px;
+
+  /* ---------- MOTION ---------- */
+  --dur-fast:  180ms;
+  --dur-base:  420ms;
+  --dur-slow:  900ms;
+  --ease-out:   cubic-bezier(.16, 1, .3, 1);
+  --ease-inout: cubic-bezier(.65, .05, .36, 1);
+
+  --marquee-speed: 40s;
+  --lenis-lerp: .09;
+
+  /* ---------- EFFECTS ---------- */
+  --grain-opacity: .045;   /* правка клиента 24.09: было .12 — лёгкая фактура, не шум */
+  --tear-height:   64px;   /* высота рваного края */
+  --tilt-max:      8deg;
+  --magnet-max:    8px;
+  --cursor-dot:    8px;
+  --cursor-ring:   36px;
+
+  /* ---------- Z-INDEX ---------- */
+  --z-grain:  9000;
+  --z-cursor: 9500;
+  --z-nav:    8000;
+  --z-modal:  8500;
+}
+
+/* ---------- Адаптивные переопределения ---------- */
+@media (max-width: 1279px) {
+  :root { --gutter: 40px; --grid-cols: 8; }
+}
+@media (max-width: 767px) {
+  :root {
+    --gutter: 20px;
+    --grid-cols: 4;
+    --grid-gap: 16px;
+    --sec-pad: 72px;
+    --sec-pad-hero: 96px;
+    --sec-pad-tight: 40px;
+  }
+}
+
+/* ---------- Секционные режимы ---------- */
+.sec--dark  { background: var(--ink-900); color: var(--white); }
+.sec--acid  { background: var(--acid);    color: var(--ink-900); }
+.sec--light { background: var(--paper);   color: var(--ink-900); }
+
+.sec--dark  .muted { color: var(--muted-on-dark); }
+.sec--acid  .muted { color: var(--muted-on-acid); }
+.sec--light .muted { color: var(--muted-on-acid); }
+
+/* ---------- Доступность ---------- */
+:focus-visible { outline: 2px solid var(--acid); outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ==========================================================================
+   v1.1 — КОМПОНЕНТНЫЕ ТОКЕНЫ (итерация 1)
+   Значения, которые 00-DESIGN-SYSTEM.md задаёт словами, но которых не было
+   в v1.0. Каждый — со ссылкой на параграф ДС. Новых «вкусовых» значений нет.
+   ========================================================================== */
+:root {
+  /* COLOR / derived (из базовых HEX ДС, только альфа) */
+  --scrim-photo:   linear-gradient(to bottom, rgba(10,10,11,.55), rgba(10,10,11,0) 24%, rgba(10,10,11,0) 40%, rgba(10,10,11,.82)); /* §6 C + верхняя подложка под номер и ↗ */
+  --overlay-acid:  rgba(201,242,77,.08);   /* §9 лаймовый overlay 8 % */
+  --glare:         rgba(255,255,255,.16);  /* §10.9 блик tilt-карточки */
+  --tape-alpha:    .82;                    /* §8.2 полупрозрачный скотч */
+  --photo-dim:     brightness(.9) contrast(1.1);          /* §9 */
+  --photo-mono:    grayscale(1) brightness(.9) contrast(1.1);
+
+  /* TYPE / roles */
+  --tr-h3:         -.01em;   /* §3 */
+  --lh-lead:       1.45;     /* §3 */
+  --lh-small:      1.45;
+  --measure:       62ch;     /* §3 max 62 символа */
+  --fw-display:    900;
+  --fw-h1:         800;
+  --fw-h2:         800;
+  --fw-h3:         700;
+
+  /* SHADOW — §6: жёсткая тень acid-кнопки; на тёмном фоне ink-тень не видна, берём --acid-deep (§2 «тени под кнопкой») */
+  --shadow-hard-deep: 4px 4px 0 var(--acid-deep);
+
+  /* OPACITY */
+  --o-dim:      .14;   /* неактивный пункт в pin-ленте */
+  --o-disabled: .35;   /* disabled-контролы */
+  --o-soft:     .5;    /* разделитель «/» в нумерации */
+  --o-client:   .4;    /* ТЗ блок 10: названия клиентов «белые 40 %» */
+  --o-route:    .45;   /* маршруты на схеме географии в покое */
+
+  /* LINES */
+  --hairline:      1px;      /* §6 бордер 1px */
+  --progress-h:    3px;      /* ТЗ §7 тонкая лаймовая полоса */
+  --stroke-icon:   1.5;      /* §11 */
+  --stroke-marker: 6;        /* §8.8 маркерный штрих (px, non-scaling) */
+  --stroke-asterisk: 2.5;    /* §8.3 астериск толще UI-иконок */
+
+  /* HEADER — §5 блок 00 ТЗ */
+  --header-h:      88px;
+  --header-tear:   var(--s-3);
+
+  /* CONTROLS — §7 */
+  --btn-arrow:     40px;     /* чёрный круг Ø40 в primary */
+  --icon-s:        20px;     /* §11 размеры иконок 20/24/32 */
+  --icon-m:        24px;
+  --icon-l:        32px;
+
+  /* CARDS — §6 */
+  --card-pad:      var(--s-6);
+  --polaroid-frame:        var(--s-3);   /* 12px */
+  --polaroid-frame-bottom: var(--s-8);   /* «снизу больше» */
+  --tilt-1: -2deg;  --tilt-2: 3deg;  --tilt-3: 1.5deg;  --tilt-4: -1deg;   /* §6 B: фиксированные */
+  --notch-cut:     calc(var(--r-notch) * .7071); /* срез 28px по катету → расстояние по диагонали */
+  --dir-card-w:    clamp(280px, 30vw, 420px);  /* ширина карточки в ленте направлений */
+  --perspective:   900px;    /* 3D-tilt §10.9 */
+
+  /* MARQUEE — §8.4 */
+  --marquee-h:     104px;   /* диапазон ДС 88–120 */
+  --vmarquee-w:    var(--s-7);
+
+  /* MOTION — §10 */
+  --reveal-y:        32px;
+  --stagger-hero:    90ms;   /* ТЗ блок 01 */
+  --stagger-lines:   60ms;   /* §10.2 */
+  --stagger-cards:   80ms;   /* §10.3 */
+  --stagger-menu:    60ms;   /* ТЗ блок 00 */
+  --parallax-photo:  10%;    /* §10.4 8–12 % */
+  --parallax-scale:  1.1;    /* запас картинки внутри рамки под параллакс 10 % */
+  --parallax-tear:   20px;   /* §8.1 ±20px */
+  --hover-scale:     1.04;   /* §9 */
+  --hover-scale-name: 1.08;  /* ТЗ блоки 10, 12: имя/логотип «слегка увеличивается» */
+  --spin-asterisk:   20s;    /* §8.3 */
+  --dur-marker:      240ms;  /* §7 ghost: штрих прорисовывается 240 ms */
+  --grain-steps:     8;      /* §8.7 */
+  --cursor-lerp:     .15;    /* §8.10 */
+  --cursor-ring-active: 64px;
+  --cursor-scale-active: 1.778;  /* 64 / 36 — рост кольца через scale, без reflow */
+  --preloader-min:   1200ms; /* ТЗ §7: 1.2–1.8 s */
+  --preloader-max:   1800ms;
+  --preloader-failsafe: 2400ms; /* CSS-страховка, если JS упал */
+  --count-dur:       1200ms; /* §10.5 */
+
+  /* Z — дополнение к v1.0 */
+  --z-progress:  8100;
+  --z-menu:      8200;
+  --z-preloader: 8900;
+}
+@media (max-width: 767px) {
+  :root {
+    --header-h:   72px;
+    --marquee-h:  72px;
+    --fs-map-label: 30px;  /* схема ужимается до ~350px — подпись в единицах viewBox вдвое крупнее */
+    --card-pad:   var(--s-5);
+    --polaroid-frame-bottom: var(--s-7);
+  }
+}

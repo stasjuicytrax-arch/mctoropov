@@ -1,0 +1,42 @@
+/* ==========================================================================
+   03 · БЕГУЩАЯ СТРОКА [acid] — сжатая, 40 s/цикл, реверс по направлению скролла
+   ========================================================================== */
+.marquee {
+  display: flex;
+  align-items: center;
+  min-height: calc(var(--marquee-h) + var(--tear-height) * 2);
+  padding-block: var(--tear-height);   /* оба рваных края ложатся на поле, не на текст */
+  overflow-x: clip;
+}
+.marquee__track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+.marquee__group {
+  display: flex;
+  align-items: center;
+  flex: none;
+}
+.marquee__word {
+  padding-inline: var(--s-6);
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-display);
+  letter-spacing: var(--tr-h2);
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.marquee__star { display: grid; place-items: center; }
+.marquee__star .icon {
+  width: calc(var(--fs-h2) * .75);
+  height: calc(var(--fs-h2) * .75);
+  stroke-width: var(--stroke-asterisk);
+}
+
+/* без JS / reduced-motion — CSS-петля или статика */
+@media (prefers-reduced-motion: no-preference) {
+  .no-js .marquee__track { animation: marquee-x var(--marquee-speed) linear infinite; }
+}
+@keyframes marquee-x { to { transform: translateX(-50%); } }

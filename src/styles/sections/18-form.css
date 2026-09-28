@@ -1,0 +1,136 @@
+/* ==========================================================================
+   18 · ФОРМА «ПРАЗДНИК ЗА 7 ДНЕЙ» [light] — форма в одну строку: pill-инпут + acid-кнопка.
+   Состояния честные: idle / focus / error / loading / success, форма не прыгает.
+   ========================================================================== */
+.lead__grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+  row-gap: var(--s-7);
+}
+.lead__head { grid-column: 1 / span 7; }
+.lead__title { max-width: 12ch; }
+.lead__sub {
+  max-width: 40ch;
+  margin-top: var(--s-5);
+  font-size: var(--fs-lead);
+  font-weight: 500;
+  line-height: var(--lh-lead);
+}
+.lead__form { grid-column: 1 / span 8; display: grid; gap: var(--s-4); }
+.lead__alt { grid-column: 1 / span 8; font-size: var(--fs-body); }
+
+.lead__label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 700;
+  letter-spacing: var(--tr-label);
+  text-transform: uppercase;
+}
+
+.lead__field {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  padding: var(--s-2);
+  background: var(--white);
+  border: calc(var(--hairline) * 2) solid var(--line-light);
+  border-radius: var(--r-pill);
+  transition: border-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
+}
+/* «инпут при фокусе расширяется и получает лаймовую обводку» — расширяем обводкой, не шириной (без reflow) */
+.lead__field:focus-within { border-color: var(--ink-900); box-shadow: 0 0 0 var(--s-1) var(--acid); }
+.lead__form.is-error .lead__field { border-color: var(--magenta); }
+
+.lead__input {
+  flex: 1;
+  min-width: 0;
+  height: var(--btn-l);
+  padding-inline: var(--s-5);
+  border: 0;
+  background: transparent;
+  color: var(--ink-900);
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-h3);
+  letter-spacing: var(--tr-h3);
+  font-variant-numeric: tabular-nums;
+}
+.lead__input::placeholder { color: var(--muted-on-acid); }
+.lead__input:focus { outline: none; }
+.lead__submit { flex: none; }
+.lead__submit:focus-visible { outline-color: var(--ink-900); }
+
+/* иконки состояний в круге кнопки */
+.lead__submit .btn__arrow { position: relative; }
+.lead__ico { position: absolute; inset: 0; display: grid; place-items: center; opacity: 0; transition: opacity var(--dur-fast) var(--ease-out); }
+.lead__ico--go { opacity: 1; }
+.lead__form.is-loading .lead__ico--go,
+.lead__form.is-success .lead__ico--go { opacity: 0; }
+.lead__form.is-loading .lead__ico--load { opacity: 1; }
+.lead__form.is-success .lead__ico--ok { opacity: 1; }
+@media (prefers-reduced-motion: no-preference) {
+  .lead__ico--load .icon { animation: spin 1s linear infinite; }
+}
+.lead__form.is-loading .lead__submit { pointer-events: none; }
+.lead__form.is-success .lead__submit:hover .btn__arrow { transform: none; }
+
+/* honeypot — вне экрана, но не display:none (часть ботов это проверяет) */
+.lead__hp { position: absolute; left: -100vw; width: var(--hairline); height: var(--hairline); overflow: hidden; }
+
+/* чекбокс согласия: свой квадрат, нативный инпут остаётся для клавиатуры и скринридера */
+.lead__consent {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-3);
+  max-width: var(--measure);
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
+  cursor: pointer;
+}
+.lead__check { position: absolute; opacity: 0; width: var(--icon-m); height: var(--icon-m); margin: 0; }
+.lead__box {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: var(--icon-m);
+  height: var(--icon-m);
+  border: calc(var(--hairline) * 2) solid var(--ink-900);
+  border-radius: var(--s-1);
+  color: transparent;
+  transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+.lead__box .icon { width: var(--icon-s); height: var(--icon-s); stroke-width: var(--stroke-asterisk); }
+.lead__check:checked + .lead__box { background: var(--ink-900); color: var(--acid); }
+.lead__check:focus-visible + .lead__box { outline: calc(var(--hairline) * 2) solid var(--ink-900); outline-offset: var(--s-1); }
+.lead__form.is-error .lead__check:not(:checked) + .lead__box { border-color: var(--magenta); }
+.lead__consent a { text-decoration: underline; text-underline-offset: .2em; }
+.lead__consent a:hover { color: var(--magenta); }
+
+/* сообщение: место зарезервировано — форма не прыгает */
+.lead__msg {
+  min-height: calc(var(--fs-body) * var(--lh-body));
+  font-size: var(--fs-body);
+  font-weight: 600;
+}
+.lead__form.is-error .lead__msg { color: var(--ink-900); }
+.lead__form.is-error .lead__msg::before { content: "! "; color: var(--magenta); }
+
+.lead__phone {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  white-space: nowrap;
+  border-bottom: var(--hairline) solid currentColor;
+  font-variant-numeric: tabular-nums;
+}
+.lead__phone:hover { color: var(--magenta); }
+
+@media (max-width: 1279px) {
+  .lead__head, .lead__form, .lead__alt { grid-column: 1 / -1; }
+}
+@media (max-width: 767px) {
+  .lead__field { flex-direction: column; align-items: stretch; border-radius: var(--r-card); }
+  .lead__input { font-size: var(--fs-lead); }
+  .lead__submit { justify-content: space-between; }
+}

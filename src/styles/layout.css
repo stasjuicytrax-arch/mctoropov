@@ -1,0 +1,76 @@
+/* ---------- Контейнер и сетка (§4) ---------- */
+.container {
+  width: 100%;
+  max-width: calc(var(--container) + var(--gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+}
+
+/* ---------- Секция ---------- */
+.sec {
+  position: relative;
+  padding-block: var(--sec-pad);
+}
+
+/* ---------- Рваный край (§8.1) ----------
+   Край принадлежит НИЖНЕЙ секции: её фон «вгрызается» в предыдущую.
+   Ставится только на смене режима (dark ↔ acid ↔ light). Шире секции на ±20px — под параллакс. */
+.sec[data-tear]::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  left: calc(var(--parallax-tear) * -1);
+  right: calc(var(--parallax-tear) * -1);
+  bottom: calc(100% - var(--hairline));
+  height: var(--tear-height);
+  background: inherit;
+  -webkit-mask: url("/decor/tear-1.svg") center bottom / 100% 100% no-repeat;
+          mask: url("/decor/tear-1.svg") center bottom / 100% 100% no-repeat;
+  transform: translateX(var(--tear-x, 0px));
+  pointer-events: none;
+}
+.sec[data-tear="2"]::before { -webkit-mask-image: url("/decor/tear-2.svg"); mask-image: url("/decor/tear-2.svg"); }
+.sec[data-tear="3"]::before { -webkit-mask-image: url("/decor/tear-3.svg"); mask-image: url("/decor/tear-3.svg"); }
+.sec[data-tear="4"]::before { -webkit-mask-image: url("/decor/tear-4.svg"); mask-image: url("/decor/tear-4.svg"); }
+
+/* ---------- Нумерация секции (§8.5) ----------
+   Номер mono над заголовком + тонкая вертикальная линия на всю высоту секции слева. */
+.rail {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  margin-bottom: var(--s-5);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: var(--tr-label);
+  text-transform: uppercase;
+  color: var(--acid);
+}
+.sec--acid .rail,
+.sec--light .rail { color: var(--ink-900); }   /* лайм на бумаге запрещён (§2) */
+.rail__sep { opacity: var(--o-soft); }
+.rail--center { justify-content: center; }
+
+.sec--rail::after {
+  content: "";
+  position: absolute;
+  top: var(--sec-pad);
+  bottom: var(--sec-pad);
+  left: max(calc(var(--gutter) / 2), calc((100% - var(--container)) / 2 - var(--gutter) / 2));
+  width: var(--hairline);
+  background: var(--line-dark);
+  pointer-events: none;
+}
+.sec--acid.sec--rail::after,
+.sec--light.sec--rail::after { background: var(--line-light); }
+
+@media (max-width: 767px) {
+  .sec--rail::after { display: none; }
+}

@@ -1,0 +1,86 @@
+/* ==========================================================================
+   13 · ГЕОГРАФИЯ [acid] — города столбиком 01–07, справа схема маршрутов из Перми.
+   Наведение на город ↔ точка на схеме подсвечиваются вместе.
+   ========================================================================== */
+.geo__asterisk {
+  position: absolute;
+  top: var(--s-9);
+  right: var(--gutter);
+  width: var(--s-8);
+  height: var(--s-8);
+  color: var(--ink-900);
+}
+.geo__grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+  align-items: center;
+}
+.geo__col { grid-column: 1 / span 6; }
+.geo__title {
+  margin-bottom: var(--s-7);
+  font-size: calc(var(--fs-h2) * .75);   /* «МЕРОПРИЯТИЯХ» (12 букв) должно влезать в 6 колонок */
+}
+
+.geo__list { display: grid; }
+.geo__city {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-4);
+  padding: var(--s-2) var(--s-3);
+  margin-inline: calc(var(--s-3) * -1);
+  border-radius: var(--r-pill);
+  transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+.geo__num {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 700;
+  letter-spacing: var(--tr-label);
+  line-height: 1;
+}
+.geo__name {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-display);
+  letter-spacing: var(--tr-h3);
+  line-height: var(--lh-h3);
+  text-transform: uppercase;
+}
+.geo__city.is-active { background: var(--ink-900); color: var(--acid); }
+
+/* ---------- Схема ---------- */
+.geo__map { grid-column: 7 / -1; }
+.geo__svg { width: 100%; height: auto; overflow: visible; }
+.geo__route {
+  fill: none;
+  stroke: var(--ink-900);
+  stroke-width: var(--hairline);
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+  opacity: var(--o-route);
+  vector-effect: non-scaling-stroke;
+  transition: opacity var(--dur-fast) var(--ease-out);
+}
+.geo__dot  { fill: var(--ink-900); transition: r var(--dur-base) var(--ease-out); }
+.geo__halo { fill: none; stroke: var(--ink-900); stroke-width: var(--hairline); opacity: 0; vector-effect: non-scaling-stroke; transition: opacity var(--dur-fast) var(--ease-out); }
+.geo__point--hub .geo__halo { opacity: 1; }
+.geo__label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-map-label);
+  font-weight: 700;
+  letter-spacing: var(--tr-label);
+  text-transform: uppercase;
+  fill: var(--ink-900);
+}
+.geo__point.is-active .geo__halo { opacity: 1; }
+.geo__route.is-active { opacity: 1; stroke-width: calc(var(--hairline) * 3); }
+
+@media (max-width: 1279px) {
+  .geo__col, .geo__map { grid-column: 1 / -1; }
+  .geo__map { margin-top: var(--s-8); }
+}
+@media (max-width: 767px) {
+  .geo__title { font-size: calc(var(--fs-h2) * .9); }
+  .geo__asterisk { top: var(--s-7); width: var(--s-7); height: var(--s-7); }
+}

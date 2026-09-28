@@ -1,0 +1,1 @@
+# Архив: 3D-объект hero (three.js). Снят с hero 24.09.2026 по решению клиента — заменён фото hero-portrait.jpg. Вернуть: npm i three, положить файл в src/scripts/sections/01-hero-scene.js и восстановить mount3D() в 01-hero.js.

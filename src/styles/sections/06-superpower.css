@@ -1,0 +1,67 @@
+/* ==========================================================================
+   06 · СУПЕРСПОСОБНОСТЬ [dark] — сжатая, центрированная (редкое исключение по ДС §14).
+   Никаких подложек: вся секция — типографика. «АДАПТАЦИЯ» лаймом во всю ширину
+   контейнера, «К АУДИТОРИИ» белым на ступень тише, «+» по углам (ДС §8.9) рамкой.
+   ========================================================================== */
+.superpower {
+  padding-block: calc(var(--sec-pad-tight) + var(--s-7));   /* сжатая (ТЗ) + запас под рваный край */
+  overflow-x: clip;
+}
+.superpower__filter { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+.superpower__inner {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  padding-block: var(--s-7);
+  text-align: center;
+}
+
+/* «+» по углам — рамка секции, читается как намеренная граница */
+.superpower__cross { color: var(--acid); width: var(--icon-m); height: var(--icon-m); }
+.superpower__cross--tl { top: 0; left: var(--gutter); }
+.superpower__cross--br { bottom: 0; right: var(--gutter); }
+
+.superpower__title {
+  display: grid;
+  justify-items: center;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+}
+/* слово = 8.43 em: делим ширину контейнера с запасом — встаёт во всю ширину без переполнения */
+.superpower__accent {
+  --fit: calc((100vw - var(--gutter) * 2) / 8.6);
+  font-size: min(var(--fs-display), var(--fit));
+  font-weight: var(--fw-display);
+  line-height: var(--lh-display);
+  letter-spacing: var(--tr-display);
+  color: var(--acid);
+}
+@media (min-width: 1600px) {
+  .superpower__accent { --fit: calc(var(--container) / 8.6); }
+}
+.superpower__accent.is-warping { filter: url("#superpower-warp"); }
+.superpower__rest {
+  margin-top: var(--s-4);
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-h2);
+  line-height: var(--lh-h2);
+  letter-spacing: var(--tr-h2);
+  color: var(--white);
+}
+
+.superpower__text {
+  max-width: 40ch;
+  margin-top: var(--s-7);
+  font-size: var(--fs-lead);
+  font-weight: 500;
+  line-height: var(--lh-lead);
+  color: var(--muted-on-dark);
+  text-wrap: balance;
+}
+
+@media (max-width: 767px) {
+  .superpower__cross--tl { left: 0; }
+  .superpower__cross--br { right: 0; }
+  .superpower__rest { font-size: var(--fs-h3); }
+}

@@ -1,0 +1,16 @@
+# Зависимости и сборка
+node_modules
+dist
+
+# Секреты и локальные настройки
+.env*
+.vercel
+
+# Исходные видео из Tilda (145 МБ, два файла >50 МБ — GitHub ругается).
+# В репозитории лежат готовые нарезки public/video/artist-loop.*;
+# исходники перекачиваются скриптом download-assets.ps1.
+assets/video/
+
+# Служебное
+.DS_Store
+Thumbs.db

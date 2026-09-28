@@ -1,0 +1,41 @@
+<section class="sec sec--light sec--rail lead" id="form" data-theme="light" data-tear="2" aria-labelledby="lead-title">
+  <div class="container lead__grid">
+    <div class="lead__head">
+      <p class="rail"><span class="rail__num">{{param:num|17}}</span></p>
+      <h2 class="h2 lead__title" id="lead-title" data-reveal="lines">Готовое мероприятие за&nbsp;7&nbsp;дней!</h2>
+      <p class="lead__sub" data-reveal="fade">от&nbsp;частной вечеринки и&nbsp;свадьбы до&nbsp;корпоратива и&nbsp;многотысячного Дня города</p>
+    </div>
+
+    <form class="lead__form" action="/api/lead" method="post" novalidate data-lead-form>
+      <label class="lead__label" for="lead-phone">Интересно? Оставьте контактный телефон</label>
+      <div class="lead__field">
+        <input class="lead__input" id="lead-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel"
+               placeholder="+7 (___) ___-__-__" required aria-describedby="lead-msg" data-lead-phone>
+        <button class="btn btn--primary btn--l lead__submit" type="submit" data-lead-submit>
+          <span class="btn__label" data-lead-label>Далее</span>
+          <span class="btn__arrow">
+            <span class="lead__ico lead__ico--go">{{icon:arrow-up-right}}</span>
+            <span class="lead__ico lead__ico--load">{{icon:loader-2}}</span>
+            <span class="lead__ico lead__ico--ok">{{icon:check}}</span>
+          </span>
+        </button>
+      </div>
+
+      <!-- honeypot: люди поле не видят, боты заполняют -->
+      <div class="lead__hp" aria-hidden="true">
+        <label for="lead-company">Компания</label>
+        <input id="lead-company" name="company" type="text" tabindex="-1" autocomplete="off">
+      </div>
+
+      <label class="lead__consent">
+        <input class="lead__check" type="checkbox" name="consent" required data-lead-consent>
+        <span class="lead__box" aria-hidden="true">{{icon:check}}</span>
+        <span class="lead__consent-text">Нажимая кнопку «Далее», вы&nbsp;принимаете <a href="/terms">пользовательское соглашение</a> и&nbsp;<a href="/privacy">политику конфиденциальности</a></span>
+      </label>
+
+      <p class="lead__msg" id="lead-msg" role="status" aria-live="polite" data-lead-msg></p>
+    </form>
+
+    <p class="lead__alt">или свяжитесь со&nbsp;мной по&nbsp;телефону <a class="lead__phone" href="tel:+79194459601" data-goal="call">+7 919 445 96 01</a></p>
+  </div>
+</section>

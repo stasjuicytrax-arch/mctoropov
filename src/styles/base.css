@@ -1,0 +1,91 @@
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  background: var(--ink-900);
+  color-scheme: dark;              /* сайт всегда в фирменной тёмной схеме (ТЗ §3.2) */
+  scrollbar-color: var(--acid) var(--ink-900);
+  scrollbar-width: thin;
+}
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto; }
+.lenis.lenis-stopped { overflow: clip; }
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background: var(--ink-900);
+  color: var(--white);
+  font-family: var(--font-text);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  font-kerning: normal;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  hyphens: none;
+  overflow-x: clip;
+}
+/* overflow body уходит на viewport и превращается в hidden — рваные края (±20px под параллакс)
+   всё равно давали скролл вбок. clip на main режет их по X, не создавая скролл-контейнер (pin и sticky живы) */
+main { overflow-x: clip; }
+
+h1, h2, h3, h4, p, ul, ol, figure, blockquote { margin: 0; }
+ul, ol { list-style: none; padding: 0; }
+img, svg, video, canvas, picture { display: block; max-width: 100%; }
+img { height: auto; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+[hidden] { display: none; }
+[id] { scroll-margin-top: var(--header-h); }
+
+/* ---------- Browser surfaces (§13 + craft floor) ---------- */
+::selection { background: var(--acid); color: var(--ink-900); }
+.sec--light ::selection { background: var(--ink-900); color: var(--paper); }
+.sec--acid ::selection { background: var(--ink-900); color: var(--acid); }
+::-webkit-scrollbar { width: var(--s-2); height: var(--s-2); }
+::-webkit-scrollbar-track { background: var(--ink-900); }
+::-webkit-scrollbar-thumb { background: var(--acid); border-radius: var(--r-pill); }
+.sec--acid :focus-visible { outline-color: var(--ink-900); }
+
+/* ---------- Иконки (§11): stroke 1.5, currentColor ---------- */
+.icon { width: var(--icon-m); height: var(--icon-m); flex: none; stroke-width: var(--stroke-icon); }
+
+/* ---------- Типографические роли (§3) ---------- */
+.h1, .h2 { font-family: var(--font-display); text-transform: uppercase; text-wrap: balance; }
+.h1 { font-size: var(--fs-h1); font-weight: var(--fw-h1); line-height: var(--lh-h1); letter-spacing: var(--tr-h1); }
+.h2 { font-size: var(--fs-h2); font-weight: var(--fw-h2); line-height: var(--lh-h2); letter-spacing: var(--tr-h2); }
+.h3 { font-family: var(--font-display); font-size: var(--fs-h3); font-weight: var(--fw-h3); line-height: var(--lh-h3); letter-spacing: var(--tr-h3); }
+.label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: var(--tr-label);
+  text-transform: uppercase;
+}
+.split-line { padding-block: .06em; margin-block: -.06em; }   /* маска строки не режет выносные элементы */
+/* маска нужна только по вертикали (строка выезжает снизу); по X не режем — слово шире колонки
+   («ВОПРОСЫ» в FAQ) иначе теряло последнюю букву. SplitText ставит overflow инлайном */
+.split-line-mask { overflow: visible clip !important; }
+
+/* ---------- Утилиты ---------- */
+.nowrap { white-space: nowrap; }
+.visually-hidden {
+  position: absolute; width: var(--hairline); height: var(--hairline);
+  margin: calc(var(--hairline) * -1); padding: 0; overflow: hidden;
+  clip-path: inset(50%); white-space: nowrap; border: 0;
+}
+.skip-link {
+  position: fixed; top: var(--s-4); left: var(--s-4); z-index: var(--z-cursor);
+  padding: var(--s-3) var(--s-5);
+  background: var(--acid); color: var(--ink-900);
+  border-radius: var(--r-pill);
+  font-weight: 600;
+  transform: translateY(calc(-100% - var(--s-7)));
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+.skip-link:focus-visible { transform: none; }

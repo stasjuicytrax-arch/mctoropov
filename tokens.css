@@ -1,0 +1,143 @@
+/* ==========================================================================
+   STAS TOROPOV — DESIGN TOKENS v1.0
+   Единственный источник значений. Хардкод цветов/размеров в компонентах запрещён.
+   ========================================================================== */
+
+:root {
+  /* ---------- COLOR / base ---------- */
+  --ink-900: #0A0A0B;
+  --ink-800: #111113;
+  --ink-700: #1A1A1D;
+  --paper:   #F2F0EA;
+  --paper-2: #E4E1D8;
+  --white:   #FFFFFF;
+
+  /* ---------- COLOR / accent ---------- */
+  --acid:       #C9F24D;
+  --acid-deep:  #A8D426;
+  --magenta:    #FF3D9A;
+  --violet:     #7B2CF5; /* только 3D-объект и свечения */
+
+  /* ---------- COLOR / utility ---------- */
+  --muted-on-dark: rgba(255,255,255,.58);
+  --muted-on-acid: rgba(10,10,11,.66);
+  --line-dark:     rgba(255,255,255,.12);
+  --line-light:    rgba(10,10,11,.14);
+  --glow-acid:     0 0 48px rgba(201,242,77,.35);
+  --shadow-hard:   4px 4px 0 var(--ink-900);
+
+  /* ---------- TYPE / families ---------- */
+  --font-display: "Unbounded", "Druk Wide Cyr", system-ui, sans-serif;
+  --font-text:    "Onest", "Golos Text", system-ui, sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, monospace;
+
+  /* ---------- TYPE / scale ---------- */
+  --fs-display: clamp(52px, 11vw,  168px);
+  --fs-h1:      clamp(40px, 7.2vw, 104px);
+  --fs-h2:      clamp(30px, 4.6vw, 64px);
+  --fs-h3:      clamp(22px, 2.4vw, 34px);
+  --fs-lead:    clamp(17px, 1.5vw, 22px);
+  --fs-body:    clamp(15px, 1.15vw, 17px);
+  --fs-small:   13px;
+  --fs-label:   11px;
+
+  --lh-display: .86;
+  --lh-h1:      .90;
+  --lh-h2:      .94;
+  --lh-h3:      1.06;
+  --lh-body:    1.60;
+
+  --tr-display: -.03em;
+  --tr-h1:      -.025em;
+  --tr-h2:      -.02em;
+  --tr-label:   .14em;
+
+  /* ---------- SPACE (база 4px) ---------- */
+  --s-1: 4px;   --s-2: 8px;   --s-3: 12px;  --s-4: 16px;
+  --s-5: 24px;  --s-6: 32px;  --s-7: 48px;  --s-8: 64px;
+  --s-9: 80px;  --s-10: 120px; --s-11: 160px; --s-12: 200px;
+
+  /* ---------- LAYOUT ---------- */
+  --container:      1440px;
+  --container-wide: 1720px;
+  --gutter:         80px;
+  --grid-cols:      12;
+  --grid-gap:       24px;
+
+  --sec-pad:         var(--s-10); /* обычная секция */
+  --sec-pad-hero:    var(--s-11); /* ударная */
+  --sec-pad-tight:   var(--s-8);  /* сжатая */
+
+  /* ---------- RADIUS ---------- */
+  --r-0:     0;
+  --r-card:  20px;
+  --r-notch: 28px; /* размер среза угла */
+  --r-pill:  999px;
+
+  /* ---------- CONTROL SIZES ---------- */
+  --btn-l: 64px;
+  --btn-m: 52px;
+  --btn-s: 44px;
+  --icon-btn: 56px;
+  --tap-min: 48px;
+
+  /* ---------- MOTION ---------- */
+  --dur-fast:  180ms;
+  --dur-base:  420ms;
+  --dur-slow:  900ms;
+  --ease-out:   cubic-bezier(.16, 1, .3, 1);
+  --ease-inout: cubic-bezier(.65, .05, .36, 1);
+
+  --marquee-speed: 40s;
+  --lenis-lerp: .09;
+
+  /* ---------- EFFECTS ---------- */
+  --grain-opacity: .045;   /* правка клиента 24.09: было .12 — лёгкая фактура, не шум */
+  --tear-height:   64px;   /* высота рваного края */
+  --tilt-max:      8deg;
+  --magnet-max:    8px;
+  --cursor-dot:    8px;
+  --cursor-ring:   36px;
+
+  /* ---------- Z-INDEX ---------- */
+  --z-grain:  9000;
+  --z-cursor: 9500;
+  --z-nav:    8000;
+  --z-modal:  8500;
+}
+
+/* ---------- Адаптивные переопределения ---------- */
+@media (max-width: 1279px) {
+  :root { --gutter: 40px; --grid-cols: 8; }
+}
+@media (max-width: 767px) {
+  :root {
+    --gutter: 20px;
+    --grid-cols: 4;
+    --grid-gap: 16px;
+    --sec-pad: 72px;
+    --sec-pad-hero: 96px;
+    --sec-pad-tight: 40px;
+  }
+}
+
+/* ---------- Секционные режимы ---------- */
+.sec--dark  { background: var(--ink-900); color: var(--white); }
+.sec--acid  { background: var(--acid);    color: var(--ink-900); }
+.sec--light { background: var(--paper);   color: var(--ink-900); }
+
+.sec--dark  .muted { color: var(--muted-on-dark); }
+.sec--acid  .muted { color: var(--muted-on-acid); }
+.sec--light .muted { color: var(--muted-on-acid); }
+
+/* ---------- Доступность ---------- */
+:focus-visible { outline: 2px solid var(--acid); outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

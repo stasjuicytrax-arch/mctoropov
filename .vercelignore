@@ -1,0 +1,12 @@
+# В деплой уходит только исходник сайта; медиа-исходники и служебное — нет
+node_modules
+dist
+assets
+docs
+Referens
+content
+contact-sheet.jpg
+*.ps1
+*.md
+PROMPT-START.txt
+.env.local

@@ -1,0 +1,61 @@
+<header class="hdr" data-header>
+  <div class="hdr__bar">
+    <a class="hdr__logo wordmark" href="{{param:root|}}#main" aria-label="Стас Торопов, на главную" data-wordmark>
+      <span aria-hidden="true">Т</span><span aria-hidden="true">О</span><span aria-hidden="true">Р</span><span aria-hidden="true">О</span><span aria-hidden="true">П</span><span aria-hidden="true">О</span><span aria-hidden="true">В</span>
+    </a>
+
+    <nav class="hdr__nav" aria-label="Основное меню">
+      <ul class="hdr__menu">
+        <li><a class="hdr__link" href="{{param:root|}}#about">Кто я такой</a></li>
+        <li><a class="hdr__link" href="{{param:root|}}#directions">Услуги</a></li>
+        <li><a class="hdr__link" href="/gallery">Галерея</a></li>
+        <li><a class="hdr__link" href="{{param:root|}}#reviews">Благодарности</a></li>
+        <li><a class="hdr__link" href="/blog">Блог</a></li>
+      </ul>
+    </nav>
+
+    <ul class="hdr__social social" aria-label="Соцсети">
+      <li><a class="social__link" href="https://vk.com/stastoropov" target="_blank" rel="noopener" aria-label="VK">{{icon:brand-vk}}</a></li>
+      <li><a class="social__link" href="https://www.instagram.com/stastoropov/" target="_blank" rel="noopener" aria-label="Instagram">{{icon:brand-instagram}}</a></li>
+      <li><a class="social__link" href="https://www.youtube.com/channel/UCPVTZqdmxN2ThTZ7u90rBIg" target="_blank" rel="noopener" aria-label="YouTube">{{icon:brand-youtube}}</a></li>
+      <li><a class="social__link" href="https://t.me/+491Rk3L02ItiODMy" target="_blank" rel="noopener" aria-label="Telegram">{{icon:brand-telegram}}</a></li>
+    </ul>
+
+    <a class="hdr__phone" href="tel:+79194459601" data-goal="call">+7 919 445 96 01</a>
+
+    <a class="btn btn--primary btn--s hdr__cta" href="#form" data-magnetic>
+      <span class="btn__label">Узнать условия</span>
+      <span class="btn__arrow">{{icon:arrow-up-right}}</span>
+    </a>
+
+    <button class="hdr__burger" type="button" aria-expanded="false" aria-controls="menu" data-menu-toggle>
+      <span class="visually-hidden" data-menu-toggle-label>Открыть меню</span>
+      <span class="hdr__burger-lines" aria-hidden="true"><span></span><span></span></span>
+    </button>
+  </div>
+
+  <div class="menu" id="menu" data-menu hidden>
+    <nav class="menu__nav" aria-label="Мобильное меню">
+      <ul class="menu__list">
+        <li><a class="menu__link" href="{{param:root|}}#about" data-menu-item>Кто я такой</a></li>
+        <li><a class="menu__link" href="{{param:root|}}#directions" data-menu-item>Услуги</a></li>
+        <li><a class="menu__link" href="/gallery" data-menu-item>Галерея</a></li>
+        <li><a class="menu__link" href="{{param:root|}}#reviews" data-menu-item>Благодарности</a></li>
+        <li><a class="menu__link" href="/blog" data-menu-item>Блог</a></li>
+      </ul>
+    </nav>
+    <div class="menu__foot" data-menu-item>
+      <a class="menu__phone" href="tel:+79194459601">+7 919 445 96 01</a>
+      <ul class="menu__social social" aria-label="Соцсети">
+        <li><a class="social__link" href="https://vk.com/stastoropov" target="_blank" rel="noopener" aria-label="VK">{{icon:brand-vk}}</a></li>
+        <li><a class="social__link" href="https://www.instagram.com/stastoropov/" target="_blank" rel="noopener" aria-label="Instagram">{{icon:brand-instagram}}</a></li>
+        <li><a class="social__link" href="https://www.youtube.com/channel/UCPVTZqdmxN2ThTZ7u90rBIg" target="_blank" rel="noopener" aria-label="YouTube">{{icon:brand-youtube}}</a></li>
+        <li><a class="social__link" href="https://t.me/+491Rk3L02ItiODMy" target="_blank" rel="noopener" aria-label="Telegram">{{icon:brand-telegram}}</a></li>
+      </ul>
+      <a class="btn btn--dark btn--m" href="#form" data-menu-close>
+        <span class="btn__label">Узнать условия</span>
+        <span class="btn__arrow">{{icon:arrow-up-right}}</span>
+      </a>
+    </div>
+  </div>
+</header>

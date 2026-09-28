@@ -1,0 +1,62 @@
+/* ==========================================================================
+   10 · ТЕХНОЛОГИИ [dark] — заявление + лента клиентов (названия шрифтом,
+   белые 40 %, при наведении 100 % и крупнее)
+   ========================================================================== */
+.tech__grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+  align-items: end;
+}
+.tech__rail { grid-column: 1 / -1; }
+.tech__statement {
+  grid-column: 1 / span 8;
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-h3);
+  line-height: var(--lh-h3);
+  letter-spacing: var(--tr-h3);
+  text-wrap: balance;
+}
+.tech__text {
+  grid-column: 9 / -1;
+  max-width: var(--measure);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--muted-on-dark);
+}
+
+.tech__strip {
+  margin-top: var(--s-9);
+  padding-block: var(--s-5);
+  border-block: var(--hairline) solid var(--line-dark);
+  overflow-x: clip;
+}
+.tech__track { display: flex; width: max-content; will-change: transform; }
+.tech__group { display: flex; align-items: center; flex: none; }
+.tech__name {
+  display: inline-block;
+  padding-inline: var(--s-6);
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-display);
+  letter-spacing: var(--tr-h2);
+  line-height: var(--lh-marquee);
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--white);
+  opacity: var(--o-client);
+  transition: opacity var(--dur-fast) var(--ease-out), scale var(--dur-base) var(--ease-out);
+}
+@media (hover: hover) {
+  .tech__name:hover { opacity: 1; scale: var(--hover-scale-name); }
+}
+
+@media (max-width: 1279px) {
+  .tech__statement, .tech__text { grid-column: 1 / -1; }
+  .tech__text { margin-top: var(--s-5); }
+}
+@media (max-width: 767px) {
+  .tech__strip { margin-top: var(--s-7); }
+  .tech__name { font-size: var(--fs-h3); padding-inline: var(--s-5); }
+}

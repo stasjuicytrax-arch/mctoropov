@@ -1,0 +1,265 @@
+/* ==========================================================================
+   КОМПОНЕНТЫ (§6–§8): кнопки, теги, карточки, полароид, маркер, астериск
+   ========================================================================== */
+
+/* ---------- Кнопки (§7) ---------- */
+.btn {
+  --btn-h: var(--btn-m);
+  --btn-ring: calc((var(--btn-h) - var(--btn-arrow)) / 2);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-4);
+  height: var(--btn-h);
+  padding-inline: var(--s-6) var(--btn-ring);
+  border: var(--hairline) solid transparent;
+  border-radius: var(--r-pill);
+  font-family: var(--font-text);
+  font-size: var(--fs-body);
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  transition:
+    background-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out),
+    scale var(--dur-fast) var(--ease-out);
+}
+.btn--l { --btn-h: var(--btn-l); }
+.btn--s { --btn-h: var(--btn-s); --btn-ring: var(--s-1); font-size: var(--fs-small); padding-left: var(--s-5); gap: var(--s-3); }
+
+.btn__arrow {
+  display: grid;
+  place-items: center;
+  width: var(--btn-arrow);
+  height: var(--btn-arrow);
+  border-radius: var(--r-pill);
+  transition: transform var(--dur-base) var(--ease-out), background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+.btn--s .btn__arrow { width: calc(var(--btn-s) - var(--s-2)); height: calc(var(--btn-s) - var(--s-2)); }
+.btn__arrow .icon { width: var(--icon-s); height: var(--icon-s); }
+.btn:hover .btn__arrow { transform: rotate(45deg); }
+.btn:hover .icon--download { transform: rotate(-45deg); }   /* «скачать» — стрелка остаётся вертикальной */
+.btn:active { scale: .98; }
+.btn[aria-disabled="true"], .btn:disabled { opacity: var(--o-disabled); pointer-events: none; }
+
+/* primary: лайм + чёрный круг */
+.btn--primary { background: var(--acid); color: var(--ink-900); }
+.btn--primary .btn__arrow { background: var(--ink-900); color: var(--acid); }
+.btn--primary:hover { box-shadow: var(--shadow-hard-deep); }
+.sec--acid .btn--primary:hover, .menu .btn--primary:hover { box-shadow: var(--shadow-hard); }
+.btn--primary:active { background: var(--acid-deep); }
+
+/* secondary: прозрачная, бордер, белый текст */
+.btn--secondary { border-color: var(--line-dark); color: var(--white); }
+.btn--secondary .btn__arrow { background: var(--white); color: var(--ink-900); }
+.btn--secondary:hover { background: var(--white); color: var(--ink-900); border-color: var(--white); }
+.btn--secondary:hover .btn__arrow { background: var(--ink-900); color: var(--white); }
+
+/* dark: для лаймовых поверхностей */
+.btn--dark { background: var(--ink-900); color: var(--white); }
+.btn--dark .btn__arrow { background: var(--acid); color: var(--ink-900); }
+.btn--dark:hover { box-shadow: var(--shadow-hard-deep); }
+
+/* ---------- Icon-кнопка (§7) ---------- */
+.icon-btn {
+  display: grid;
+  place-items: center;
+  width: var(--icon-btn);
+  height: var(--icon-btn);
+  border: var(--hairline) solid var(--line-dark);
+  border-radius: var(--r-pill);
+  color: var(--white);
+  transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out), opacity var(--dur-fast) var(--ease-out);
+}
+.icon-btn .icon { transition: transform var(--dur-base) var(--ease-out); }
+.icon-btn:hover { background: var(--acid); border-color: var(--acid); color: var(--ink-900); }
+.icon-btn:active { scale: .96; }
+.icon-btn:disabled { opacity: var(--o-disabled); pointer-events: none; }
+
+/* ---------- Тег / pill-label (§7) ---------- */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--s-2) var(--s-4);
+  border: var(--hairline) solid var(--line-dark);
+  border-radius: var(--r-pill);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: var(--tr-label);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.tag--on-photo { border-color: var(--muted-on-dark); color: var(--white); }
+
+/* ---------- Notched-карточка A (§6) ---------- */
+.notch-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: start;
+  gap: var(--s-5);
+  padding: var(--card-pad);
+  background: var(--ink-800);
+  border-radius: var(--r-card);
+  -webkit-mask: linear-gradient(225deg, transparent var(--notch-cut), var(--ink-900) calc(var(--notch-cut) + var(--hairline)));
+          mask: linear-gradient(225deg, transparent var(--notch-cut), var(--ink-900) calc(var(--notch-cut) + var(--hairline)));
+}
+/* на тёмной секции ink-800 (#111113) и фон ink-900 (#0A0A0B) под зерном сливаются —
+   берём следующую ступень поверхности из ДС §2 (ink-700 «поверхность +2») */
+.sec--dark .notch-card { background: var(--ink-700); }
+.sec--acid .notch-card { background: var(--ink-900); color: var(--white); }
+.notch-card__num {
+  padding-top: var(--s-1);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 700;
+  letter-spacing: var(--tr-label);
+  line-height: 1;
+  color: var(--acid);
+}
+.notch-card__num  { grid-column: 1; grid-row: 1; }
+.notch-card__text { grid-column: 2; grid-row: 1; }
+.notch-card__icon { grid-column: 3; grid-row: 1; color: var(--acid); margin-right: var(--s-5); }
+.notch-card__icon .icon { width: var(--icon-l); height: var(--icon-l); }
+.notch-card__text {
+  font-size: var(--fs-lead);
+  font-weight: 500;
+  line-height: var(--lh-lead);
+  text-wrap: pretty;
+}
+
+@media (max-width: 767px) {
+  .notch-card { grid-template-columns: auto minmax(0, 1fr); row-gap: var(--s-4); }
+  .notch-card__icon { grid-column: 2; justify-self: end; margin-right: var(--s-6); }
+  .notch-card__text { grid-column: 1 / -1; grid-row: 2; }
+}
+
+/* ---------- Фото-полароид B (§6) ---------- */
+.polaroid {
+  --tilt: var(--tilt-1);
+  position: relative;
+  padding: var(--polaroid-frame) var(--polaroid-frame) var(--polaroid-frame-bottom);
+  background: var(--paper);
+  color: var(--ink-900);
+  rotate: var(--tilt);
+}
+.polaroid__media { display: block; aspect-ratio: 4 / 5; overflow: hidden; background: var(--paper-2); }
+.polaroid__media img { width: 100%; height: 100%; object-fit: cover; filter: var(--photo-mono); }
+.polaroid__cap {
+  position: absolute;
+  left: var(--polaroid-frame);
+  right: var(--polaroid-frame);
+  bottom: calc((var(--polaroid-frame-bottom) - var(--fs-label)) / 2);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 700;
+  letter-spacing: var(--tr-label);
+  line-height: 1;
+  text-transform: uppercase;
+}
+.polaroid__tape {
+  position: absolute;
+  z-index: 1;
+  top: calc(var(--s-5) * -1);
+  left: 50%;
+  width: 46%;
+  translate: -50% 0;
+  rotate: calc(var(--tilt) * -2);
+  filter: invert(1);            /* исходник — чёрная лента; на тёмной секции нужна светлая */
+  opacity: var(--tape-alpha);
+  pointer-events: none;
+}
+
+/* ---------- Ghost-ссылка с маркерным штрихом (§7) ---------- */
+.link-marker {
+  position: relative;
+  display: inline-flex;
+  padding-block: var(--s-2);
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-h3);
+  letter-spacing: var(--tr-h3);
+  line-height: var(--lh-h3);
+}
+.link-marker__stroke {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(var(--s-1) * -1);
+  width: 100%;
+  height: var(--s-3);
+  overflow: visible;
+}
+.link-marker__stroke path {
+  fill: none;
+  stroke: var(--acid);
+  stroke-width: var(--stroke-marker);
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset var(--dur-marker) var(--ease-out);
+}
+.link-marker:hover .link-marker__stroke path,
+.link-marker:focus-visible .link-marker__stroke path { stroke-dashoffset: 0; }
+
+/* ---------- Маркерное подчёркивание (§8.8) ---------- */
+/* Штрих лежит ПОД буквами по нижней трети — как настоящий маркер, не text-decoration */
+.marker { position: relative; display: inline-block; isolation: isolate; white-space: nowrap; }
+.marker__stroke {
+  position: absolute;
+  z-index: -1;
+  left: -3%;
+  width: 106%;
+  bottom: .02em;
+  height: .36em;
+  overflow: visible;
+  pointer-events: none;
+}
+.marker__stroke path {
+  fill: none;
+  stroke: var(--magenta);
+  stroke-width: .3em;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+
+/* ---------- Астериск (§8.3) ---------- */
+.asterisk { display: block; color: currentColor; }
+.asterisk .icon { width: 100%; height: 100%; stroke-width: var(--stroke-asterisk); }
+@media (prefers-reduced-motion: no-preference) {
+  .asterisk { animation: spin var(--spin-asterisk) linear infinite; }
+}
+@keyframes spin { to { rotate: 360deg; } }
+
+/* ---------- Счётчик (§10.5): финальное значение-призрак держит ширину — макет не дёргается ---------- */
+/* призрак — псевдоэлемент из data-count: в тексте заголовка его нет (SEO и скринридер видят «3000») */
+.count { display: inline-grid; font-variant-numeric: tabular-nums; }
+.count::before { content: attr(data-count); visibility: hidden; }
+.count::before, .count__val { grid-area: 1 / 1; }
+.count__val { text-align: end; }
+
+/* ---------- Штрихкод (§8.9) ---------- */
+.barcode {
+  display: block;
+  width: var(--s-11);
+  height: var(--s-6);
+  background: currentColor;
+  -webkit-mask: url("/decor/barcode.svg") center / 100% 100% no-repeat;
+          mask: url("/decor/barcode.svg") center / 100% 100% no-repeat;
+}
+
+/* ---------- «+» по углам (§8.9) ---------- */
+.cross { position: absolute; display: block; width: var(--icon-l); height: var(--icon-l); }
+.cross .icon { width: 100%; height: 100%; stroke-width: var(--stroke-asterisk); }
+
+/* ---------- Параллакс внутри рамки (§10.4): картинка с запасом, рамка режет ---------- */
+[data-parallax-inner] { overflow: clip; }
+[data-parallax-inner] img { scale: var(--parallax-scale); }
+@media (prefers-reduced-motion: reduce) { [data-parallax-inner] img { scale: 1; } }

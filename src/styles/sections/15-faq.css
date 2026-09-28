@@ -1,0 +1,88 @@
+/* ==========================================================================
+   15 · FAQ [dark] — аккордеон на 8 колонок, номер mono слева, «+» → «×» справа,
+   активный вопрос лаймом, открыт только один
+   ========================================================================== */
+.faq__grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+  align-items: start;
+}
+.faq__head { grid-column: 1 / span 4; position: sticky; top: calc(var(--header-h) + var(--s-7)); }
+.faq__title { max-width: min-content; }   /* по слову в строку; 8ch резал «ВОПРОСЫ» маской строки */
+.faq__list { grid-column: 5 / -1; border-top: var(--hairline) solid var(--line-dark); }
+
+.faq__item { border-bottom: var(--hairline) solid var(--line-dark); }
+.faq__h { margin: 0; }
+.faq__q {
+  display: grid;
+  grid-template-columns: var(--s-8) minmax(0, 1fr) var(--icon-btn);
+  align-items: center;
+  gap: var(--s-4);
+  width: 100%;
+  padding-block: var(--s-5);
+  text-align: left;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+.faq__num {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 700;
+  letter-spacing: var(--tr-label);
+  line-height: 1;
+  color: var(--muted-on-dark);
+}
+.faq__text {
+  font-family: var(--font-display);
+  font-size: calc(var(--fs-h3) * .8);   /* 17 вопросов подряд: на ступень тише H3, чтобы список читался */
+  font-weight: var(--fw-h3);
+  letter-spacing: var(--tr-h3);
+  line-height: var(--lh-h3);
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.faq__sign {
+  display: grid;
+  place-items: center;
+  width: var(--icon-btn);
+  height: var(--icon-btn);
+  border: var(--hairline) solid var(--line-dark);
+  border-radius: var(--r-pill);
+  transition: rotate var(--dur-base) var(--ease-out), background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
+}
+.faq__q:hover .faq__sign { border-color: var(--acid); }
+.faq__q:hover .faq__text { color: var(--acid); }
+.faq__q[aria-expanded="true"] { color: var(--acid); }
+.faq__q[aria-expanded="true"] .faq__num { color: var(--acid); }
+.faq__q[aria-expanded="true"] .faq__sign { rotate: 45deg; background: var(--acid); border-color: var(--acid); color: var(--ink-900); }
+
+/* раскрытие по высоте без замера JS: grid 0fr → 1fr */
+.faq__a {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--dur-base) var(--ease-out);
+}
+.faq__a-inner { overflow: hidden; }
+.faq__a p {
+  max-width: var(--measure);
+  padding: 0 var(--icon-btn) var(--s-6) calc(var(--s-8) + var(--s-4));
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--muted-on-dark);
+  text-wrap: pretty;
+}
+.faq__item.is-open .faq__a { grid-template-rows: 1fr; }
+/* без JS — все ответы открыты */
+.no-js .faq__a { grid-template-rows: 1fr; }
+
+@media (max-width: 1279px) {
+  .faq__head { grid-column: 1 / -1; position: static; margin-bottom: var(--s-7); }
+  .faq__title { max-width: none; }
+  .faq__list { grid-column: 1 / -1; }
+}
+@media (max-width: 767px) {
+  .faq__q { grid-template-columns: var(--s-6) minmax(0, 1fr) var(--tap-min); gap: var(--s-3); }
+  .faq__sign { width: var(--tap-min); height: var(--tap-min); }
+  .faq__text { font-size: var(--fs-body); }
+  .faq__a p { padding: 0 0 var(--s-5) calc(var(--s-6) + var(--s-3)); }
+}

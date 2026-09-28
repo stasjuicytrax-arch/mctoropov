@@ -1,0 +1,42 @@
+/* ==========================================================================
+   12 · РАБОТАЛ НА ОДНОЙ СЦЕНЕ С [dark] — сжатая: три встречные строки имён,
+   только типографика. Hover: имя лаймом и чуть крупнее.
+   ========================================================================== */
+.stagewith { padding-block: calc(var(--sec-pad-tight) + var(--s-7)) var(--sec-pad-tight); overflow-x: clip; }
+.stagewith__title { margin-bottom: var(--s-7); }
+
+.stagewith__rows { display: grid; gap: var(--s-2); }
+.stagewith__row { overflow-x: clip; }
+.stagewith__track { display: flex; width: max-content; will-change: transform; }
+.stagewith__group { display: flex; align-items: center; flex: none; }
+.stagewith__name {
+  display: inline-block;
+  padding-inline: var(--s-5);
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-display);
+  letter-spacing: var(--tr-h2);
+  line-height: var(--lh-marquee);
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: color var(--dur-fast) var(--ease-out), scale var(--dur-base) var(--ease-out);
+}
+.stagewith__row:nth-child(2) .stagewith__name { color: var(--muted-on-dark); }
+.stagewith__star { display: grid; place-items: center; color: var(--acid); }
+.stagewith__star .icon { width: var(--icon-l); height: var(--icon-l); stroke-width: var(--stroke-asterisk); }
+
+@media (hover: hover) {
+  .stagewith__name:hover { color: var(--acid); scale: var(--hover-scale-name); }
+  .stagewith__row:nth-child(2) .stagewith__name:hover { color: var(--acid); }
+}
+@media (max-width: 767px) {
+  .stagewith__name { font-size: var(--fs-h3); padding-inline: var(--s-4); }
+  .stagewith__star .icon { width: var(--icon-m); height: var(--icon-m); }
+}
+@media (prefers-reduced-motion: reduce) {
+  /* без движения ряды переносятся — все имена видны */
+  .stagewith__track { width: auto; padding-inline: max(var(--gutter), calc((100% - var(--container)) / 2)); }
+  .stagewith__name:first-child { padding-left: 0; }
+  .stagewith__group { flex-wrap: wrap; flex: 1; }
+  .stagewith__group + .stagewith__group { display: none; }
+}

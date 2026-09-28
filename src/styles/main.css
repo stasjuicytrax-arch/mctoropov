@@ -1,0 +1,32 @@
+/* Порядок: токены → шрифты → база → сетка → компоненты → сквозные системы → секции */
+@import './tokens.css';
+@import './fonts.css';
+@import './base.css';
+@import './layout.css';
+@import './components.css';
+
+@import './systems/preloader.css';
+@import './systems/cursor.css';
+@import './systems/grain.css';
+@import './systems/progress.css';
+
+@import './sections/00-header.css';
+@import './sections/01-hero.css';
+@import './sections/02-directions.css';
+@import './sections/03-marquee.css';
+@import './sections/04-about.css';
+@import './sections/05-fearless.css';
+@import './sections/06-superpower.css';
+@import './sections/07-stats.css';
+@import './sections/08-persons.css';
+@import './sections/09-prep.css';
+@import './sections/10-tech.css';
+@import './sections/11-artist.css';
+@import './sections/12-stagewith.css';
+@import './sections/13-geo.css';
+@import './sections/14-reviews.css';
+@import './sections/15-faq.css';
+@import './sections/16-cta.css';
+@import './sections/17-process.css';
+@import './sections/18-form.css';
+@import './sections/19-footer.css';

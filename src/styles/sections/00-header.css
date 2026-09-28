@@ -1,0 +1,197 @@
+/* ==========================================================================
+   00 · ХЕДЕР — fixed, прозрачный → ink-900 + рваный край; прячется вниз / выезжает вверх
+   ========================================================================== */
+.hdr {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-nav);
+  transition: transform var(--dur-base) var(--ease-out);
+}
+.hdr.is-hidden { transform: translateY(calc(-100% - var(--header-tear))); }
+
+.hdr__bar {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--s-6);
+  height: var(--header-h);
+  padding-inline: var(--gutter);
+  transition: color var(--dur-base) var(--ease-out);
+}
+/* подложка и рваный нижний край появляются после первого скролла */
+.hdr__bar::before,
+.hdr__bar::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 0;
+  background: var(--ink-900);
+  opacity: 0;
+  transition: opacity var(--dur-base) var(--ease-out);
+  pointer-events: none;
+}
+.hdr__bar::before { top: 0; bottom: 0; }
+.hdr__bar::after {
+  top: calc(100% - var(--hairline));
+  height: var(--header-tear);
+  -webkit-mask: url("/decor/tear-2.svg") center / 100% 100% no-repeat;
+          mask: url("/decor/tear-2.svg") center / 100% 100% no-repeat;
+  scale: 1 -1;
+}
+.hdr.is-scrolled .hdr__bar::before,
+.hdr.is-scrolled .hdr__bar::after { opacity: 1; }
+
+/* ---------- Вордмарк: буквы искажаются при наведении ---------- */
+.wordmark {
+  display: inline-flex;
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-display);
+  letter-spacing: var(--tr-display);
+  line-height: 1;
+  text-transform: uppercase;
+}
+.wordmark span { display: inline-block; transform-origin: 50% 100%; will-change: transform; }
+.hdr__logo { flex: none; margin-right: auto; padding-block: var(--s-3); }
+
+/* ---------- Меню ---------- */
+.hdr__menu { display: flex; gap: var(--s-6); }
+.hdr__link {
+  position: relative;
+  display: inline-block;
+  padding-block: var(--s-3);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 700;
+  letter-spacing: var(--tr-label);
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+.hdr__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: var(--s-1);
+  height: var(--hairline);
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform var(--dur-base) var(--ease-out);
+}
+.hdr__link:hover { color: var(--acid); }
+.hdr__link:hover::after { transform: scaleX(1); }
+
+.social { display: flex; gap: var(--s-1); }
+.social__link {
+  display: grid;
+  place-items: center;
+  width: var(--btn-arrow);
+  height: var(--btn-arrow);
+  border-radius: var(--r-pill);
+  transition: color var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out);
+}
+.social__link .icon { width: var(--icon-s); height: var(--icon-s); }
+.social__link:hover { color: var(--acid); }
+
+.hdr__phone {
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+  font-weight: 700;
+  letter-spacing: .02em;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+.hdr__phone:hover { color: var(--acid); }
+.hdr__cta { flex: none; }
+
+/* ---------- Бургер ---------- */
+.hdr__burger {
+  display: none;
+  place-items: center;
+  width: var(--tap-min);
+  height: var(--tap-min);
+  border: var(--hairline) solid var(--line-dark);
+  border-radius: var(--r-pill);
+  transition: border-color var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out);
+}
+.hdr__burger-lines { display: grid; gap: var(--s-2); width: var(--icon-s); }
+.hdr__burger-lines span {
+  display: block;
+  height: var(--hairline);
+  background: currentColor;
+  outline: var(--hairline) solid currentColor;   /* 2px визуально без отдельного токена */
+  transition: transform var(--dur-base) var(--ease-out);
+}
+.hdr.is-menu-open .hdr__burger-lines span:first-child { transform: translateY(calc(var(--s-2) / 2 + var(--hairline))) rotate(45deg); }
+.hdr.is-menu-open .hdr__burger-lines span:last-child  { transform: translateY(calc(var(--s-2) / -2 - var(--hairline))) rotate(-45deg); }
+
+/* ---------- Полноэкранная acid-шторка ---------- */
+.menu {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--s-8);
+  padding: calc(var(--header-h) + var(--s-7)) var(--gutter) var(--s-7);
+  background: var(--acid);
+  color: var(--ink-900);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.menu[hidden] { display: none; }
+.menu__list { display: grid; gap: var(--s-3); }
+.menu__link {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-h2);
+  letter-spacing: var(--tr-h2);
+  line-height: var(--lh-h2);
+  text-transform: uppercase;
+}
+.menu__link:hover { color: var(--ink-700); }
+.menu__foot { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-5); }
+.menu__phone {
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.menu__social .social__link { border: var(--hairline) solid var(--line-light); width: var(--tap-min); height: var(--tap-min); }
+.menu__social .social__link:hover { background: var(--ink-900); color: var(--acid); }
+
+.hdr.is-menu-open { transform: none; }
+.hdr.is-menu-open .hdr__bar { color: var(--ink-900); }
+.hdr.is-menu-open .hdr__bar::before,
+.hdr.is-menu-open .hdr__bar::after { opacity: 0; }
+.hdr.is-menu-open .hdr__burger { border-color: var(--line-light); }
+.hdr.is-menu-open .hdr__cta { visibility: hidden; }
+
+/* ---------- Адаптив ---------- */
+/* 1280–1439: меню должно остаться в одну строку — телефон уходит в бургер-меню и в hero-кнопки */
+@media (max-width: 1439px) {
+  .hdr__phone { display: none; }
+  .hdr__bar { gap: var(--s-5); }
+  .hdr__menu { gap: var(--s-5); }
+}
+@media (max-width: 1279px) {
+  .hdr__nav, .hdr__social, .hdr__phone { display: none; }
+  .hdr__burger { display: grid; }
+}
+@media (max-width: 767px) {
+  .hdr__cta { display: none; }
+  .wordmark { font-size: var(--fs-h3); }
+}
+@media (min-width: 1280px) {
+  .menu { display: none; }
+}

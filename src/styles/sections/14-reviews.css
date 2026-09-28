@@ -1,0 +1,106 @@
+/* ==========================================================================
+   14 · ОТЗЫВЫ [light] — masonry в 3 колонки, карточки «прибиты» скотчем (тип B),
+   длинные сворачиваются до 6 строк. Hover: выпрямляется и поднимается.
+   ========================================================================== */
+.reviews__title { margin-bottom: var(--s-8); }
+
+.reviews__grid {
+  columns: 3;
+  column-gap: var(--grid-gap);
+}
+.review {
+  --tilt: var(--tilt-1);
+  position: relative;
+  break-inside: avoid;
+  margin-bottom: var(--s-7);
+  padding-top: var(--s-3);
+}
+.review:nth-child(4n + 2) { --tilt: var(--tilt-2); }
+.review:nth-child(4n + 3) { --tilt: var(--tilt-4); }
+.review:nth-child(4n + 4) { --tilt: var(--tilt-3); }
+
+.review__card {
+  margin: 0;
+  padding: var(--card-pad);
+  background: var(--white);
+  color: var(--ink-900);
+  rotate: calc(var(--tilt) / 2);
+  transition: rotate var(--dur-base) var(--ease-out), translate var(--dur-base) var(--ease-out);
+}
+.review__tape {
+  position: absolute;
+  z-index: 1;
+  top: calc(var(--s-3) * -1);
+  left: 50%;
+  width: 40%;
+  translate: -50% 0;
+  rotate: calc(var(--tilt) * -2);
+  opacity: var(--tape-alpha);
+  transform-origin: 20% 50%;
+  transition: rotate var(--dur-base) var(--ease-out);
+  pointer-events: none;
+}
+
+.review__body { margin: 0; }
+.review__body p {
+  max-width: 42ch;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  text-wrap: pretty;
+}
+/* свёрнутое состояние ставит JS только тем, кто длиннее 6 строк */
+.review.is-clamped .review__body p {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+  line-clamp: 6;
+  overflow: hidden;
+}
+.review__more {
+  margin-top: var(--s-3);
+  padding-block: var(--s-2);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 700;
+  letter-spacing: var(--tr-label);
+  text-transform: uppercase;
+  border-bottom: var(--hairline) solid currentColor;
+}
+.review__more:hover { color: var(--magenta); }
+
+.review__who {
+  display: grid;
+  gap: var(--s-1);
+  margin-top: var(--s-5);
+  padding-top: var(--s-4);
+  border-top: var(--hairline) solid var(--line-light);
+}
+.review__name {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-h3);
+  letter-spacing: var(--tr-h3);
+  line-height: var(--lh-h3);
+}
+.review__meta {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 700;
+  letter-spacing: var(--tr-label);
+  text-transform: uppercase;
+  color: var(--muted-on-acid);
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .review:hover .review__card { rotate: 0deg; translate: 0 calc(var(--s-2) * -1); }
+  .review:hover .review__tape { rotate: calc(var(--tilt) * -2 - 4deg); }   /* скотч чуть отклеивается */
+}
+
+@media (max-width: 1279px) {
+  .reviews__grid { columns: 2; }
+}
+@media (max-width: 767px) {
+  .reviews__title { margin-bottom: var(--s-7); }
+  .reviews__grid { columns: 1; }
+  .review { margin-bottom: var(--s-6); }
+}

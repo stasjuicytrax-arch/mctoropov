@@ -1,0 +1,104 @@
+<section class="sec sec--dark sec--rail directions" id="directions" data-theme="dark" aria-labelledby="directions-title">
+  <div class="container">
+    <div class="directions__head">
+      <p class="rail"><span class="rail__num">02</span></p>
+      <h2 class="h2 directions__title" id="directions-title" data-reveal="lines">Направления</h2>
+      <div class="directions__nav" role="group" aria-label="Листать направления">
+        <button class="icon-btn" type="button" data-dir-prev aria-label="Предыдущие направления">{{icon:arrow-left}}</button>
+        <button class="icon-btn" type="button" data-dir-next aria-label="Следующие направления">{{icon:arrow-right}}</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="directions__viewport" data-dir-viewport tabindex="0" role="region" aria-label="Лента направлений, листается свайпом или стрелками">
+    <ul class="directions__track" data-reveal="up" data-dir-track>
+      <li class="dir-card" data-reveal-item>
+        <a class="dir-card__link" href="/weddings" data-tilt data-cursor="view">
+          <picture class="dir-card__media">
+            <source type="image/avif" srcset="/img/dir-wedding-480.avif 480w, /img/dir-wedding-960.avif 960w, /img/dir-wedding-1440.avif 1440w" sizes="(max-width: 767px) 80vw, 420px">
+            <source type="image/webp" srcset="/img/dir-wedding-480.webp 480w, /img/dir-wedding-960.webp 960w, /img/dir-wedding-1440.webp 1440w" sizes="(max-width: 767px) 80vw, 420px">
+            <img src="/img/dir-wedding-960.jpg" alt="Стас Торопов ведёт банкет в шатре, гости за столами" width="1440" height="2015" loading="lazy" decoding="async">
+          </picture>
+          <span class="dir-card__glare" aria-hidden="true"></span>
+          <span class="dir-card__num" aria-hidden="true">01</span>
+          <span class="dir-card__go" aria-hidden="true">{{icon:arrow-up-right}}</span>
+          <span class="dir-card__body">
+            <span class="dir-card__title">Свадебное событие</span>
+            <span class="dir-card__tags"><span class="tag tag--on-photo">45–150 гостей</span><span class="tag tag--on-photo">под ключ</span></span>
+          </span>
+        </a>
+      </li>
+      <li class="dir-card" data-reveal-item>
+        <a class="dir-card__link" href="/cityholiday" data-tilt data-cursor="view">
+          <picture class="dir-card__media">
+            <source type="image/avif" srcset="/img/dir-city-480.avif 480w, /img/dir-city-960.avif 960w, /img/dir-city-1440.avif 1440w" sizes="(max-width: 767px) 80vw, 420px">
+            <source type="image/webp" srcset="/img/dir-city-480.webp 480w, /img/dir-city-960.webp 960w, /img/dir-city-1440.webp 1440w" sizes="(max-width: 767px) 80vw, 420px">
+            <img src="/img/dir-city-960.jpg" alt="Городская сцена под открытым небом и толпа зрителей" width="1440" height="960" loading="lazy" decoding="async">
+          </picture>
+          <span class="dir-card__glare" aria-hidden="true"></span>
+          <span class="dir-card__num" aria-hidden="true">02</span>
+          <span class="dir-card__go" aria-hidden="true">{{icon:arrow-up-right}}</span>
+          <span class="dir-card__body">
+            <span class="dir-card__title">Городской праздник</span>
+            <span class="dir-card__tags"><span class="tag tag--on-photo">День города</span><span class="tag tag--on-photo">до 30 000 зрителей</span></span>
+          </span>
+        </a>
+      </li>
+      <li class="dir-card" data-reveal-item>
+        <a class="dir-card__link" href="/korporat" data-tilt data-cursor="view">
+          <picture class="dir-card__media">
+            <source type="image/avif" srcset="/img/dir-corporate-480.avif 480w, /img/dir-corporate-960.avif 960w, /img/dir-corporate-1440.avif 1440w" sizes="(max-width: 767px) 80vw, 420px">
+            <source type="image/webp" srcset="/img/dir-corporate-480.webp 480w, /img/dir-corporate-960.webp 960w, /img/dir-corporate-1440.webp 1440w" sizes="(max-width: 767px) 80vw, 420px">
+            <img src="/img/dir-corporate-960.jpg" alt="Стас Торопов на сцене корпоративного мероприятия" width="1440" height="960" loading="lazy" decoding="async">
+          </picture>
+          <span class="dir-card__glare" aria-hidden="true"></span>
+          <span class="dir-card__num" aria-hidden="true">03</span>
+          <span class="dir-card__go" aria-hidden="true">{{icon:arrow-up-right}}</span>
+          <span class="dir-card__body">
+            <span class="dir-card__title">Корпоративное мероприятие</span>
+            <span class="dir-card__tags"><span class="tag tag--on-photo">до 400 гостей</span><span class="tag tag--on-photo">церемонии награждения</span></span>
+          </span>
+        </a>
+      </li>
+      <li class="dir-card" data-reveal-item>
+        <a class="dir-card__link" href="/privatparty" data-tilt data-cursor="view">
+          <picture class="dir-card__media">
+            <source type="image/avif" srcset="/img/dir-private-480.avif 480w, /img/dir-private-960.avif 960w, /img/dir-private-1440.avif 1440w" sizes="(max-width: 767px) 80vw, 420px">
+            <source type="image/webp" srcset="/img/dir-private-480.webp 480w, /img/dir-private-960.webp 960w, /img/dir-private-1440.webp 1440w" sizes="(max-width: 767px) 80vw, 420px">
+            <img src="/img/dir-private-960.jpg" alt="Стас Торопов с микрофоном на частной вечеринке" width="1440" height="961" loading="lazy" decoding="async">
+          </picture>
+          <span class="dir-card__glare" aria-hidden="true"></span>
+          <span class="dir-card__num" aria-hidden="true">04</span>
+          <span class="dir-card__go" aria-hidden="true">{{icon:arrow-up-right}}</span>
+          <span class="dir-card__body">
+            <span class="dir-card__title">Частная вечеринка</span>
+            <span class="dir-card__tags"><span class="tag tag--on-photo">дни рождения</span><span class="tag tag--on-photo">юбилеи</span></span>
+          </span>
+        </a>
+      </li>
+      <li class="dir-card" data-reveal-item>
+        <a class="dir-card__link" href="/graduationday" data-tilt data-cursor="view">
+          <picture class="dir-card__media">
+            <source type="image/avif" srcset="/img/dir-graduation-480.avif 480w, /img/dir-graduation-960.avif 960w, /img/dir-graduation-1440.avif 1440w" sizes="(max-width: 767px) 80vw, 420px">
+            <source type="image/webp" srcset="/img/dir-graduation-480.webp 480w, /img/dir-graduation-960.webp 960w, /img/dir-graduation-1440.webp 1440w" sizes="(max-width: 767px) 80vw, 420px">
+            <img src="/img/dir-graduation-960.jpg" alt="Танцевальный номер на сцене выпускного" width="1440" height="960" loading="lazy" decoding="async">
+          </picture>
+          <span class="dir-card__glare" aria-hidden="true"></span>
+          <span class="dir-card__num" aria-hidden="true">05</span>
+          <span class="dir-card__go" aria-hidden="true">{{icon:arrow-up-right}}</span>
+          <span class="dir-card__body">
+            <span class="dir-card__title">Выпускной вечер</span>
+            <span class="dir-card__tags"><span class="tag tag--on-photo">школы Перми</span><span class="tag tag--on-photo">70–150 гостей</span></span>
+          </span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="container directions__after">
+    <a class="link-marker" href="#form">
+      <span>Связаться со мной</span>
+      <svg class="link-marker__stroke" viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path d="M2 8 C 40 3, 80 10, 120 6 S 180 4, 198 7" pathLength="1"/></svg>
+    </a>
+  </div>
+</section>
