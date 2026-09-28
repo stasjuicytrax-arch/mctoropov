@@ -17,7 +17,7 @@
   font-weight: 500;
   line-height: var(--lh-lead);
 }
-.lead__form { grid-column: 1 / span 8; display: grid; gap: var(--s-4); }
+.lead__form { grid-column: 1 / span 8; display: grid; gap: var(--s-4); min-width: 0; }
 .lead__alt { grid-column: 1 / span 8; font-size: var(--fs-body); }
 
 .lead__label {
@@ -28,7 +28,9 @@
   text-transform: uppercase;
 }
 
+/* min-width: 0 — иначе грид-ячейка раздувается по max-content инпута и в узком контейнере (модалка) кнопка уезжает за край */
 .lead__field {
+  min-width: 0;
   display: flex;
   align-items: center;
   gap: var(--s-3);

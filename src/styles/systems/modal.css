@@ -1,0 +1,79 @@
+/* ==========================================================================
+   Поп-ап-форма из hero. Нативный <dialog> в top layer: он выше зерна и курсора,
+   поэтому фактуру и подложку карточка несёт сама.
+   Карточка — лист бумаги (ДС §6: notched-карточка, срезан верхний правый угол)
+   на затемнённой и размытой странице. Правка клиента 28.09: блюр подложки
+   запрошен отдельно, хотя ДС §14 не любит backdrop-filter в декоре.
+   ========================================================================== */
+.modal {
+  width: min(600px, calc(100vw - var(--gutter) * 2));
+  max-width: none;
+  max-height: calc(100dvh - var(--s-8));
+  margin: auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  overflow: visible;
+}
+.modal::backdrop {
+  background: var(--scrim-modal);
+  -webkit-backdrop-filter: blur(var(--blur-modal));
+          backdrop-filter: blur(var(--blur-modal));
+}
+@media (prefers-reduced-motion: no-preference) {
+  .modal[open]::backdrop { animation: modal-in var(--dur-base) var(--ease-out) both; }
+}
+@keyframes modal-in { from { opacity: 0; } to { opacity: 1; } }
+
+.modal__card {
+  position: relative;
+  padding: var(--s-8);
+  background: var(--paper);
+  color: var(--ink-900);
+  border-radius: var(--r-card);
+  -webkit-mask: linear-gradient(225deg, transparent var(--notch-cut), var(--ink-900) calc(var(--notch-cut) + var(--hairline)));
+          mask: linear-gradient(225deg, transparent var(--notch-cut), var(--ink-900) calc(var(--notch-cut) + var(--hairline)));
+}
+.modal__card:focus { outline: none; }
+/* своё зерно: глобальный оверлей остаётся под top layer и до карточки не достаёт */
+.modal__card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/decor/grain.png") repeat;
+  opacity: var(--grain-opacity);
+  pointer-events: none;
+}
+
+.modal__close {
+  position: absolute;
+  top: var(--s-5);
+  right: var(--s-5);
+  z-index: 1;
+  border-color: var(--line-light);
+  color: var(--ink-900);
+}
+.modal__close:hover { background: var(--ink-900); border-color: var(--ink-900); color: var(--acid); }
+.modal__close:focus-visible { outline-color: var(--ink-900); }
+
+.modal__rail { color: var(--ink-900); }
+.modal__title { max-width: 12ch; font-size: clamp(30px, 3.6vw, 48px); }
+.modal__sub {
+  max-width: 44ch;
+  margin-top: var(--s-5);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--muted-on-acid);
+  text-wrap: pretty;
+}
+.modal__form { margin-top: var(--s-7); }
+/* карточка уже секции: маска телефона в h3 обрезалась, держим её на ступень меньше */
+.modal__form .lead__input { font-size: var(--fs-lead); }
+.modal__alt { margin-top: var(--s-5); font-size: var(--fs-small); color: var(--muted-on-acid); }
+
+@media (max-width: 767px) {
+  .modal { width: calc(100vw - var(--gutter) * 2); }
+  .modal__card { padding: var(--s-6) var(--s-5) var(--s-7); }
+  .modal__close { top: var(--s-4); right: var(--s-4); }
+  .modal__title { max-width: 10ch; }
+}

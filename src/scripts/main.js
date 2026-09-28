@@ -31,6 +31,7 @@ import { initLeadForm } from './sections/18-form.js';
 import { initFooter } from './sections/19-footer.js';
 import { initGoals } from './systems/goals.js';
 import { initCookie } from './systems/cookie.js';
+import { initModal } from './systems/modal.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -53,7 +54,7 @@ const TASKS = [
   initDirections, initStrip, initAbout, initFearless, initSuperpower,
   initStats, initPersons, initPrep, initTech, initArtist, initStageWith, initGeo,
   initReviews, initFaq, initCta, initProcess, initLeadForm, initFooter,
-  initGoals, initParallax, initMagnetic, initTilt, initCookie,
+  initGoals, initParallax, initMagnetic, initTilt, initCookie, initModal,
 ];
 
 runPreloader().then(async () => {

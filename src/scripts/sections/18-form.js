@@ -26,15 +26,21 @@ const format = (d) => {
   return out;
 };
 
-export function initLeadForm() {
-  const form = document.querySelector('[data-lead-form]');
-  if (!form) return;
-  initReveal(form.closest('.lead'));
+// Форм на странице может быть две: секция «Праздник за 7 дней» и модалка из hero.
+// Логика одна, состояния — у каждой свои.
+export function initLeadForm(scope = document) {
+  scope.querySelectorAll('[data-lead-form]').forEach(bindForm);
+}
+
+function bindForm(form) {
+  const section = form.closest('.lead');
+  if (section) initReveal(section);
   const phone = form.querySelector('[data-lead-phone]');
   const consent = form.querySelector('[data-lead-consent]');
   const msg = form.querySelector('[data-lead-msg]');
   const label = form.querySelector('[data-lead-label]');
-  const hp = form.querySelector('#lead-company');
+  const hp = form.querySelector('[data-lead-hp]');
+  const idleLabel = label.textContent;   // у модалки своя надпись на кнопке
 
   const state = (name, text = '') => {
     form.classList.remove('is-error', 'is-loading', 'is-success');
@@ -80,7 +86,7 @@ export function initLeadForm() {
       reachGoal('lead');
       success();
     } catch {
-      label.textContent = 'Далее';
+      label.textContent = idleLabel;
       state('error', 'Не получилось отправить. Попробуйте ещё раз или позвоните: +7 919 445 96 01');
     }
   });

@@ -9,6 +9,7 @@
 @import './systems/cursor.css';
 @import './systems/grain.css';
 @import './systems/progress.css';
+@import './systems/modal.css';
 
 @import './sections/00-header.css';
 @import './sections/01-hero.css';
