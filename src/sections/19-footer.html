@@ -1,14 +1,26 @@
 <footer class="sec sec--dark footer" id="footer" data-theme="dark" data-tear="3">
   <div class="container">
     <div class="footer__cols">
+      <!-- «Галерея» и «Блог» убраны из футера вместе с меню: страниц пока нет (ТЗ §6).
+           На их месте — страницы направлений, они уже собраны. -->
       <nav class="footer__col" aria-labelledby="f-menu">
         <h2 class="footer__h" id="f-menu">Меню</h2>
         <ul class="footer__list">
           <li><a class="footer__link" href="{{param:root|}}#top">Главная</a></li>
           <li><a class="footer__link" href="{{param:root|}}#about">Кто я такой</a></li>
           <li><a class="footer__link" href="{{param:root|}}#directions">Услуги</a></li>
-          <li><a class="footer__link" href="/gallery">Галерея</a></li>
-          <li><a class="footer__link" href="/blog">Блог</a></li>
+          <li><a class="footer__link" href="{{param:root|}}#reviews">Благодарности</a></li>
+          <li><a class="footer__link" href="{{param:root|}}#faq">Вопросы</a></li>
+        </ul>
+      </nav>
+      <nav class="footer__col" aria-labelledby="f-dirs">
+        <h2 class="footer__h" id="f-dirs">Направления</h2>
+        <ul class="footer__list">
+          <li><a class="footer__link" href="/weddings">Свадьба</a></li>
+          <li><a class="footer__link" href="/cityholiday">Городской праздник</a></li>
+          <li><a class="footer__link" href="/korporat">Корпоратив</a></li>
+          <li><a class="footer__link" href="/privatparty">Частная вечеринка</a></li>
+          <li><a class="footer__link" href="/graduationday">Выпускной</a></li>
         </ul>
       </nav>
       <div class="footer__col">
@@ -17,16 +29,10 @@
           <li><a class="footer__link" href="tel:+79194459601" data-goal="call">+7 919 445 96 01</a></li>
           <li><a class="footer__link" href="mailto:stas.toropov2015@yandex.ru">stas.toropov2015@yandex.ru</a></li>
           <li><a class="footer__link" href="https://t.me/+491Rk3L02ItiODMy" target="_blank" rel="noopener" data-goal="telegram">Написать в&nbsp;телеграм</a></li>
-        </ul>
-      </div>
-      <nav class="footer__col" aria-labelledby="f-quick">
-        <h2 class="footer__h" id="f-quick">Быстрые ссылки</h2>
-        <ul class="footer__list">
-          <li><a class="footer__link" href="/gallery">Галерея</a></li>
-          <li><a class="footer__link" href="{{param:root|}}#about">Обо мне</a></li>
+          <!-- presentation.pdf ждём от клиента (ТЗ §9 п.3) -->
           <li><a class="footer__link" href="/presentation.pdf" download data-goal="presentation">Скачать презентацию</a></li>
         </ul>
-      </nav>
+      </div>
       <div class="footer__col">
         <h2 class="footer__h">Соцсети</h2>
         <ul class="footer__list">
@@ -44,7 +50,10 @@
 
     <div class="footer__legal">
       <p>«Ведущий частных событий и&nbsp;корпоративных мероприятий» © Все права защищены</p>
-      <a class="footer__link" href="/privacy">Политика конфиденциальности</a>
+      <ul class="footer__legal-links">
+        <li><a class="footer__link" href="/privacy">Политика конфиденциальности</a></li>
+        <li><a class="footer__link" href="/terms">Пользовательское соглашение</a></li>
+      </ul>
     </div>
   </div>
 </footer>
