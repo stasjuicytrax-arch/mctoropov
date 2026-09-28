@@ -21,6 +21,7 @@ npm run pages     # пересобрать страницы направлени
 | Страницы направлений | **генерируются** `scripts/build-pages.mjs` из `content/` в корневые `weddings.html`, `cityholiday.html`, `korporat.html`, `privatparty.html`, `graduationday.html`. Править генератор или `content/`, а не HTML |
 | Юридические страницы | `privacy.html`, `terms.html` — обычные файлы, точки входа `src/styles/legal.css` и `src/scripts/legal.js` |
 | 404 | `404.html` |
+| Фото кейсов | `content/case-photos.json` — соответствие «кейс → фото» со старого сайта; `npm run case-photos` докачивает оригиналы в `assets/cases/` и режет обложки в `public/img/cases/` |
 | Стили | `src/styles/tokens.css` — единственный источник значений; дальше база, компоненты, сквозные системы, секции |
 | Скрипты | точки входа `main.js` (главная), `page.js` (направления), `legal.js` (юридические) |
 

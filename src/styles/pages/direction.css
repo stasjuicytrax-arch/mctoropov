@@ -112,7 +112,11 @@
   color: var(--muted-on-dark);
 }
 
-/* ---------- Кейсы: ведомость, а не сетка карточек ---------- */
+/* ---------- Кейсы: карточки типа C (ДС §6) ----------
+   Фото 4:3 со срезанным углом, затемнение снизу, поверх него — название,
+   площадка и тег с числом гостей. Задачи и хедлайнер — текстом под фото.
+   У кейсов, для которых фото со старого сайта нет, та же карточка, но
+   «обложка» набрана типографикой на бумаге — чужие фото не подставляем. */
 .cases__head { margin-bottom: var(--s-8); }
 .cases__note {
   margin-top: var(--s-4);
@@ -123,23 +127,54 @@
   text-transform: uppercase;
   color: var(--muted-on-acid);
 }
-.cases__list { border-top: var(--hairline) solid var(--line-light); }
-.case {
+.cases__list {
   display: grid;
-  grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
-  column-gap: var(--grid-gap);
-  align-items: baseline;
-  padding-block: var(--s-6);
-  border-bottom: var(--hairline) solid var(--line-light);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--s-8) var(--grid-gap);
+}
+.case { display: grid; align-content: start; gap: var(--s-5); }
+
+.case__media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: clip;
+  border-radius: var(--r-card);
+  background: var(--ink-900);
+  color: var(--white);
+  -webkit-mask: linear-gradient(225deg, transparent var(--notch-cut), var(--ink-900) calc(var(--notch-cut) + var(--hairline)));
+          mask: linear-gradient(225deg, transparent var(--notch-cut), var(--ink-900) calc(var(--notch-cut) + var(--hairline)));
+}
+.case__picture { position: absolute; inset: 0; display: block; }
+.case__picture img { width: 100%; height: 100%; object-fit: cover; filter: var(--photo-dim); }
+.case__media::after {   /* §6 C: затемнение снизу (и лёгкое сверху — под номер) */
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* две копии токена: у длинных названий низ карточки должен держать белый текст */
+  background: var(--scrim-photo), var(--scrim-photo);
+  pointer-events: none;
 }
 .case__num {
-  grid-column: 1;
+  position: absolute;
+  z-index: 1;
+  top: var(--s-5);
+  left: var(--s-5);
   font-family: var(--font-mono);
   font-size: var(--fs-label);
   font-weight: 700;
   letter-spacing: var(--tr-label);
+  line-height: 1;
+  color: var(--acid);
 }
-.case__main { grid-column: 2 / span 4; display: grid; gap: var(--s-2); }
+.case__media figcaption,
+.case figcaption {
+  position: absolute;
+  z-index: 1;
+  inset-inline: 0;
+  bottom: 0;
+  padding: var(--s-5);
+}
+.case__cap { display: grid; gap: var(--s-2); }
 .case__title {
   font-family: var(--font-display);
   font-size: var(--fs-lead);
@@ -155,9 +190,12 @@
   line-height: var(--lh-small);
   letter-spacing: var(--tr-label);
   text-transform: uppercase;
-  color: var(--muted-on-acid);
+  color: var(--muted-on-dark);
 }
-.case__body { grid-column: 6 / span 4; display: grid; gap: var(--s-2); }
+.case__tags { display: flex; flex-wrap: wrap; gap: var(--s-2); margin-top: var(--s-3); }
+.case__tags .tag { font-variant-numeric: tabular-nums; }
+
+.case__body { display: grid; gap: var(--s-2); }
 .case__tasks { font-size: var(--fs-body); line-height: var(--lh-body); text-wrap: pretty; }
 .case__meta { font-size: var(--fs-body); font-weight: 600; line-height: var(--lh-small); }
 .case__key {
@@ -169,32 +207,17 @@
   text-transform: uppercase;
   color: var(--muted-on-acid);
 }
-.case__guests {
-  grid-column: 10 / -1;
-  display: grid;
-  justify-items: end;
-  gap: var(--s-1);
-  text-align: right;
-}
-.case__n {
-  font-family: var(--font-display);
-  font-size: var(--fs-h3);
-  font-weight: var(--fw-display);
-  line-height: 1;
-  letter-spacing: var(--tr-h3);
-  font-variant-numeric: tabular-nums;
-}
-.case__unit {
-  font-family: var(--font-mono);
-  font-size: var(--fs-label);
-  font-weight: 700;
-  letter-spacing: var(--tr-label);
-  text-transform: uppercase;
-  color: var(--muted-on-acid);
-}
 
-.cases__list.is-collapsed > .case:nth-child(n + 9) { display: none; }
-.cases__more { margin-top: var(--s-7); }
+/* без фото: обложка — типографика на бумаге, чужие кадры не подставляем */
+.case--flat .case__media { background: var(--paper-2); color: var(--ink-900); }
+.case--flat .case__media::after { display: none; }
+.case--flat .case__num { color: var(--ink-900); }
+.case--flat .case__place { color: var(--muted-on-acid); }
+.case--flat .case__title { font-size: var(--fs-h3); }
+.case--flat .tag--on-photo { border-color: var(--line-light); color: var(--ink-900); }
+
+.cases__list.is-collapsed > .case:nth-child(n + 10) { display: none; }
+.cases__more { margin-top: var(--s-8); }
 .cases__more .icon--arrow-down { transition: transform var(--dur-base) var(--ease-out); }
 .cases__more:hover .btn__arrow { transform: none; }
 .cases__more:hover .icon--arrow-down { transform: translateY(2px); }
@@ -251,9 +274,7 @@
 @media (max-width: 1279px) {
   .dhero__body { grid-column: 1 / span 4; }
   .dhero__media { grid-column: 5 / -1; }
-  .case__main { grid-column: 2 / span 4; }
-  .case__guests { grid-column: 6 / -1; }
-  .case__body { grid-column: 2 / -1; grid-row: 2; margin-top: var(--s-4); max-width: var(--measure); }
+  .cases__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 /* ---------- Мобайл ---------- */
@@ -266,11 +287,7 @@
   .dhero__facts { grid-template-columns: minmax(0, 1fr); row-gap: var(--s-4); margin-top: var(--s-8); }
   .dhero__fact { grid-template-columns: auto minmax(0, 1fr); align-items: baseline; column-gap: var(--s-4); padding-top: var(--s-4); }
 
-  .case { grid-template-columns: minmax(0, 1fr) auto; row-gap: var(--s-3); }
-  .case__num { grid-column: 1 / -1; }
-  .case__main { grid-column: 1; }
-  .case__guests { grid-column: 2; grid-row: 2; align-self: start; }
-  .case__body { grid-column: 1 / -1; grid-row: 3; margin-top: 0; }
+  .cases__list { grid-template-columns: minmax(0, 1fr); gap: var(--s-7); }
 
   .others__list { grid-template-columns: minmax(0, 1fr); }
   .others__link { grid-template-columns: var(--s-7) minmax(0, 1fr) auto; }

@@ -11,7 +11,8 @@
     "preview": "vite preview --host",
     "pages": "node scripts/build-pages.mjs",
     "images": "node scripts/optimize-images.mjs",
-    "fonts": "node scripts/copy-fonts.mjs"
+    "fonts": "node scripts/copy-fonts.mjs",
+    "case-photos": "node scripts/case-photos.mjs"
   },
   "dependencies": {
     "gsap": "^3.15.0",

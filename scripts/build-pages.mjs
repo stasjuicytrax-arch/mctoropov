@@ -161,32 +161,61 @@ const packItem = (pk, i) => `<li class="pack" data-reveal-item>
     </li>`;
 
 // ---------- Разметка ----------
-const COLLAPSE_AFTER = 8;   // длинные списки (21 и 22 кейса) сворачиваются; без JS видно всё
+const COLLAPSE_AFTER = 9;   // длинные списки (21 и 22 кейса) сворачиваются до трёх рядов карточек; без JS видно всё
 
 const srcset = (img, fmt_) => [480, 960, 1440].map((w) => `/img/${img}-${w}.${fmt_} ${w}w`).join(', ');
 const HERO_SIZES = '(max-width: 767px) calc(100vw - 40px), (max-width: 1279px) 50vw, 700px';
 
-function caseItem(c, i, unit) {
+// ---------- Фото кейсов ----------
+// content/case-photos.json собран со старых страниц Tilda: там у каждого кейса
+// текстовый блок и коллаж фото лежат в одной секции. Ключ — мероприятие + город + гости.
+// У 22 кейсов из 69 фото на старом сайте не было — они остаются текстовыми карточками.
+const casePhotos = JSON.parse(readFileSync('content/case-photos.json', 'utf8'));
+
+function photoFor(slug, c) {
+  const list = casePhotos[slug] ?? [];
+  const i = list.findIndex((p) => p.event === c.event && p.city === c.city && (p.guests ?? null) === (c.guests ?? null));
+  return i < 0 ? null : `${slug}-${pad(i + 1)}`;
+}
+
+const CASE_SIZES = '(max-width: 767px) calc(100vw - 40px), (max-width: 1279px) calc(50vw - 52px), calc(33vw - 60px)';
+const caseSrcset = (img, f) => [480, 960].map((w) => `/img/cases/${img}-${w}.${f} ${w}w`).join(', ');
+
+function caseItem(c, i, unit, slug) {
   const place = [c.city, c.place].filter(Boolean).map(txt).join(' · ');
   const year = c.year && !c.event.includes(c.year) ? `, ${c.year}` : '';
+  const title = `${txt(c.event)}${year}`;
   const guests = c.guests
-    ? `<p class="case__guests"><span class="case__n">${fmt(c.guests)}</span><span class="case__unit">${c.guestsNote ? `${plural(c.guests, 'зритель', 'зрителя', 'зрителей')} ${txt(c.guestsNote)}` : plural(c.guests, ...unit)}</span></p>`
+    ? `<li class="tag tag--on-photo">${fmt(c.guests)}&nbsp;${c.guestsNote ? `${plural(c.guests, 'зритель', 'зрителя', 'зрителей')} ${txt(c.guestsNote)}` : plural(c.guests, ...unit)}</li>`
     : '';
   const extra = [
     c.headliner && `<p class="case__meta"><span class="case__key">Хедлайнер</span> ${txt(c.headliner)}</p>`,
     c.organizers && `<p class="case__meta"><span class="case__key">Организаторы</span> ${txt(c.organizers)}</p>`,
-  ].filter(Boolean).join('\n      ');
-  return `<li class="case" data-reveal-item>
-    <span class="case__num" aria-hidden="true">${pad(i + 1)}</span>
-    <div class="case__main">
-      <h3 class="case__title">${txt(c.event)}${year}</h3>
-      <p class="case__place">${place}</p>
-    </div>
-    <div class="case__body">
-      ${c.tasks ? `<p class="case__tasks">${txt(c.tasks)}</p>` : ''}
-      ${extra}
-    </div>
-    ${guests}
+  ].filter(Boolean).join('\n        ');
+  const img = photoFor(slug, c);
+
+  // карточка типа C (ДС §6): фото, затемнение снизу, заголовок и теги поверх него.
+  // Без фото — та же карточка, но «обложка» набрана типографикой.
+  const cap = `<div class="case__cap">
+        <h3 class="case__title">${title}</h3>
+        <p class="case__place">${place}</p>
+        ${guests ? `<ul class="case__tags">${guests}</ul>` : ''}
+      </div>`;
+
+  return `<li class="case${img ? '' : ' case--flat'}" data-reveal-item>
+    <figure class="case__media">
+      ${img ? `<picture class="case__picture">
+        <source type="image/avif" srcset="${caseSrcset(img, 'avif')}" sizes="${CASE_SIZES}">
+        <source type="image/webp" srcset="${caseSrcset(img, 'webp')}" sizes="${CASE_SIZES}">
+        <img src="/img/cases/${img}-480.jpg" alt="${esc(c.event)}${c.city ? ', ' + esc(c.city) : ''}" width="960" height="720" loading="lazy" decoding="async">
+      </picture>` : ''}
+      <span class="case__num" aria-hidden="true">${pad(i + 1)}</span>
+      <figcaption>${cap}</figcaption>
+    </figure>
+    ${c.tasks || extra ? `<div class="case__body">
+        ${c.tasks ? `<p class="case__tasks">${txt(c.tasks)}</p>` : ''}
+        ${extra}
+      </div>` : ''}
   </li>`;
 }
 
@@ -333,7 +362,7 @@ ${ld.map((o) => `  <script type="application/ld+json">${JSON.stringify(o)}</scri
           <p class="cases__note" data-reveal="fade">мероприятие · город · площадка · задачи · ${d.unit[2]}</p>
         </div>
         <ol class="cases__list${collapse ? ' is-collapsible' : ''}" id="cases-list" data-reveal="up" data-cases>
-  ${cases.map((c, i) => caseItem(c, i, d.unit)).join('\n  ')}
+  ${cases.map((c, i) => caseItem(c, i, d.unit, d.slug)).join('\n  ')}
         </ol>
         ${collapse ? `<button class="btn btn--dark btn--m cases__more" type="button" aria-expanded="false" aria-controls="cases-list" hidden data-cases-more>
           <span class="btn__label" data-cases-more-label>Показать все ${cases.length} ${plural(cases.length, 'кейс', 'кейса', 'кейсов')}</span>

@@ -1,4 +1,4 @@
-// Кейсы на странице направления: длинный список (21–22 кейса) свёрнут до первых восьми.
+// Кейсы на странице направления: длинная сетка (21–22 карточки) свёрнута до первых девяти.
 // Без JS видно всё — сворачивает только скрипт. Раскрытие одно, назад не сворачиваем:
 // после «Показать все» человек уже листает список, прыжок страницы вверх ему не нужен.
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -12,7 +12,7 @@ export function initCases() {
   more.hidden = false;
 
   more.addEventListener('click', () => {
-    const first = list.querySelector('.case:nth-child(9)');
+    const first = list.querySelector('.case:nth-child(10)');
     list.classList.remove('is-collapsed');
     more.setAttribute('aria-expanded', 'true');
     more.hidden = true;

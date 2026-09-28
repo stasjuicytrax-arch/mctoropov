@@ -1,0 +1,926 @@
+{
+ "_": "Фото кейсов со старого сайта (Tilda). Ключ — мероприятие + город + гости из 04-cases.md. cover — обложка карточки, photos — весь коллаж кейса. Собрано скриптом разбора старых страниц 28.09.2026.",
+ "weddings": [
+  {
+   "event": "Свадьба Александры и Сергея",
+   "city": "Пермь",
+   "guests": 60,
+   "cover": "https://static.tildacdn.com/tild6237-3862-4039-b432-333363333634/1.jpg",
+   "photos": [
+    "https://static.tildacdn.com/tild6237-3862-4039-b432-333363333634/1.jpg",
+    "https://static.tildacdn.com/tild3361-3133-4366-a438-393535373266/2.jpg",
+    "https://static.tildacdn.com/tild6639-6438-4137-a163-366530383666/3.jpg",
+    "https://static.tildacdn.com/tild3464-3539-4232-b633-616633303630/FJ7A5970.jpg",
+    "https://static.tildacdn.com/tild6333-3965-4061-b962-353336386461/5.jpg",
+    "https://static.tildacdn.com/tild6639-3662-4262-a233-323636396166/6.jpg",
+    "https://static.tildacdn.com/tild6237-6433-4233-a166-376432393364/7.jpg",
+    "https://static.tildacdn.com/tild3036-3962-4530-a134-643134363766/8.jpg",
+    "https://static.tildacdn.com/tild3266-3531-4331-b062-643764306233/9.jpg",
+    "https://static.tildacdn.com/tild3165-3066-4366-b639-363439386434/10.jpg",
+    "https://static.tildacdn.com/tild3233-3539-4133-b465-396634386665/11.jpg",
+    "https://static.tildacdn.com/tild3533-3637-4237-b436-633936663230/12.jpg"
+   ]
+  },
+  {
+   "event": "Свадьба",
+   "city": "Анапа",
+   "guests": 50,
+   "cover": "https://static.tildacdn.com/tild3563-3131-4231-b032-356431663233/138.jpg",
+   "photos": [
+    "https://static.tildacdn.com/tild3563-3131-4231-b032-356431663233/138.jpg",
+    "https://static.tildacdn.com/tild3736-6531-4361-b432-663038613161/169.jpg",
+    "https://static.tildacdn.com/tild3938-3837-4833-b432-646664383061/FJ7A8563.jpg",
+    "https://static.tildacdn.com/tild3464-3539-4232-b633-616633303630/FJ7A5970.jpg",
+    "https://static.tildacdn.com/tild3535-6632-4162-a232-313963393434/FJ7A8576.jpg",
+    "https://static.tildacdn.com/tild6264-3564-4762-b632-336136363863/FJ7A7946.jpg",
+    "https://static.tildacdn.com/tild6561-6331-4331-b538-636139643561/FJ7A7005.jpg",
+    "https://static.tildacdn.com/tild3763-6236-4532-b337-303261383133/FJ7A6827.jpg",
+    "https://static.tildacdn.com/tild3062-3639-4234-a239-636331346439/FJ7A5760.jpg",
+    "https://static.tildacdn.com/tild3162-6335-4436-b161-613234303764/FJ7A5238.jpg",
+    "https://static.tildacdn.com/tild6161-3330-4534-b037-313734323231/FJ7A4064.jpg",
+    "https://static.tildacdn.com/tild6661-3834-4939-b162-663866313165/FJ7A4985.jpg"
+   ]
+  },
+  {
+   "event": "Свадьба",
+   "city": "Санкт-Петербург",
+   "guests": 120,
+   "cover": "https://static.tildacdn.com/tild3934-3165-4164-a435-323233653763/188.jpg",
+   "photos": [
+    "https://static.tildacdn.com/tild3934-3165-4164-a435-323233653763/188.jpg",
+    "https://static.tildacdn.com/tild6537-3437-4234-a133-643037303061/264.jpg",
+    "https://static.tildacdn.com/tild3062-3434-4836-b265-323338383439/414.jpg",
+    "https://static.tildacdn.com/tild3231-3835-4135-b662-393431613139/476.jpg",
+    "https://static.tildacdn.com/tild3863-3132-4432-b137-653938323766/498.jpg",
+    "https://static.tildacdn.com/tild3564-3634-4139-b936-343662333638/581.jpg"
+   ]
+  },
+  {
+   "event": "Свадьба",
+   "city": "Пермь",
+   "guests": 80,
+   "cover": "https://static.tildacdn.com/tild3336-6132-4531-b462-333566623862/BQ5T1623.jpg",
+   "photos": [
+    "https://static.tildacdn.com/tild3336-6132-4531-b462-333566623862/BQ5T1623.jpg",
+    "https://static.tildacdn.com/tild3737-3735-4734-a135-376461343062/BQ5T1735.jpg",
+    "https://static.tildacdn.com/tild6661-6137-4636-a230-343566393563/BQ5T1752.jpg",
+    "https://static.tildacdn.com/tild3135-3931-4439-b333-653266636163/BQ5T2234.jpg",
+    "https://static.tildacdn.com/tild3134-3139-4737-b136-636137623762/BQ5T2517.jpg",
+    "https://static.tildacdn.com/tild6236-3962-4538-b931-363131663065/BQ5T2630.jpg"
+   ]
+  },
+  {
+   "event": "Свадьба Алексея и Натальи",
+   "city": "Пермь",
+   "guests": 90,
+   "cover": "https://static.tildacdn.com/tild6564-3965-4661-b937-383834396536/h2cxTN_gS2A.jpg",
+   "photos": [
+    "https://static.tildacdn.com/tild6564-3965-4661-b937-383834396536/h2cxTN_gS2A.jpg",
+    "https://static.tildacdn.com/tild6639-3939-4565-b963-393464376435/IMG_0473.jpg",
+    "https://static.tildacdn.com/tild6663-3032-4638-b036-633537613231/IMG_0541.jpg",
+    "https://static.tildacdn.com/tild3039-3739-4237-a464-646466303064/IMG_1189.jpg",
+    "https://static.tildacdn.com/tild3164-3438-4964-b631-333662633430/IMG_1327.jpg",
+    "https://static.tildacdn.com/tild6132-3663-4137-b132-633239313734/R9ad2F3ARik.jpg"
+   ]
+  },
+  {
+   "event": "Свадьба Евгения и Алёны",
+   "city": "Пермь",
+   "guests": 150,
+   "cover": "https://static.tildacdn.com/tild6661-3263-4135-b565-373036393035/DSC09547.jpg",
+   "photos": [
+    "https://static.tildacdn.com/tild6661-3263-4135-b565-373036393035/DSC09547.jpg",
+    "https://static.tildacdn.com/tild3164-3862-4565-b430-303839613336/DSC09550.jpg",
+    "https://static.tildacdn.com/tild3330-3139-4466-b937-633439366163/DSC09605.jpg",
+    "https://static.tildacdn.com/tild6439-3939-4236-a563-613737353034/DSC10201.jpg",
+    "https://static.tildacdn.com/tild6236-6339-4435-b763-303463636239/DSC10253.jpg",
+    "https://static.tildacdn.com/tild3961-3564-4136-b034-323061303635/DSC10793.jpg",
+    "https://static.tildacdn.com/tild3636-3538-4362-a636-653035323435/DSC11338.jpg",
+    "https://static.tildacdn.com/tild3533-3761-4530-b162-633762376138/DSC11886.jpg",
+    "https://static.tildacdn.com/tild3130-3465-4261-a633-656166363134/DSC14400.jpg",
+    "https://static.tildacdn.com/tild6663-3862-4139-b931-313230373630/DSC12421.jpg",
+    "https://static.tildacdn.com/tild6263-6362-4138-a230-383031666539/DSC15773.jpg",
+    "https://static.tildacdn.com/tild3561-6265-4364-b934-663635616434/DSC15739.jpg"
+   ]
+  },
+  {
+   "event": "Свадьба Юлии и Антона",
+   "city": "Пермь",
+   "guests": 130,
+   "cover": "https://static.tildacdn.com/tild3134-6238-4563-a435-376336333263/AJ-333.jpg",
+   "photos": [
+    "https://static.tildacdn.com/tild3134-6238-4563-a435-376336333263/AJ-333.jpg",
+    "https://static.tildacdn.com/tild6430-3433-4263-a630-643739376234/AJ-341.jpg",
+    "https://static.tildacdn.com/tild3632-3864-4539-b934-313035326363/AJ-344.jpg",
+    "https://static.tildacdn.com/tild6665-3263-4263-b264-316633613431/AJ-412.jpg",
+    "https://static.tildacdn.com/tild3265-3066-4330-b032-633164643238/AJ-414.jpg",
+    "https://static.tildacdn.com/tild6539-3433-4263-b036-396434383331/AJ-385.jpg",
+    "https://static.tildacdn.com/tild3938-6661-4566-b263-616637663836/AJ-419.jpg",
+    "https://static.tildacdn.com/tild6365-3634-4531-a366-303734613832/AJ-450.jpg",
+    "https://static.tildacdn.com/tild3063-6430-4565-b132-353962333963/AJ-526.jpg",
+    "https://static.tildacdn.com/tild3464-3739-4737-b163-333963333064/AJ-555.jpg",
+    "https://static.tildacdn.com/tild3964-6136-4066-b139-353662666134/AJ-569.jpg",
+    "https://static.tildacdn.com/tild6433-3730-4762-a630-383837363165/AJ-579.jpg"
+   ]
+  },
+  {
+   "event": "Свадьба Павла и Ксении",
+   "city": "Пермь",
+   "guests": 45,
+   "cover": "https://static.tildacdn.com/tild3437-6330-4132-a261-616663396638/DSC02562.jpg",
+   "photos": [
+    "https://static.tildacdn.com/tild3437-6330-4132-a261-616663396638/DSC02562.jpg",
+    "https://static.tildacdn.com/tild6262-6233-4131-b539-646665333664/DSC02576.jpg",
+    "https://static.tildacdn.com/tild6662-3236-4133-b330-313032393236/DSC02651.jpg",
+    "https://static.tildacdn.com/tild3661-6333-4332-b231-656531613334/DSC02773.jpg",
+    "https://static.tildacdn.com/tild3934-6462-4434-b265-323066616133/DSC02988.jpg",
+    "https://static.tildacdn.com/tild6130-3933-4937-b766-323332383134/DSC03287.jpg",
+    "https://static.tildacdn.com/tild3336-3466-4164-b832-333662393261/DSC03351.jpg",
+    "https://static.tildacdn.com/tild6638-3664-4661-b933-663166346263/DSC03557.jpg",
+    "https://static.tildacdn.com/tild3061-6235-4531-a461-366362313063/DSC03886.jpg"
+   ]
+  }
+ ],
+ "cityholiday": [
+  {
+   "event": "День города Перми 2022",
+   "city": "Пермь",
+   "guests": 10000,
+   "cover": "https://static.tildacdn.com/tild6535-6334-4634-b530-393766663461/1.jpg",
+   "photos": [
+    "https://static.tildacdn.com/tild6535-6334-4634-b530-393766663461/1.jpg",
+    "https://static.tildacdn.com/tild3530-6139-4863-a263-626562663734/2.jpg",
+    "https://static.tildacdn.com/tild3735-3233-4633-b035-383965666539/3.jpg",
+    "https://static.tildacdn.com/tild3239-3635-4962-b130-326134333965/4.jpg",
+    "https://static.tildacdn.com/tild3761-3237-4535-b939-356464343633/5.jpg",
+    "https://static.tildacdn.com/tild3130-3666-4337-a638-376564656134/6.jpg",
+    "https://static.tildacdn.com/tild3363-3762-4333-a565-663266343232/7.jpg",
+    "https://static.tildacdn.com/tild3634-6466-4464-b530-353061333166/8.jpg",
+    "https://static.tildacdn.com/tild6365-3037-4762-b139-626135316137/9.jpg",
+    "https://static.tildacdn.com/tild3231-3266-4634-a230-313661623233/10.jpg",
+    "https://static.tildacdn.com/tild3433-3433-4265-b833-386664343938/11.jpg",
+    "https://static.tildacdn.com/tild3066-3264-4435-b666-393961663036/12.jpg"
+   ]
+  },
+  {
+   "event": "Аквабайк Шоу 2022",
+   "city": "Пермь",
+   "guests": 1000,
+   "cover": "https://static.tildacdn.com/tild3737-3630-4534-b931-393038386432/1.jpg",
+   "photos": [
+    "https://static.tildacdn.com/tild3737-3630-4534-b931-393038386432/1.jpg",
+    "https://static.tildacdn.com/tild3334-6137-4365-b833-323530373535/2.jpg",
+    "https://static.tildacdn.com/tild6161-3532-4135-b231-333439376266/3.jpg",
+    "https://static.tildacdn.com/tild3063-3039-4138-b062-663737656266/4.jpg",
+    "https://static.tildacdn.com/tild3233-3930-4762-a134-653732373866/5.jpg",
+    "https://static.tildacdn.com/tild3639-3632-4330-b237-616435623738/6.jpg",
+    "https://static.tildacdn.com/tild3634-3732-4932-b839-373261613437/7.jpg",
+    "https://static.tildacdn.com/tild6130-3731-4566-b535-323261316131/8.jpg",
+    "https://static.tildacdn.com/tild6462-3866-4137-b664-356330343961/9.jpg",
+    "https://static.tildacdn.com/tild3165-6132-4731-b962-643734383235/10.jpg",
+    "https://static.tildacdn.com/tild3961-3338-4762-a539-656134633338/11.jpg",
+    "https://static.tildacdn.com/tild3739-3566-4231-b866-336633383864/12.jpg"
+   ]
+  },
+  {
+   "event": "День города 2021, спортивная часть",
+   "city": "Пермь",
+   "guests": 2000,
+   "cover": "https://static.tildacdn.com/tild6330-6635-4663-b538-333164643161/1.jpg",
+   "photos": [
+    "https://static.tildacdn.com/tild6330-6635-4663-b538-333164643161/1.jpg",
+    "https://static.tildacdn.com/tild3665-6634-4136-a465-353136316561/2.jpg",
+    "https://static.tildacdn.com/tild3439-3866-4438-a463-333930353830/3.jpg",
+    "https://static.tildacdn.com/tild3437-6563-4335-b536-303830353061/4.jpg",
+    "https://static.tildacdn.com/tild3834-3538-4165-b166-313638373866/5.jpg",
+    "https://static.tildacdn.com/tild3538-3534-4336-b736-303166346364/6.jpg",
+    "https://static.tildacdn.com/tild6530-3237-4938-b661-323663623432/7.jpg",
+    "https://static.tildacdn.com/tild3736-3961-4366-b263-383937633439/8.jpg",
+    "https://static.tildacdn.com/tild3565-6135-4832-a362-356666303936/9.jpg",
+    "https://static.tildacdn.com/tild3462-3633-4131-b464-633437366661/10.jpg",
+    "https://static.tildacdn.com/tild3830-3265-4339-a535-623362373861/11.jpg",
+    "https://static.tildacdn.com/tild3030-6338-4563-b736-626334306166/12.jpg"
+   ]
+  },
+  {
+   "event": "День города Чусового 2022",
+   "city": "Чусовой",
+   "guests": 5000,
+   "cover": "https://static.tildacdn.com/tild3533-6332-4330-a138-613738633734/1.jpg",
+   "photos": [
+    "https://static.tildacdn.com/tild3533-6332-4330-a138-613738633734/1.jpg",
+    "https://static.tildacdn.com/tild3635-3164-4432-b661-313434663034/2.jpg",
+    "https://static.tildacdn.com/tild3234-3065-4236-b464-663961623738/3.jpg",
+    "https://static.tildacdn.com/tild3332-6266-4230-b962-376664636336/4.jpg",
+    "https://static.tildacdn.com/tild6435-3036-4463-b337-333432636636/5.jpg",
+    "https://static.tildacdn.com/tild3264-3036-4263-b139-383530636233/6.jpg",
+    "https://static.tildacdn.com/tild6632-3637-4432-b337-303832366261/7.jpg",
+    "https://static.tildacdn.com/tild6331-6164-4763-a532-636634313732/8.jpg",
+    "https://static.tildacdn.com/tild6436-3137-4564-a461-363837623763/9.jpg",
+    "https://static.tildacdn.com/tild3739-3935-4438-a362-326634376239/10.jpg",
+    "https://static.tildacdn.com/tild6437-3731-4165-a332-356461383362/11.jpg",
+    "https://static.tildacdn.com/tild6634-6137-4665-b633-666338353235/YXsIQLXwj_s.jpg"
+   ]
+  },
+  {
+   "event": "Конкурс красоты «Ты уникальная 2022»",
+   "city": "Пермь",
+   "guests": 400,
+   "cover": "https://static.tildacdn.com/tild3938-3739-4266-b064-303439393566/1.jpg",
+   "photos": [
+    "https://static.tildacdn.com/tild3938-3739-4266-b064-303439393566/1.jpg",
+    "https://static.tildacdn.com/tild3062-6566-4136-a264-626536373434/2.jpg",
+    "https://static.tildacdn.com/tild6134-3638-4166-a234-353433363236/3.jpg",
+    "https://static.tildacdn.com/tild3733-6365-4465-b532-633839663637/4.jpg",
+    "https://static.tildacdn.com/tild6532-3436-4663-a539-623235373863/5.jpg",
+    "https://static.tildacdn.com/tild3034-6535-4631-b263-316234393133/6.jpg",
+    "https://static.tildacdn.com/tild3864-3037-4336-b837-643138653032/7.jpg",
+    "https://static.tildacdn.com/tild3836-6561-4264-b234-663866363963/8.jpg",
+    "https://static.tildacdn.com/tild3938-3830-4661-b934-306636346538/9.jpg",
+    "https://static.tildacdn.com/tild3433-3738-4430-a230-653261666432/10.jpg",
+    "https://static.tildacdn.com/tild3766-6538-4930-a638-636330346130/11.jpg",
+    "https://static.tildacdn.com/tild3861-3935-4434-b061-653836653337/12.jpg"
+   ]
+  },
+  {
+   "event": "Битва роботов 2023",
+   "city": "Москва",
+   "guests": 2500,
+   "cover": "https://static.tildacdn.com/tild6437-3530-4739-a634-336136363735/0L8A1401.jpg",
+   "photos": [
+    "https://static.tildacdn.com/tild6437-3530-4739-a634-336136363735/0L8A1401.jpg",
+    "https://static.tildacdn.com/tild3461-6531-4331-a338-343961353937/0L8A1421.jpg",
+    "https://static.tildacdn.com/tild3235-6564-4832-b831-363763353864/0L8A1433.jpg",
+    "https://static.tildacdn.com/tild6634-3861-4062-a131-663331623530/0L8A1543.jpg",
+    "https://static.tildacdn.com/tild6639-3134-4561-b837-376331613339/0L8A1955.jpg",
+    "https://static.tildacdn.com/tild3831-6530-4862-b438-386166626233/0L8A2672.jpg",
+    "https://static.tildacdn.com/tild6261-6331-4331-a562-383834633532/095858_DSC_7892.jpg",
+    "https://static.tildacdn.com/tild3534-3439-4934-b933-663332363264/095831_DSC_7889.jpg",
+    "https://static.tildacdn.com/tild3134-3262-4334-a434-376531363739/101614_DSC_8141.jpg",
+    "https://static.tildacdn.com/tild3266-6565-4036-b737-303661323765/102645_DSC_8295.jpg",
+    "https://static.tildacdn.com/tild3261-3766-4462-b033-343964303432/191231_DSC_1626.jpg",
+    "https://static.tildacdn.com/tild3862-3033-4264-b664-633134396633/213831_DSC_3562.jpg"
+   ]
+  },
+  {
+   "event": "Краевой выпускной",
+   "city": "Пермь",
+   "guests": 3000,
+   "cover": "https://static.tildacdn.com/tild6563-6139-4934-b865-633464633561/DSC01921_1.jpg",
+   "photos": [
+    "https://static.tildacdn.com/tild6563-6139-4934-b865-633464633561/DSC01921_1.jpg",
+    "https://static.tildacdn.com/tild3936-6666-4931-b332-636230663439/DSC01958.jpg",
+    "https://static.tildacdn.com/tild3933-6230-4365-a636-303230373363/DSC02076.jpg",
+    "https://static.tildacdn.com/tild3931-3338-4133-b566-636638393561/DSC02514.jpg",
+    "https://static.tildacdn.com/tild3138-3331-4237-a364-616334643234/DSC02677.jpg",
+    "https://static.tildacdn.com/tild3535-3266-4634-b235-346431343366/DSC02703.jpg",
+    "https://static.tildacdn.com/tild3337-3464-4632-b936-643637373332/DSC02723_1.jpg",
+    "https://static.tildacdn.com/tild3461-3762-4066-b237-306665306265/DSC02748.jpg",
+    "https://static.tildacdn.com/tild6432-3335-4332-b664-313431366637/DSC02809.jpg",
+    "https://static.tildacdn.com/tild6563-6536-4434-a635-623735643931/DSC03012.jpg",
+    "https://static.tildacdn.com/tild3533-6561-4531-b733-666237393030/DSC03487.jpg",
+    "https://static.tildacdn.com/tild3462-6437-4836-b862-656239353135/DSC03087.jpg"
+   ]
+  },
+  {
+   "event": "Конкурс красоты «Ты уникальная»",
+   "city": "Санкт-Петербург",
+   "guests": 800,
+   "cover": "https://static.tildacdn.com/tild3831-3930-4136-b632-323634386632/DSC06695_copy.jpg",
+   "photos": [
+    "https://static.tildacdn.com/tild3831-3930-4136-b632-323634386632/DSC06695_copy.jpg",
+    "https://static.tildacdn.com/tild3738-3535-4532-b238-333633366366/DSC06707_copy.jpg",
+    "https://static.tildacdn.com/tild6636-3532-4466-a362-363939346232/DSC06713_copy.jpg",
+    "https://static.tildacdn.com/tild3562-6362-4530-a136-366438626365/DSC06725_copy.jpg",
+    "https://static.tildacdn.com/tild3065-3931-4535-b766-363739643632/DSC06731_copy.jpg",
+    "https://static.tildacdn.com/tild6337-3835-4036-a363-646165303430/DSC06761_copy.jpg",
+    "https://static.tildacdn.com/tild6135-3835-4663-a230-636230663363/DSC06769_copy.jpg",
+    "https://static.tildacdn.com/tild3438-3362-4066-a161-323134363534/DSC07458.jpg",
+    "https://static.tildacdn.com/tild3139-3930-4363-a163-303735323234/DSC07972.jpg",
+    "https://static.tildacdn.com/tild3365-3764-4863-b431-623263393934/DSC08418.jpg",
+    "https://static.tildacdn.com/tild3861-3764-4934-b031-316434323736/DSC08573.jpg",
+    "https://static.tildacdn.com/tild3265-6138-4565-b862-343337323431/DSC9999-126_copy.jpg"
+   ]
+  }
+ ],
+ "korporat": [
+  {
+   "event": "Адвокатская палата Пермского края, 20 лет",
+   "city": "Пермь",
+   "guests": 170,
+   "cover": "https://static.tildacdn.com/tild6361-3637-4335-b161-353636663539/0345.jpg",
+   "photos": [
+    "https://static.tildacdn.com/tild6361-3637-4335-b161-353636663539/0345.jpg",
+    "https://static.tildacdn.com/tild3161-6261-4233-a238-633330633766/0373.jpg",
+    "https://static.tildacdn.com/tild6534-3763-4933-b064-363932616563/0430.jpg",
+    "https://static.tildacdn.com/tild3937-3030-4162-a564-396464383132/0433.jpg",
+    "https://static.tildacdn.com/tild3835-3137-4431-a363-656366653032/0509.jpg",
+    "https://static.tildacdn.com/tild6239-6535-4136-b732-323236636534/0572.jpg",
+    "https://static.tildacdn.com/tild3436-6630-4965-b964-663433383033/0601.jpg",
+    "https://static.tildacdn.com/tild3765-3365-4666-b631-303363356437/0706.jpg",
+    "https://static.tildacdn.com/tild6235-3365-4563-b563-363237633063/0712.jpg",
+    "https://static.tildacdn.com/tild3964-3636-4965-b036-663961666336/0731.jpg",
+    "https://static.tildacdn.com/tild6164-3731-4264-a339-653433393461/0733.jpg",
+    "https://static.tildacdn.com/tild6361-3964-4331-a434-656466353933/0750.jpg"
+   ]
+  },
+  {
+   "event": "Новогоднее мероприятие Parma Technologies Group",
+   "city": "Пермь",
+   "guests": 270,
+   "cover": "https://static.tildacdn.com/tild3533-6361-4737-b736-373639643232/Happy_New_Year_PARMA.jpg",
+   "photos": [
+    "https://static.tildacdn.com/tild3533-6361-4737-b736-373639643232/Happy_New_Year_PARMA.jpg",
+    "https://static.tildacdn.com/tild6639-3835-4633-b766-356135363533/Happy_New_Year_PARMA.jpg",
+    "https://static.tildacdn.com/tild3237-6666-4534-a665-656264353631/Happy_New_Year_PARMA.jpg",
+    "https://static.tildacdn.com/tild3065-6161-4665-b663-636133363331/Happy_New_Year_PARMA.jpg",
+    "https://static.tildacdn.com/tild3735-3738-4037-b265-343438656630/Happy_New_Year_PARMA.jpg",
+    "https://static.tildacdn.com/tild3562-3461-4466-b137-386539343934/Happy_New_Year_PARMA.jpg",
+    "https://static.tildacdn.com/tild6565-3665-4236-b466-663538343366/Happy_New_Year_PARMA.jpg",
+    "https://static.tildacdn.com/tild6137-3363-4462-a263-376333303837/Happy_New_Year_PARMA.jpg",
+    "https://static.tildacdn.com/tild6233-3130-4064-b237-383433303061/Happy_New_Year_PARMA.jpg",
+    "https://static.tildacdn.com/tild3065-3138-4835-a161-393738643366/Happy_New_Year_PARMA.jpg",
+    "https://static.tildacdn.com/tild3637-3835-4565-b436-306636643531/Happy_New_Year_PARMA.jpg",
+    "https://static.tildacdn.com/tild3234-6461-4131-b333-336438316665/Happy_New_Year_PARMA.jpg"
+   ]
+  },
+  {
+   "event": "Компания «Профессионал», 23 года",
+   "city": "Пермь",
+   "guests": 270,
+   "cover": "https://static.tildacdn.com/tild3734-3836-4265-b735-363938353766/NZ6_0138.jpg",
+   "photos": [
+    "https://static.tildacdn.com/tild3734-3836-4265-b735-363938353766/NZ6_0138.jpg",
+    "https://static.tildacdn.com/tild3665-3162-4266-b030-666633383632/NZ6_0672.jpg",
+    "https://static.tildacdn.com/tild6331-3232-4431-b063-353630333163/NZ6_0737.jpg",
+    "https://static.tildacdn.com/tild3362-3739-4335-a364-373833623032/NZ6_1364.jpg",
+    "https://static.tildacdn.com/tild3130-6336-4631-b136-626634356231/NZ6_1427.jpg",
+    "https://static.tildacdn.com/tild6665-3862-4338-b262-323232363263/NZ6_1606.jpg",
+    "https://static.tildacdn.com/tild3161-3834-4465-a430-666465373739/NZ6_1636.jpg",
+    "https://static.tildacdn.com/tild6539-6365-4035-b131-636638313162/NZ6_8425.jpg",
+    "https://static.tildacdn.com/tild3966-3934-4964-a566-346466373361/NZ6_8434.jpg",
+    "https://static.tildacdn.com/tild3538-6661-4165-b439-653161633231/NZ6_9266.jpg",
+    "https://static.tildacdn.com/tild3565-3937-4564-a534-663038316338/NZ6_9960.jpg",
+    "https://static.tildacdn.com/tild6666-3939-4738-b062-316436303032/DSC03117-2.jpg"
+   ]
+  },
+  {
+   "event": "Юбилей «Импорт Сервис», 20 лет",
+   "city": "Пермь",
+   "guests": 90,
+   "cover": "https://static.tildacdn.com/tild6137-6134-4566-b838-396637316332/DSC09800.jpg",
+   "photos": [
+    "https://static.tildacdn.com/tild6137-6134-4566-b838-396637316332/DSC09800.jpg",
+    "https://static.tildacdn.com/tild6235-3865-4263-b462-663938656633/DSC10151.jpg",
+    "https://static.tildacdn.com/tild3664-3866-4133-b532-303064343464/DSC10940.jpg",
+    "https://static.tildacdn.com/tild6263-3361-4361-b039-626264636633/DSC11096.jpg",
+    "https://static.tildacdn.com/tild6333-6132-4535-b938-393163363935/DSC11277.jpg",
+    "https://static.tildacdn.com/tild6238-3862-4137-a662-303165336330/DSC11308.jpg",
+    "https://static.tildacdn.com/tild3237-3661-4836-b630-366334343333/DSC11721.jpg",
+    "https://static.tildacdn.com/tild3731-3765-4035-b935-623665376139/DSC11793.jpg",
+    "https://static.tildacdn.com/tild6130-3864-4330-a232-643531363031/DSC12160.jpg",
+    "https://static.tildacdn.com/tild3137-3738-4438-b464-613735393338/DSC12561.jpg",
+    "https://static.tildacdn.com/tild6333-6637-4063-b739-623862373865/DSC12881.jpg",
+    "https://static.tildacdn.com/tild3732-3139-4862-b933-666163393038/photo_2023-01-24_065.jpeg"
+   ]
+  },
+  {
+   "event": "Клуб «Я Деловая»",
+   "city": "Пермь",
+   "guests": 80,
+   "cover": "https://static.tildacdn.com/tild6338-6637-4235-a161-393238373533/_DSC1534.jpg",
+   "photos": [
+    "https://static.tildacdn.com/tild6338-6637-4235-a161-393238373533/_DSC1534.jpg",
+    "https://static.tildacdn.com/tild3437-3762-4536-b738-353933656361/_DSC1680.jpg",
+    "https://static.tildacdn.com/tild3336-6430-4562-b866-643538666661/_DSC1737.jpg",
+    "https://static.tildacdn.com/tild3330-3766-4363-a665-336535303433/_DSC1776.jpg",
+    "https://static.tildacdn.com/tild6464-3064-4265-b864-356231633334/_DSC1825.jpg",
+    "https://static.tildacdn.com/tild3464-6538-4462-b866-346438356632/DSC_3407.jpg",
+    "https://static.tildacdn.com/tild6534-6566-4630-b532-656636336465/DSC_3408.jpg",
+    "https://static.tildacdn.com/tild6536-6137-4338-a638-306534363330/DSC_3415.jpg",
+    "https://static.tildacdn.com/tild6464-3132-4565-a235-313035306530/DSC_3689.jpg",
+    "https://static.tildacdn.com/tild6138-3966-4531-b030-613232653037/DSC_4204.jpg",
+    "https://static.tildacdn.com/tild3564-3239-4632-a364-373238633436/DSC_4207.jpg",
+    "https://static.tildacdn.com/tild6361-3964-4331-a434-656466353933/0750.jpg"
+   ]
+  },
+  {
+   "event": "Юбилей компании «КРОН», 10 лет",
+   "city": "Пермь",
+   "guests": 120,
+   "cover": "https://static.tildacdn.com/tild6436-3665-4265-a634-353763393636/DSC03079-2.jpg",
+   "photos": [
+    "https://static.tildacdn.com/tild6436-3665-4265-a634-353763393636/DSC03079-2.jpg",
+    "https://static.tildacdn.com/tild6330-3437-4530-b032-393863393031/DSC03363-2.jpg",
+    "https://static.tildacdn.com/tild6261-3032-4064-a435-656565633363/DSC06536-2.jpg",
+    "https://static.tildacdn.com/tild3436-3035-4333-a539-323461303730/DSC03084-2.jpg",
+    "https://static.tildacdn.com/tild3235-6235-4161-a336-643765653733/DSC04416-2.jpg",
+    "https://static.tildacdn.com/tild3737-6133-4334-a162-626633643063/DSC03802-2.jpg",
+    "https://static.tildacdn.com/tild3030-3137-4265-a530-363366363039/DSC05802-2.jpg",
+    "https://static.tildacdn.com/tild3132-6362-4062-b262-346535346161/DSC05744-2.jpg",
+    "https://static.tildacdn.com/tild3835-6230-4332-b534-623236376137/DSC04649-2.jpg",
+    "https://static.tildacdn.com/tild3064-6130-4631-b439-666666383632/DSC05659-2.jpg",
+    "https://static.tildacdn.com/tild6566-3032-4434-b830-303939383439/DSC05549-2.jpg",
+    "https://static.tildacdn.com/tild6666-3939-4738-b062-316436303032/DSC03117-2.jpg"
+   ]
+  },
+  {
+   "event": "Новогодняя ночь для деревни Лукоморье",
+   "city": "Пермь",
+   "guests": 150,
+   "cover": "https://static.tildacdn.com/tild6662-6663-4233-b961-306331313137/DSC02003-3.jpg",
+   "photos": [
+    "https://static.tildacdn.com/tild6662-6663-4233-b961-306331313137/DSC02003-3.jpg",
+    "https://static.tildacdn.com/tild3263-6333-4934-a638-383566356430/DSC02558-3.jpg",
+    "https://static.tildacdn.com/tild3536-3330-4066-b739-653038353464/DSC02586-2.jpg",
+    "https://static.tildacdn.com/tild3933-6630-4437-b339-636535363331/DSC03034-3.jpg",
+    "https://static.tildacdn.com/tild3237-6434-4437-b963-383038663364/DSC03202-3.jpg",
+    "https://static.tildacdn.com/tild3061-6263-4630-a166-623164356631/DSC03440-3.jpg",
+    "https://static.tildacdn.com/tild6537-6265-4365-a638-383037633332/DSC03434-3.jpg",
+    "https://static.tildacdn.com/tild6636-3363-4961-b361-626332383764/DSC03719-2.jpg",
+    "https://static.tildacdn.com/tild3336-6532-4739-b130-633039336564/DSC03500-3.jpg",
+    "https://static.tildacdn.com/tild3335-6531-4166-b931-613163323636/DSC01980-3.jpg",
+    "https://static.tildacdn.com/tild6636-6239-4338-b865-303762313138/DSC04078-3.jpg",
+    "https://static.tildacdn.com/tild6464-6136-4563-a433-623561323461/DSC02618-3.jpg"
+   ]
+  },
+  {
+   "event": "«Импортсервис», новогоднее мероприятие",
+   "city": "Пермь",
+   "guests": 89,
+   "cover": "https://static.tildacdn.com/tild3262-3036-4336-b961-663432363938/DSC08475.jpg",
+   "photos": [
+    "https://static.tildacdn.com/tild3262-3036-4336-b961-663432363938/DSC08475.jpg",
+    "https://static.tildacdn.com/tild6563-3166-4834-b834-373438313531/DSC08655.jpg",
+    "https://static.tildacdn.com/tild3733-6233-4331-b132-636265633632/DSC08955.jpg",
+    "https://static.tildacdn.com/tild6437-3336-4833-b931-343266393737/DSC08982.jpg",
+    "https://static.tildacdn.com/tild6164-3766-4436-b161-663339303939/DSC09016.jpg",
+    "https://static.tildacdn.com/tild3837-3262-4435-a233-653633633664/DSC09062.jpg",
+    "https://static.tildacdn.com/tild3837-3030-4931-a433-396163656430/DSC09125.jpg",
+    "https://static.tildacdn.com/tild3065-6232-4639-a637-306234623330/DSC09453.jpg",
+    "https://static.tildacdn.com/tild3331-3839-4337-a464-633161646636/DSC09485.jpg",
+    "https://static.tildacdn.com/tild6138-6433-4237-b031-393262646337/DSC09514.jpg",
+    "https://static.tildacdn.com/tild6462-6230-4261-a661-393438353534/DSC09995c.jpg",
+    "https://static.tildacdn.com/tild6663-3035-4237-a236-356232346261/DSC09998b.jpg"
+   ]
+  },
+  {
+   "event": "Сибур, День химика",
+   "city": "Пермь",
+   "guests": 1000,
+   "cover": "https://static.tildacdn.com/tild6537-6433-4436-b662-343961333631/KC-028.jpg",
+   "photos": [
+    "https://static.tildacdn.com/tild6537-6433-4436-b662-343961333631/KC-028.jpg",
+    "https://static.tildacdn.com/tild3566-3735-4562-b133-643636356633/KC-057.jpg",
+    "https://static.tildacdn.com/tild3933-6362-4537-b635-366332316665/KC-068.jpg",
+    "https://static.tildacdn.com/tild3730-3237-4963-a236-653638613566/KC-076.jpg",
+    "https://static.tildacdn.com/tild6565-3265-4835-b362-393565396337/KC-092.jpg",
+    "https://static.tildacdn.com/tild3361-3132-4830-b439-323134353731/KC-077.jpg",
+    "https://static.tildacdn.com/tild6532-6266-4235-b337-356133646636/KC-103.jpg",
+    "https://static.tildacdn.com/tild3436-6666-4037-a536-626639636634/KC-107.jpg",
+    "https://static.tildacdn.com/tild3338-3162-4935-a432-333436313633/KC-122.jpg",
+    "https://static.tildacdn.com/tild3133-3738-4166-a431-333131613338/KC-135.jpg",
+    "https://static.tildacdn.com/tild3039-3138-4431-a430-393462323565/KC-160.jpg",
+    "https://static.tildacdn.com/tild6663-6264-4138-b735-363134323836/KC-167.jpg",
+    "https://static.tildacdn.com/tild6562-3931-4065-b535-653436343661/DSC08247.jpg",
+    "https://static.tildacdn.com/tild3761-3433-4335-a533-313938333466/DSC08888.jpg",
+    "https://static.tildacdn.com/tild6265-6264-4537-b839-373235666637/DSC11567.jpg"
+   ]
+  },
+  {
+   "event": "Parma Technologies Group, новогоднее мероприятие в стилистике 90-х",
+   "city": "Пермь",
+   "guests": 280,
+   "cover": "https://static.tildacdn.com/tild3037-3539-4363-a635-663433663065/DSC11639.jpg",
+   "photos": [
+    "https://static.tildacdn.com/tild3037-3539-4363-a635-663433663065/DSC11639.jpg",
+    "https://static.tildacdn.com/tild3532-3937-4266-b333-393235393531/DSC12211.jpg",
+    "https://static.tildacdn.com/tild3433-3639-4834-b361-643136626231/DSC12518.jpg",
+    "https://static.tildacdn.com/tild6530-3631-4363-a565-643534316130/DSC10132.jpg",
+    "https://static.tildacdn.com/tild3666-6437-4362-b163-653964613461/DSC11348.jpg",
+    "https://static.tildacdn.com/tild3134-6661-4861-a266-333737333130/DSC12204.jpg",
+    "https://static.tildacdn.com/tild3335-3834-4530-b161-323861343730/DSC12594.jpg",
+    "https://static.tildacdn.com/tild3331-6563-4034-b361-386538643165/DSC12873.jpg",
+    "https://static.tildacdn.com/tild3364-6464-4538-a639-363232653963/IMG_7490.JPG"
+   ]
+  },
+  {
+   "event": "Юбилей компании «ПСС», 30 лет",
+   "city": "Пермь",
+   "guests": 350,
+   "cover": "https://static.tildacdn.com/tild3738-3830-4736-b161-376535663231/DSC09905.jpg",
+   "photos": [
+    "https://static.tildacdn.com/tild3738-3830-4736-b161-376535663231/DSC09905.jpg",
+    "https://static.tildacdn.com/tild3264-3433-4637-b333-303062643564/DSC10124.jpg",
+    "https://static.tildacdn.com/tild3861-6265-4765-b663-613666623630/DSC10375.jpg",
+    "https://static.tildacdn.com/tild3434-6432-4239-b332-386361373137/DSC11753.jpg",
+    "https://static.tildacdn.com/tild6235-3234-4163-b032-666439316661/DSC10955.jpg",
+    "https://static.tildacdn.com/tild6335-3762-4063-b638-356635383065/DSC11006.jpg",
+    "https://static.tildacdn.com/tild3838-6562-4861-a365-613963623034/DSC11064.jpg",
+    "https://static.tildacdn.com/tild6236-3638-4264-a464-303334383435/DSC11243.jpg",
+    "https://static.tildacdn.com/tild3139-6435-4638-b239-336539643138/DSC11330.jpg",
+    "https://static.tildacdn.com/tild3965-3633-4566-a161-353363313336/DSC11648.jpg",
+    "https://static.tildacdn.com/tild6564-3763-4039-b235-393265643363/DSC12249.jpg",
+    "https://static.tildacdn.com/tild6262-3032-4132-b564-613032626439/DSC12405.jpg"
+   ]
+  },
+  {
+   "event": "Новый год для сети ресторанов ZAZA Group",
+   "city": "Пермь",
+   "guests": 150,
+   "cover": "https://static.tildacdn.com/tild3637-3638-4164-b036-373361313466/DSC01853-2.jpg",
+   "photos": [
+    "https://static.tildacdn.com/tild3637-3638-4164-b036-373361313466/DSC01853-2.jpg",
+    "https://static.tildacdn.com/tild6438-3866-4333-a363-643761633133/DSC01932-2.jpg",
+    "https://static.tildacdn.com/tild6239-6531-4234-b463-626231663664/DSC02083-2.jpg",
+    "https://static.tildacdn.com/tild6132-3435-4837-b038-663666656564/DSC02576-2.jpg",
+    "https://static.tildacdn.com/tild3532-6135-4138-a337-633837373962/DSC02758-2.jpg",
+    "https://static.tildacdn.com/tild3165-3237-4537-b866-643134353938/DSC02763-2.jpg",
+    "https://static.tildacdn.com/tild6135-3338-4466-b930-333862326332/DSC02806-2.jpg",
+    "https://static.tildacdn.com/tild3039-3931-4638-b031-313065646364/DSC03393-2.jpg",
+    "https://static.tildacdn.com/tild3737-3737-4165-a635-653563356230/DSC03545-2.jpg",
+    "https://static.tildacdn.com/tild3531-6530-4665-a537-383331663064/DSC03569-2.jpg",
+    "https://static.tildacdn.com/tild6434-3166-4161-a436-323433303437/DSC03620-2.jpg",
+    "https://static.tildacdn.com/tild6132-3365-4233-b862-383261373636/DSC03637-2.jpg"
+   ]
+  },
+  {
+   "event": "Новогоднее мероприятие «Промойл»",
+   "city": "Пермь",
+   "guests": 210,
+   "cover": "https://static.tildacdn.com/tild3538-6235-4130-b633-353432653465/DSC09073.jpg",
+   "photos": [
+    "https://static.tildacdn.com/tild3538-6235-4130-b633-353432653465/DSC09073.jpg",
+    "https://static.tildacdn.com/tild6633-6533-4265-a366-613731343336/DSC09102.jpg",
+    "https://static.tildacdn.com/tild6164-3331-4230-a361-663562373238/DSC09136.jpg",
+    "https://static.tildacdn.com/tild3639-3038-4332-b033-653138306138/DSC09516.jpg",
+    "https://static.tildacdn.com/tild3736-6461-4739-b939-306439356564/DSC10322.jpg",
+    "https://static.tildacdn.com/tild6138-6465-4733-a235-623836636639/DSC11014.jpg",
+    "https://static.tildacdn.com/tild3535-3836-4561-a132-383638383363/DSC11006.jpg",
+    "https://static.tildacdn.com/tild3961-6438-4531-b062-306265633863/DSC09217.jpg",
+    "https://static.tildacdn.com/tild6534-6361-4035-b838-353134663832/DSC12551.jpg"
+   ]
+  }
+ ],
+ "privatparty": [
+  {
+   "event": "День рождения хорошего человека",
+   "city": "Пермь",
+   "guests": 100,
+   "cover": "https://static.tildacdn.com/tild3939-3031-4134-b761-336634373963/DSC05070.jpg",
+   "photos": [
+    "https://static.tildacdn.com/tild3939-3031-4134-b761-336634373963/DSC05070.jpg",
+    "https://static.tildacdn.com/tild6337-6437-4038-b338-646339613961/DSC05104.jpg",
+    "https://static.tildacdn.com/tild3833-6632-4338-a433-313363323637/DSC05904.jpg",
+    "https://static.tildacdn.com/tild3435-6237-4064-b434-366263636364/DSC06058.jpg",
+    "https://static.tildacdn.com/tild3632-6137-4465-a363-306133306633/DSC06393.jpg",
+    "https://static.tildacdn.com/tild3935-3236-4432-a138-336166616463/DSC06454.jpg",
+    "https://static.tildacdn.com/tild3132-6530-4635-b665-313234356465/DSC06756-2.jpg",
+    "https://static.tildacdn.com/tild6135-6362-4966-b234-363830666265/DSC06891.jpg",
+    "https://static.tildacdn.com/tild3862-3437-4966-b935-656538383639/DSC06956.jpg",
+    "https://static.tildacdn.com/tild3239-3965-4334-b933-363533393036/DSC07561.jpg",
+    "https://static.tildacdn.com/tild3265-6335-4139-b762-303634633563/DSC07591.jpg",
+    "https://static.tildacdn.com/tild6131-6530-4634-b061-616537343439/DSC07605.jpg"
+   ]
+  },
+  {
+   "event": "IBIZA",
+   "city": "Пермь",
+   "guests": 25,
+   "cover": "https://static.tildacdn.com/tild3863-6262-4665-b130-646161396266/1.jpg",
+   "photos": [
+    "https://static.tildacdn.com/tild3863-6262-4665-b130-646161396266/1.jpg",
+    "https://static.tildacdn.com/tild6166-6332-4061-a661-353265633739/2.jpg",
+    "https://static.tildacdn.com/tild6464-3464-4536-b930-363332633739/3.jpg",
+    "https://static.tildacdn.com/tild3537-3638-4237-b438-373036303663/4.jpg",
+    "https://static.tildacdn.com/tild6565-3063-4136-a365-653037363435/5.jpg",
+    "https://static.tildacdn.com/tild3762-6662-4534-b738-373838616233/6.jpg",
+    "https://static.tildacdn.com/tild6538-3239-4566-a433-613232363937/7.jpg",
+    "https://static.tildacdn.com/tild3163-3834-4534-b539-353262356636/8.jpg",
+    "https://static.tildacdn.com/tild6537-3330-4336-b533-626531633766/9.jpg",
+    "https://static.tildacdn.com/tild3139-6332-4234-b866-363234636639/10.jpg",
+    "https://static.tildacdn.com/tild6638-3937-4136-b235-383264656161/11.jpg",
+    "https://static.tildacdn.com/tild3231-3030-4635-a639-393562636662/12.jpg"
+   ]
+  },
+  {
+   "event": "День рождения в стиле Гарри Поттера",
+   "city": "Пермь",
+   "guests": 40,
+   "cover": "https://static.tildacdn.com/tild3931-3138-4065-a661-306563393238/1.jpg",
+   "photos": [
+    "https://static.tildacdn.com/tild3931-3138-4065-a661-306563393238/1.jpg",
+    "https://static.tildacdn.com/tild3865-3766-4561-b530-626539326465/2.jpg",
+    "https://static.tildacdn.com/tild3762-6563-4463-b564-376532313238/3.jpg",
+    "https://static.tildacdn.com/tild3834-3065-4036-b466-653832356132/4.jpg",
+    "https://static.tildacdn.com/tild6565-3930-4339-a134-653034313862/5.jpg",
+    "https://static.tildacdn.com/tild6433-6165-4431-a439-323436663963/6.jpg",
+    "https://static.tildacdn.com/tild6637-3039-4335-a533-623532353838/7.jpg",
+    "https://static.tildacdn.com/tild3032-6338-4666-b961-646261616331/8.jpg",
+    "https://static.tildacdn.com/tild3933-6435-4863-a664-393535336438/9.jpg",
+    "https://static.tildacdn.com/tild6134-6431-4665-a431-313534326363/10.jpg",
+    "https://static.tildacdn.com/tild6663-3263-4139-b834-333131373930/11.jpg",
+    "https://static.tildacdn.com/tild6266-3561-4037-b261-383966383737/12.jpg"
+   ]
+  },
+  {
+   "event": "Юбилей 50",
+   "city": "Пермь",
+   "guests": 150,
+   "cover": "https://static.tildacdn.com/tild6133-6133-4336-a464-383866346431/1.jpg",
+   "photos": [
+    "https://static.tildacdn.com/tild6133-6133-4336-a464-383866346431/1.jpg",
+    "https://static.tildacdn.com/tild3161-6466-4535-a238-333535616431/2.jpg",
+    "https://static.tildacdn.com/tild6132-6562-4030-a534-366565653930/3.jpg",
+    "https://static.tildacdn.com/tild6634-3664-4631-b164-383864376562/4.jpg",
+    "https://static.tildacdn.com/tild6533-3065-4263-b561-633135373766/5.jpg",
+    "https://static.tildacdn.com/tild3363-3433-4430-b832-373334303261/6.jpg",
+    "https://static.tildacdn.com/tild3739-6132-4635-a537-313231643666/7.jpg",
+    "https://static.tildacdn.com/tild3866-3233-4632-a164-393461663938/8.jpg",
+    "https://static.tildacdn.com/tild6365-3862-4638-b261-333264346231/9.jpg",
+    "https://static.tildacdn.com/tild3839-6239-4839-b834-623134643466/10.jpg",
+    "https://static.tildacdn.com/tild6436-3537-4934-b831-633866393934/11.jpg",
+    "https://static.tildacdn.com/tild3031-3935-4537-b030-643363333665/12.jpg"
+   ]
+  },
+  {
+   "event": "День рождения Алеси",
+   "city": "Пермь",
+   "guests": null,
+   "cover": "https://static.tildacdn.com/tild3935-3735-4638-b763-343035333832/1.jpg",
+   "photos": [
+    "https://static.tildacdn.com/tild3935-3735-4638-b763-343035333832/1.jpg",
+    "https://static.tildacdn.com/tild3337-3736-4531-b135-363666336564/2.jpg",
+    "https://static.tildacdn.com/tild3437-3361-4235-b737-313038306635/3.jpg",
+    "https://static.tildacdn.com/tild3165-3733-4962-a666-336637333134/4.jpg",
+    "https://static.tildacdn.com/tild3266-3465-4335-b637-353534336131/5.jpg",
+    "https://static.tildacdn.com/tild3737-3032-4637-b066-373330336363/6.jpg",
+    "https://static.tildacdn.com/tild3263-6433-4564-a663-666262333665/7.jpg",
+    "https://static.tildacdn.com/tild3039-3234-4133-a439-383837666163/8.jpg",
+    "https://static.tildacdn.com/tild6433-6234-4264-a366-363832353063/9.jpg",
+    "https://static.tildacdn.com/tild3663-3063-4236-a362-303666323661/10.jpg",
+    "https://static.tildacdn.com/tild3939-6337-4138-a630-353433383436/11.jpg",
+    "https://static.tildacdn.com/tild3563-3965-4238-a431-653466663736/12.jpg"
+   ]
+  },
+  {
+   "event": "Юбилей 45",
+   "city": "Пермь",
+   "guests": 25,
+   "cover": "https://static.tildacdn.com/tild3533-3737-4566-b030-353936333737/1.jpg",
+   "photos": [
+    "https://static.tildacdn.com/tild3533-3737-4566-b030-353936333737/1.jpg",
+    "https://static.tildacdn.com/tild3236-3365-4663-b234-613134623133/2.jpg",
+    "https://static.tildacdn.com/tild6266-3734-4461-a639-346166616566/3.jpg",
+    "https://static.tildacdn.com/tild3332-3865-4561-a637-636135363566/4.jpg",
+    "https://static.tildacdn.com/tild6561-3938-4337-b938-386235386330/5.jpg",
+    "https://static.tildacdn.com/tild6466-6466-4263-b662-373932626139/6.jpg",
+    "https://static.tildacdn.com/tild3033-6261-4438-a230-376535396465/7.jpg",
+    "https://static.tildacdn.com/tild3234-3035-4661-a137-396537663638/8.jpg",
+    "https://static.tildacdn.com/tild3231-3462-4064-a264-323966643262/9.jpg",
+    "https://static.tildacdn.com/tild6132-3635-4930-b730-333231336635/10.jpg",
+    "https://static.tildacdn.com/tild3862-6662-4632-a538-343230373534/11.jpg",
+    "https://static.tildacdn.com/tild3961-3737-4737-a330-656235306666/12.jpg"
+   ]
+  },
+  {
+   "event": "Юбилей 35 в стиле «Острых козырьков»",
+   "city": "Пермь",
+   "guests": 45,
+   "cover": "https://static.tildacdn.com/tild3534-3634-4063-b134-343465616532/1.jpg",
+   "photos": [
+    "https://static.tildacdn.com/tild3534-3634-4063-b134-343465616532/1.jpg",
+    "https://static.tildacdn.com/tild3761-6361-4332-b865-356432393563/2.jpg",
+    "https://static.tildacdn.com/tild3666-6466-4766-a430-313066633366/3.jpg",
+    "https://static.tildacdn.com/tild3236-3939-4439-a466-626161626633/4.jpg",
+    "https://static.tildacdn.com/tild6364-6331-4732-a139-623162633736/5.jpg",
+    "https://static.tildacdn.com/tild6431-3765-4730-b164-323039343235/6.jpg",
+    "https://static.tildacdn.com/tild6332-6631-4863-b666-653261336236/7.jpg",
+    "https://static.tildacdn.com/tild3563-6565-4466-a539-356337386138/8.jpg",
+    "https://static.tildacdn.com/tild3638-3564-4233-b935-626164663735/9.jpg",
+    "https://static.tildacdn.com/tild3364-3762-4961-b932-616632336336/10.jpg",
+    "https://static.tildacdn.com/tild6563-3330-4331-b734-346134333737/11.jpg",
+    "https://static.tildacdn.com/tild6536-3831-4163-b066-643634656633/12.jpg"
+   ]
+  },
+  {
+   "event": "День рождения в стиле 90-х",
+   "city": "Пермь",
+   "guests": 45,
+   "cover": "https://static.tildacdn.com/tild6136-3436-4330-b732-346363356365/1.jpg",
+   "photos": [
+    "https://static.tildacdn.com/tild6136-3436-4330-b732-346363356365/1.jpg",
+    "https://static.tildacdn.com/tild3237-6438-4466-a533-306236333565/2.jpg",
+    "https://static.tildacdn.com/tild3063-6331-4431-a235-356532323839/3.jpg",
+    "https://static.tildacdn.com/tild3966-3037-4366-a661-326533333037/4.jpg",
+    "https://static.tildacdn.com/tild6338-3162-4539-b135-363764383435/5.jpg",
+    "https://static.tildacdn.com/tild3866-3764-4635-a438-666131323066/6.jpg",
+    "https://static.tildacdn.com/tild6332-6531-4337-a637-653564316362/7.jpg",
+    "https://static.tildacdn.com/tild3265-3666-4065-b465-643761373561/8.jpg",
+    "https://static.tildacdn.com/tild3236-3932-4536-b532-343637373164/9.jpg",
+    "https://static.tildacdn.com/tild6337-3537-4166-b330-386337316235/10.jpg",
+    "https://static.tildacdn.com/tild6265-3466-4133-b839-653135653166/11.jpg",
+    "https://static.tildacdn.com/tild6263-6534-4536-b637-663365336464/12.jpg"
+   ]
+  },
+  {
+   "event": "Юбилей 35",
+   "city": "Березники",
+   "guests": 100,
+   "cover": "https://static.tildacdn.com/tild6434-3363-4866-b139-396664373139/1.jpg",
+   "photos": [
+    "https://static.tildacdn.com/tild6434-3363-4866-b139-396664373139/1.jpg",
+    "https://static.tildacdn.com/tild3361-3864-4238-a136-623939346664/2.jpg",
+    "https://static.tildacdn.com/tild3161-3735-4237-b038-363738663336/3.jpg",
+    "https://static.tildacdn.com/tild3831-6138-4631-b230-383962336438/4.jpg",
+    "https://static.tildacdn.com/tild3034-6665-4361-a135-313135383637/5.jpg",
+    "https://static.tildacdn.com/tild3634-3630-4637-b436-653265623437/6.jpg",
+    "https://static.tildacdn.com/tild3332-3066-4665-b836-366439313534/7.jpg",
+    "https://static.tildacdn.com/tild3861-3431-4965-b661-393164353763/8.jpg",
+    "https://static.tildacdn.com/tild3839-6439-4561-b162-386530343331/9.jpg",
+    "https://static.tildacdn.com/tild3738-3535-4236-b135-393965333836/10.jpg",
+    "https://static.tildacdn.com/tild3933-3262-4635-a134-303865656135/11.jpg",
+    "https://static.tildacdn.com/tild3937-6665-4334-b134-383033623939/12.jpg"
+   ]
+  },
+  {
+   "event": "Юбилей Елены",
+   "city": "Пермь",
+   "guests": 60,
+   "cover": "https://static.tildacdn.com/tild3666-3931-4131-a535-373861346362/DSC00531.jpg",
+   "photos": [
+    "https://static.tildacdn.com/tild3666-3931-4131-a535-373861346362/DSC00531.jpg",
+    "https://static.tildacdn.com/tild3937-3062-4363-b532-626562646431/DSC00857.jpg",
+    "https://static.tildacdn.com/tild6634-3934-4233-b234-313138373963/DSC01014.jpg",
+    "https://static.tildacdn.com/tild3463-6632-4464-a432-336565626439/DSC01350.jpg",
+    "https://static.tildacdn.com/tild3633-3139-4231-b137-396232333135/DSC01849.jpg",
+    "https://static.tildacdn.com/tild3431-3831-4364-a338-663930346533/DSC02188.jpg",
+    "https://static.tildacdn.com/tild6630-3662-4339-a136-303164613730/DSC02901.jpg",
+    "https://static.tildacdn.com/tild3366-3330-4439-b438-363765363436/DSC03602.jpg",
+    "https://static.tildacdn.com/tild3862-3334-4264-b732-323439363434/DSC04404.jpg",
+    "https://static.tildacdn.com/tild6437-6161-4935-a463-623061383136/DSC04453.jpg",
+    "https://static.tildacdn.com/tild6264-3533-4532-a638-653234326166/DSC05332.jpg",
+    "https://static.tildacdn.com/tild6164-3834-4130-b534-646164643732/DSC05597.jpg"
+   ]
+  },
+  {
+   "event": "Юбилей Вячеслава",
+   "city": "Пермь",
+   "guests": 50,
+   "cover": "https://static.tildacdn.com/tild6239-6565-4337-b562-353365643733/DSC04652.jpg",
+   "photos": [
+    "https://static.tildacdn.com/tild6239-6565-4337-b562-353365643733/DSC04652.jpg",
+    "https://static.tildacdn.com/tild3565-3065-4731-b761-396266613066/DSC04693.jpg",
+    "https://static.tildacdn.com/tild3539-3734-4362-a638-623531356336/DSC04700.jpg",
+    "https://static.tildacdn.com/tild6132-3763-4437-b337-376438306632/DSC05424.jpg",
+    "https://static.tildacdn.com/tild6539-3333-4232-a238-313966386631/DSC06093.jpg",
+    "https://static.tildacdn.com/tild3033-3738-4361-a530-373232376565/DSC06741.jpg",
+    "https://static.tildacdn.com/tild3631-6539-4034-b830-663934343666/DSC06678.jpg",
+    "https://static.tildacdn.com/tild3132-6539-4966-b266-343839623732/DSC06838.jpg",
+    "https://static.tildacdn.com/tild6362-6264-4731-b634-656237373766/DSC07248.jpg",
+    "https://static.tildacdn.com/tild6563-3330-4338-b034-643061343664/DSC07348.jpg",
+    "https://static.tildacdn.com/tild3564-6637-4561-b365-323737333735/DSC07661.jpg",
+    "https://static.tildacdn.com/tild6539-3134-4664-b863-356536366130/DSC08223.jpg"
+   ]
+  },
+  {
+   "event": "Юбилей Александра Кириленко",
+   "city": "Пермь",
+   "guests": 40,
+   "cover": "https://static.tildacdn.com/tild3962-3638-4466-b033-313566363564/DSC07904.jpg",
+   "photos": [
+    "https://static.tildacdn.com/tild3962-3638-4466-b033-313566363564/DSC07904.jpg",
+    "https://static.tildacdn.com/tild3665-3534-4134-b231-386231653638/DSC08062.jpg",
+    "https://static.tildacdn.com/tild3764-3361-4433-a634-316633353265/DSC08411.jpg",
+    "https://static.tildacdn.com/tild6637-6338-4630-a130-636432366132/DSC09035.jpg",
+    "https://static.tildacdn.com/tild3131-6533-4539-b339-306536356235/DSC09264.jpg",
+    "https://static.tildacdn.com/tild3038-3464-4664-a138-373132663539/DSC09616.jpg",
+    "https://static.tildacdn.com/tild3936-6236-4736-b632-613333373438/DSC09916.jpg",
+    "https://static.tildacdn.com/tild6566-3962-4664-b035-663130626166/DSC10155.jpg",
+    "https://static.tildacdn.com/tild3464-6236-4338-a139-643538333432/DSC11137.jpg"
+   ]
+  }
+ ],
+ "graduationday": [
+  {
+   "event": "Выпускной, школа 22, 2021",
+   "city": "Пермь",
+   "guests": 140,
+   "cover": "https://static.tildacdn.com/tild6438-6632-4265-b864-386431373033/DSC05355.jpg",
+   "photos": [
+    "https://static.tildacdn.com/tild6438-6632-4265-b864-386431373033/DSC05355.jpg",
+    "https://static.tildacdn.com/tild6266-3736-4033-a535-653834306433/DSC07732.jpg",
+    "https://static.tildacdn.com/tild3538-6135-4032-b233-303335393465/DSC06538.jpg",
+    "https://static.tildacdn.com/tild6466-3430-4866-b636-303636363832/DSC07870.jpg",
+    "https://static.tildacdn.com/tild3730-6562-4133-b331-363736643062/DSC08123.jpg",
+    "https://static.tildacdn.com/tild3534-3639-4463-b166-326165306664/DSC07321.jpg",
+    "https://static.tildacdn.com/tild6663-3461-4339-a132-303164306235/1.jpg",
+    "https://static.tildacdn.com/tild6361-3066-4130-b635-393465386637/2.jpg",
+    "https://static.tildacdn.com/tild6234-3262-4736-a530-326238363738/6.jpg",
+    "https://static.tildacdn.com/tild3439-3338-4263-b639-376165663131/4.jpg",
+    "https://static.tildacdn.com/tild6665-3932-4339-b636-633730643963/5.jpg",
+    "https://static.tildacdn.com/tild6234-3562-4138-b661-393230393765/3.jpg"
+   ]
+  },
+  {
+   "event": "Выпускной, школа 22, 2022",
+   "city": "Пермь",
+   "guests": 120,
+   "cover": "https://static.tildacdn.com/tild3336-6363-4632-a164-616430336466/ph-0350.jpg",
+   "photos": [
+    "https://static.tildacdn.com/tild3336-6363-4632-a164-616430336466/ph-0350.jpg",
+    "https://static.tildacdn.com/tild3862-3565-4130-a239-666462623939/ph-0740.jpg",
+    "https://static.tildacdn.com/tild3830-3736-4261-b939-383132303162/ph-0390.jpg",
+    "https://static.tildacdn.com/tild6266-3634-4431-b230-333834343364/ph-0433.jpg",
+    "https://static.tildacdn.com/tild6465-6336-4632-a262-316165333062/ph-0836.jpg",
+    "https://static.tildacdn.com/tild3963-6132-4338-b735-663863333634/ph-0788.jpg",
+    "https://static.tildacdn.com/tild3965-3361-4534-b961-303732303264/ph-0279.jpg",
+    "https://static.tildacdn.com/tild3334-3739-4366-a239-636234356664/ph-0331.jpg",
+    "https://static.tildacdn.com/tild3637-3633-4163-a536-356338373535/ph-0116.jpg",
+    "https://static.tildacdn.com/tild3431-3638-4636-b761-316365376565/ph-0569.jpg",
+    "https://static.tildacdn.com/tild3166-3932-4230-b231-633662383033/ph-0334.jpg",
+    "https://static.tildacdn.com/tild6336-6437-4133-a432-333863326234/ph-0850.jpg"
+   ]
+  },
+  {
+   "event": "Выпускной, школа 22, 2020",
+   "city": "Пермь",
+   "guests": 120,
+   "cover": "https://static.tildacdn.com/tild6464-3030-4237-a262-353032383336/0138.JPG",
+   "photos": [
+    "https://static.tildacdn.com/tild6464-3030-4237-a262-353032383336/0138.JPG",
+    "https://static.tildacdn.com/tild3131-3837-4065-b061-303663313339/0152.JPG",
+    "https://static.tildacdn.com/tild3462-6161-4665-b735-333162666132/0347.JPG",
+    "https://static.tildacdn.com/tild3166-6262-4664-a130-366236633265/0594.JPG",
+    "https://static.tildacdn.com/tild3539-3233-4965-b238-663034656564/0485.JPG",
+    "https://static.tildacdn.com/tild6133-6637-4131-b436-316561326536/0557.JPG",
+    "https://static.tildacdn.com/tild6662-6534-4135-b934-626566366666/0050.JPG",
+    "https://static.tildacdn.com/tild6266-3333-4962-a265-356361333534/0126.JPG",
+    "https://static.tildacdn.com/tild6532-3935-4336-a263-353137306630/0133.JPG",
+    "https://static.tildacdn.com/tild6432-6435-4235-b734-636439363833/0596.JPG",
+    "https://static.tildacdn.com/tild3536-6564-4636-b663-666662366264/0268.JPG",
+    "https://static.tildacdn.com/tild6263-3566-4362-b935-646237633733/0086.JPG"
+   ]
+  },
+  {
+   "event": "Выпускной, школа 7, 2022",
+   "city": "Пермь",
+   "guests": 150,
+   "cover": "https://static.tildacdn.com/tild6534-3565-4436-b834-633465323965/DSC04465.jpg",
+   "photos": [
+    "https://static.tildacdn.com/tild6534-3565-4436-b834-633465323965/DSC04465.jpg",
+    "https://static.tildacdn.com/tild3836-3265-4238-b333-363361643737/DSC04991.jpg",
+    "https://static.tildacdn.com/tild3065-3830-4563-a261-326664333238/DSC05599.jpg",
+    "https://static.tildacdn.com/tild3239-3632-4139-b135-386231646161/DSC05664.jpg",
+    "https://static.tildacdn.com/tild6166-3364-4130-b064-636665613164/DSC05721.jpg",
+    "https://static.tildacdn.com/tild3333-6663-4530-a161-366537313534/DSC05861.jpg",
+    "https://static.tildacdn.com/tild6431-3532-4865-a461-316637393933/1.jpg",
+    "https://static.tildacdn.com/tild3739-3531-4733-b733-303463343733/2.jpg",
+    "https://static.tildacdn.com/tild3932-3637-4639-b731-376439336234/3.jpg",
+    "https://static.tildacdn.com/tild6630-6464-4436-a438-666632653962/4.jpg",
+    "https://static.tildacdn.com/tild6461-3935-4161-b132-346563636265/5.jpg",
+    "https://static.tildacdn.com/tild6266-3863-4966-b034-666436313963/6.jpg"
+   ]
+  },
+  {
+   "event": "Выпускной ФСИН",
+   "city": "Пермь",
+   "guests": 110,
+   "cover": "https://static.tildacdn.com/tild3635-3463-4930-b333-383139376637/ph-0629.jpg",
+   "photos": [
+    "https://static.tildacdn.com/tild3635-3463-4930-b333-383139376637/ph-0629.jpg",
+    "https://static.tildacdn.com/tild6234-3531-4934-b665-346134346161/ph-0452.jpg",
+    "https://static.tildacdn.com/tild6137-3435-4430-b334-633637616132/ph-0525.jpg",
+    "https://static.tildacdn.com/tild3438-6465-4433-b233-393635616362/ph-0460.jpg",
+    "https://static.tildacdn.com/tild3763-6236-4833-a139-373939356637/ph-0420.jpg",
+    "https://static.tildacdn.com/tild6666-6563-4138-b863-306539306438/ph-0425.jpg",
+    "https://static.tildacdn.com/tild3839-3433-4161-b931-303962623265/ph-0001.jpg",
+    "https://static.tildacdn.com/tild6639-3738-4336-a334-643733353939/ph-0104.jpg",
+    "https://static.tildacdn.com/tild3938-3732-4534-b731-356435623038/ph-0116.jpg",
+    "https://static.tildacdn.com/tild3332-6135-4466-b038-373961396535/ph-0513.jpg",
+    "https://static.tildacdn.com/tild3432-3032-4765-b463-633661643462/ph-0421.jpg",
+    "https://static.tildacdn.com/tild6231-6534-4665-a565-333166393062/ph-0535.jpg"
+   ]
+  },
+  {
+   "event": "Выпускной, школа 3",
+   "city": "Пермь",
+   "guests": 70,
+   "cover": "https://static.tildacdn.com/tild6466-3764-4131-a439-313036386130/-92_1.jpg",
+   "photos": [
+    "https://static.tildacdn.com/tild6466-3764-4131-a439-313036386130/-92_1.jpg",
+    "https://static.tildacdn.com/tild3836-6237-4537-a131-343633643462/-467.jpg",
+    "https://static.tildacdn.com/tild3431-3865-4039-a134-316439356339/-429.jpg",
+    "https://static.tildacdn.com/tild6130-6463-4331-b332-313638653136/-355.jpg",
+    "https://static.tildacdn.com/tild6630-3536-4433-b535-386336373430/-196.jpg",
+    "https://static.tildacdn.com/tild3830-6533-4439-b066-343362366331/-465.jpg",
+    "https://static.tildacdn.com/tild3535-6636-4836-b536-303838396466/1.jpg",
+    "https://static.tildacdn.com/tild3134-6634-4537-a137-353231613463/2.jpg",
+    "https://static.tildacdn.com/tild6634-6435-4639-b665-373331386666/3.jpg",
+    "https://static.tildacdn.com/tild6463-6530-4030-b463-333836353662/4.jpg",
+    "https://static.tildacdn.com/tild3663-3731-4361-b265-336230613133/5.jpg",
+    "https://static.tildacdn.com/tild3332-6335-4931-b963-373234633666/6.jpg"
+   ]
+  }
+ ]
+}
