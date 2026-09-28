@@ -22,6 +22,7 @@ initCursor();
 initHeader();
 initCases();   // до reveal: свёрнутые кейсы не должны получить ScrollTrigger по скрытым строкам
 initReveal(document.querySelector('.dhero'));
+initReveal(document.querySelector('.packs'));
 initReveal(document.querySelector('.cases'));
 initReveal(document.querySelector('.others'));
 initFaq();     // FAQ и форма запускают reveal своих секций сами

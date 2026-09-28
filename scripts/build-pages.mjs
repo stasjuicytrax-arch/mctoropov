@@ -1,5 +1,5 @@
 // Генерирует 5 страниц направлений (ТЗ §6) из content/04-cases.md и content/02-faq.md.
-// Шаблон: hero с фото → кейсы → площадки (бегущая строка) → FAQ по направлению → другие направления → форма.
+// Шаблон: hero с фото → что входит → кейсы → площадки (бегущая строка) → FAQ по направлению → другие направления → форма.
 // Тексты не переписываются: лиды, кейсы и ответы FAQ берутся из content/ как есть.
 // Запуск: node scripts/build-pages.mjs  →  weddings.html, cityholiday.html, korporat.html, privatparty.html, graduationday.html
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
@@ -118,6 +118,47 @@ const faqItem = ({ n, q, a }, i) => `<li class="faq__item" data-faq-item>
     <div class="faq__a-inner"><p>${txt(a)}</p></div>
   </div>
 </li>`;
+
+// ---------- «Что входит»: ВРЕМЕННОЕ НАПОЛНЕНИЕ ----------
+// ЗАГЛУШКА. ТЗ §6 требует на странице направления блок «что входит», но отдельных
+// текстов под каждое направление у клиента ещё нет. До них блок наполняется
+// тарифами из content/05-pricing.md — они одинаковы для всех пяти страниц.
+// Что заменить, когда придут тексты:
+//   1. Тарифы — на состав работ конкретного направления (у свадьбы и Дня города он разный).
+//   2. В источнике «Оптимальный» и «Расширенный» неразличимы по составу, а у «Оптимального»
+//      вилка цены 110 000 / 150 000 — показываем её как «от 110 000 ₽».
+//      Решение клиента по пакетам ждём (content/05-pricing.md, п. 1–2; ТЗ §9 п. 7).
+//   3. Часы указаны только у «Базового» — тоже вопрос к клиенту (там же, п. 5).
+const pricingMd = readFileSync('content/05-pricing.md', 'utf8');
+
+function parsePacks() {
+  const rows = pricingMd.split('\n').filter((l) => l.startsWith('|')).slice(2)
+    .map((l) => l.split('|').slice(1, -1).map(cell));
+  return rows.map(([name, price, incl]) => {
+    const prices = [...price.matchAll(/\d[\d\s]*\d/g)].map((m) => +m[0].replace(/\s/g, ''));
+    let hours = null;
+    // «, 5 часов» — это не пункт состава, а продолжительность: показываем отдельной строкой
+    const body = incl.replace(/,?\s*(\d+)\s*час[а-яё]*/i, (_, h) => { hours = +h; return ''; });
+    const items = body.split(/\s*\+\s*|\.\s+/).map((t) => t.trim()).filter(Boolean)
+      .map((t) => t.replace(/\s*включены\.?$/, '').trim())
+      .map((t) => t[0].toUpperCase() + t.slice(1));
+    return { name: name.replace(/\*\*/g, '').trim(), price: prices[0], from: prices.length > 1, hours, items };
+  });
+}
+
+const packItem = (pk, i) => `<li class="pack" data-reveal-item>
+      <p class="pack__num" aria-hidden="true">${pad(i + 1)}</p>
+      <h3 class="pack__name">${txt(pk.name)}</h3>
+      <p class="pack__price">${pk.from ? '<span class="pack__from">от</span> ' : ''}${fmt(pk.price)}&nbsp;₽</p>
+      <ul class="pack__list">
+        ${pk.items.map((t) => `<li class="pack__item">{{icon:check:pack__tick}}<span>${txt(t)}</span></li>`).join('\n        ')}
+      </ul>
+      ${pk.hours ? `<p class="pack__hours">${pk.hours} ${plural(pk.hours, 'час', 'часа', 'часов')} работы</p>` : ''}
+      <a class="btn btn--primary btn--m pack__cta" href="#form" data-magnetic>
+        <span class="btn__label">Заказать</span>
+        <span class="btn__arrow">{{icon:arrow-up-right}}</span>
+      </a>
+    </li>`;
 
 // ---------- Разметка ----------
 const COLLAPSE_AFTER = 8;   // длинные списки (21 и 22 кейса) сворачиваются; без JS видно всё
@@ -270,10 +311,24 @@ ${ld.map((o) => `  <script type="application/ld+json">${JSON.stringify(o)}</scri
       </div>
     </section>
 
+    <section class="sec sec--acid sec--rail packs" id="includes" data-theme="acid" data-tear="4" aria-labelledby="packs-title">
+      <span class="asterisk packs__asterisk" aria-hidden="true">{{icon:asterisk}}</span>
+      <div class="container packs__grid">
+        <div class="packs__head">
+          <p class="rail"><span class="rail__num">02</span></p>
+          <h2 class="h2 packs__title" id="packs-title" data-reveal="lines">Что входит</h2>
+        </div>
+        <p class="packs__note" data-reveal="fade">Пакеты — отправная точка. Итоговая стоимость зависит от&nbsp;даты, города, числа гостей и&nbsp;объёма задач: назову её после короткого разговора о&nbsp;вашем событии.</p>
+        <ol class="packs__list" data-reveal="up">
+      ${parsePacks().map(packItem).join('\n      ')}
+        </ol>
+      </div>
+    </section>
+
     <section class="sec sec--light sec--rail cases" id="cases" data-theme="light" data-tear="2" aria-labelledby="cases-title">
       <div class="container">
         <div class="cases__head">
-          <p class="rail"><span class="rail__num">02</span></p>
+          <p class="rail"><span class="rail__num">03</span></p>
           <h2 class="h2 cases__title" id="cases-title" data-reveal="lines">Кейсы</h2>
           <p class="cases__note" data-reveal="fade">мероприятие · город · площадка · задачи · ${d.unit[2]}</p>
         </div>
@@ -301,7 +356,7 @@ ${ld.map((o) => `  <script type="application/ld+json">${JSON.stringify(o)}</scri
     <section class="sec sec--dark sec--rail faq" id="faq" data-theme="dark" data-tear="3" aria-labelledby="faq-title">
       <div class="container faq__grid">
         <div class="faq__head">
-          <p class="rail"><span class="rail__num">03</span></p>
+          <p class="rail"><span class="rail__num">04</span></p>
           <h2 class="h2 faq__title" id="faq-title" data-reveal="lines">Частые вопросы</h2>
         </div>
         <ol class="faq__list" data-faq>
@@ -312,7 +367,7 @@ ${items.map(faqItem).join('\n')}
 
     <nav class="sec sec--dark sec--rail others" aria-labelledby="others-title">
       <div class="container">
-        <p class="rail"><span class="rail__num">04</span></p>
+        <p class="rail"><span class="rail__num">05</span></p>
         <h2 class="others__title" id="others-title">Другие направления</h2>
         <ul class="others__list" data-reveal="up">
           ${others.map((o) => `<li data-reveal-item><a class="others__link" href="/${o.slug}"><span class="others__num">${pad(o.section)}</span><span class="others__name">${txt(o.name)}</span><span class="others__go">{{icon:arrow-up-right}}</span></a></li>`).join('\n          ')}
@@ -320,7 +375,7 @@ ${items.map(faqItem).join('\n')}
       </div>
     </nav>
 
-    <!-- @include src/sections/18-form.html num=05 -->
+    <!-- @include src/sections/18-form.html num=06 -->
   </main>
 
   <!-- @include src/sections/19-footer.html root=/ -->

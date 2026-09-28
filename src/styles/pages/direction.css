@@ -1,5 +1,5 @@
 /* ==========================================================================
-   СТРАНИЦА НАПРАВЛЕНИЯ (ТЗ §6): hero с фото [dark] → кейсы [light] →
+   СТРАНИЦА НАПРАВЛЕНИЯ (ТЗ §6): hero с фото [dark] → что входит [acid] → кейсы [light] →
    площадки [acid] → FAQ [dark] → другие направления [dark] → форма [light] → футер [dark].
    Ритм по ДС §5: открываем и закрываем в чёрном, acid не соседствуют, dark подряд ≤ 3.
    ========================================================================== */
@@ -293,4 +293,127 @@
 
   .others__list { grid-template-columns: minmax(0, 1fr); }
   .others__link { grid-template-columns: var(--s-7) minmax(0, 1fr) auto; }
+}
+
+/* ---------- «Что входит»: пакеты [acid] ----------
+   Наполнение временное — тарифы из content/05-pricing.md (см. комментарий
+   в scripts/build-pages.mjs). Разметка от контента не зависит: сколько пакетов
+   в таблице, столько карточек. */
+.packs { overflow-x: clip; }
+.packs__asterisk {
+  position: absolute;
+  top: var(--s-9);
+  right: var(--gutter);
+  width: var(--s-8);
+  height: var(--s-8);
+  color: var(--ink-900);
+}
+.packs__grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+  align-items: end;
+}
+.packs__head { grid-column: 1 / span 5; }
+.packs__note {
+  grid-column: 7 / -1;
+  max-width: var(--measure);
+  font-size: var(--fs-lead);
+  font-weight: 500;
+  line-height: var(--lh-lead);
+  color: var(--muted-on-acid);
+  text-wrap: pretty;
+}
+.packs__list {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--grid-gap);
+  margin-top: var(--s-9);
+}
+
+/* карточка пакета: notched-карточка A (§6) на лаймовой секции — фон ink-900 */
+.pack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--s-4);
+  padding: var(--card-pad);
+  background: var(--ink-900);
+  color: var(--white);
+  border-radius: var(--r-card);
+  -webkit-mask: linear-gradient(225deg, transparent var(--notch-cut), var(--ink-900) calc(var(--notch-cut) + var(--hairline)));
+          mask: linear-gradient(225deg, transparent var(--notch-cut), var(--ink-900) calc(var(--notch-cut) + var(--hairline)));
+}
+.pack__num {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: var(--tr-label);
+  color: var(--acid);
+}
+.pack__name {
+  font-family: var(--font-display);
+  font-size: var(--fs-lead);   /* h3 не влезает: «ОПТИМАЛЬНЫЙ» шире колонки карточки */
+  font-weight: var(--fw-h3);
+  line-height: var(--lh-h3);
+  letter-spacing: var(--tr-h3);
+  text-transform: uppercase;
+}
+.pack__price {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-display);
+  line-height: 1;
+  letter-spacing: var(--tr-h3);
+  font-variant-numeric: tabular-nums;
+  color: var(--acid);
+  white-space: nowrap;
+}
+.pack__from {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 700;
+  letter-spacing: var(--tr-label);
+  text-transform: uppercase;
+  color: var(--muted-on-dark);
+}
+.pack__list {
+  display: grid;
+  gap: var(--s-3);
+  padding-top: var(--s-4);
+  border-top: var(--hairline) solid var(--line-dark);
+  width: 100%;
+}
+.pack__item {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--s-3);
+  font-size: var(--fs-body);
+  line-height: var(--lh-small);
+  text-wrap: pretty;
+}
+.pack__tick { width: var(--icon-s); height: var(--icon-s); margin-top: .15em; color: var(--acid); }
+.pack__hours {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 700;
+  letter-spacing: var(--tr-label);
+  text-transform: uppercase;
+  color: var(--muted-on-dark);
+}
+.pack__cta { margin-top: auto; }
+
+/* ---------- Планшет ---------- */
+@media (max-width: 1279px) {
+  .packs__head, .packs__note { grid-column: 1 / -1; }
+  .packs__note { margin-top: var(--s-5); }
+  .packs__list { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: var(--s-8); }
+}
+
+/* ---------- Мобайл ---------- */
+@media (max-width: 767px) {
+  .packs__asterisk { top: var(--s-7); width: var(--s-7); height: var(--s-7); }
+  .packs__list { grid-template-columns: minmax(0, 1fr); margin-top: var(--s-7); }
 }
