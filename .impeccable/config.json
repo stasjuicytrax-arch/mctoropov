@@ -1,0 +1,26 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "flat-type-hierarchy",
+        "value": "*",
+        "files": [
+          "privacy.html"
+        ],
+        "createdAt": "2026-09-28T20:19:10.191Z",
+        "reason": "false positive: sizes come from clamp() tokens in imported CSS the detector does not resolve, so every role reads as 16px; real scale is h1 clamp(40-104px), h2 clamp(22-34px), body clamp(15-17px), verified in browser screenshots; same flag fires on pre-change weddings.html"
+      },
+      {
+        "rule": "flat-type-hierarchy",
+        "value": "*",
+        "files": [
+          "terms.html"
+        ],
+        "createdAt": "2026-09-28T20:19:10.676Z",
+        "reason": "false positive: same as privacy.html - clamp() token sizes are unresolvable for the detector, real scale h1 40-104px / h2 22-34px / body 15-17px verified in browser"
+      }
+    ]
+  }
+}
