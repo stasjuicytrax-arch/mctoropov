@@ -5,6 +5,20 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "cleanUrls": true,
+  "redirects": [
+    { "source": "/services", "destination": "/#directions", "statusCode": 301 },
+    { "source": "/events", "destination": "/#directions", "statusCode": 301 },
+    { "source": "/reviews", "destination": "/#reviews", "statusCode": 301 },
+    { "source": "/thanks", "destination": "/#reviews", "statusCode": 301 },
+    { "source": "/gallery", "destination": "/", "statusCode": 301 },
+    { "source": "/blog", "destination": "/", "statusCode": 301 },
+    { "source": "/clips", "destination": "/", "statusCode": 301 },
+    { "source": "/status", "destination": "/", "statusCode": 301 },
+    { "source": "/bloger", "destination": "/", "statusCode": 301 },
+    { "source": "/z100project", "destination": "/", "statusCode": 301 },
+    { "source": "/contacts", "destination": "/#form", "statusCode": 301 },
+    { "source": "/privacy-policy", "destination": "/privacy", "statusCode": 301 }
+  ],
   "headers": [
     {
       "source": "/(fonts|img|decor|video)/(.*)",
