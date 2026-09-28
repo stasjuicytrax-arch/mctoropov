@@ -14,6 +14,9 @@ import { resolve } from 'node:path';
  */
 // старые адреса Tilda сохранены — позиции в поиске не теряются
 export const DIRECTION_PAGES = ['weddings', 'cityholiday', 'korporat', 'privatparty', 'graduationday'];
+// юридические страницы (ТЗ §8): политика конфиденциальности и пользовательское соглашение
+export const LEGAL_PAGES = ['privacy', 'terms'];
+const PAGES = [...DIRECTION_PAGES, ...LEGAL_PAGES];
 
 const ICON_DIR =resolve('node_modules/@tabler/icons/icons/outline');
 
@@ -76,7 +79,7 @@ const leadStub = () => ({
 const cleanUrls = () => {
   const rewrite = (req, _res, next) => {
     const path = req.url.split('?')[0].replace(/\/$/, '');
-    if (DIRECTION_PAGES.includes(path.slice(1))) req.url = path + '.html';
+    if (PAGES.includes(path.slice(1))) req.url = path + '.html';
     next();
   };
   return {
@@ -89,7 +92,7 @@ const cleanUrls = () => {
 export default defineConfig({
   plugins: [partials(), leadStub(), cleanUrls()],
   server: { port: 5173, host: true },
-  // главная, 404 (ТЗ §7) и страницы направлений (ТЗ §6; генерирует scripts/build-pages.mjs)
+  // главная, 404 (ТЗ §7), страницы направлений (ТЗ §6; генерирует scripts/build-pages.mjs) и юридические (ТЗ §8)
   build: {
     target: 'es2020',
     assetsInlineLimit: 0,
@@ -97,7 +100,7 @@ export default defineConfig({
       input: {
         main: resolve('index.html'),
         notFound: resolve('404.html'),
-        ...Object.fromEntries(DIRECTION_PAGES.map((slug) => [slug, resolve(`${slug}.html`)])),
+        ...Object.fromEntries(PAGES.map((slug) => [slug, resolve(`${slug}.html`)])),
       },
     },
   },

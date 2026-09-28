@@ -1,0 +1,17 @@
+/* Юридические страницы (/privacy, /terms; ТЗ §8 «Право и приватность»):
+   та же база и сквозные системы, из секций — только хедер и футер */
+@import './tokens.css';
+@import './fonts.css';
+@import './base.css';
+@import './layout.css';
+@import './components.css';
+
+@import './systems/cursor.css';
+@import './systems/grain.css';
+@import './systems/progress.css';
+@import './systems/cookie.css';
+
+@import './sections/00-header.css';
+@import './sections/19-footer.css';
+
+@import './pages/legal.css';

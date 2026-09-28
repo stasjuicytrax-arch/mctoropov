@@ -8,6 +8,7 @@ import { initReveal, initParallax } from './systems/reveal.js';
 import { initMagnetic } from './systems/interactions.js';
 import { initMarquee } from './systems/marquee.js';
 import { initGoals } from './systems/goals.js';
+import { initCookie } from './systems/cookie.js';
 
 import { initHeader } from './sections/00-header.js';
 import { initFaq } from './sections/15-faq.js';
@@ -30,6 +31,7 @@ initLeadForm();
 initFooter();
 initMarquee(document.querySelector('.marquee') ?? undefined);
 initGoals();
+initCookie();
 initParallax();
 initMagnetic();
 

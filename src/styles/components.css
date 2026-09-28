@@ -263,3 +263,22 @@
 [data-parallax-inner] { overflow: clip; }
 [data-parallax-inner] img { scale: var(--parallax-scale); }
 @media (prefers-reduced-motion: reduce) { [data-parallax-inner] img { scale: 1; } }
+
+/* ---------- Хлебные крошки (внутренние страницы: направления, юридические) ---------- */
+.crumbs { grid-column: 1 / -1; margin-bottom: var(--s-7); }
+.crumbs__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 700;
+  letter-spacing: var(--tr-label);
+  text-transform: uppercase;
+  color: var(--muted-on-dark);
+}
+.crumbs__list li { display: flex; align-items: center; gap: var(--s-2); }
+.crumbs__list li + li::before { content: "/"; opacity: var(--o-soft); }
+.crumbs__link { transition: color var(--dur-fast) var(--ease-out); }
+.crumbs__link:hover { color: var(--acid); }
+.crumbs [aria-current] { color: var(--white); }

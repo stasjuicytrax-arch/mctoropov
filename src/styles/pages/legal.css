@@ -1,0 +1,147 @@
+/* ==========================================================================
+   ЮРИДИЧЕСКАЯ СТРАНИЦА (ТЗ §8): шапка [dark] → документ [light] → футер [dark].
+   Длинный текст: одна колонка не шире 62 символов (ДС §3), слева — липкое
+   оглавление. Никаких отдельных «текстовых» стилей мимо токенов.
+   ========================================================================== */
+
+/* ---------- Шапка ---------- */
+.lhero {
+  padding-top: calc(var(--header-h) + var(--s-7));
+  padding-bottom: var(--sec-pad);
+  overflow-x: clip;
+}
+.lhero__title { max-width: 16ch; font-size: clamp(30px, 5.2vw, 72px); }   /* «КОНФИДЕНЦИАЛЬНОСТИ» — самое длинное слово, должно влезать в строку */
+.lhero__meta {
+  margin-top: var(--s-6);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 700;
+  letter-spacing: var(--tr-label);
+  text-transform: uppercase;
+  color: var(--muted-on-dark);
+}
+.lhero__lead {
+  max-width: var(--measure);
+  margin-top: var(--s-6);
+  font-size: var(--fs-lead);
+  line-height: var(--lh-lead);
+  color: var(--muted-on-dark);
+  text-wrap: pretty;
+}
+
+/* ---------- Документ ---------- */
+.legal__grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+  align-items: start;
+}
+.legal__toc {
+  grid-column: 1 / span 3;
+  position: sticky;
+  top: calc(var(--header-h) + var(--s-5));
+}
+.legal__toc-h {
+  margin-bottom: var(--s-5);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 700;
+  letter-spacing: var(--tr-label);
+  line-height: 1;
+  text-transform: uppercase;
+}
+.legal__toc-list { display: grid; gap: var(--s-3); }
+.legal__toc-link {
+  display: grid;
+  grid-template-columns: var(--s-6) minmax(0, 1fr);
+  gap: var(--s-2);
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
+  color: var(--muted-on-acid);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+.legal__toc-link:hover { color: var(--ink-900); }
+.legal__toc-num {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 700;
+  letter-spacing: var(--tr-label);
+}
+
+.legal__body { grid-column: 5 / -1; max-width: var(--measure); }
+.legal__h {
+  margin-top: var(--s-9);
+  padding-top: var(--s-5);
+  border-top: var(--hairline) solid var(--line-light);
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-h3);
+  line-height: var(--lh-h3);
+  letter-spacing: var(--tr-h3);
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.legal__body > .legal__h:first-child { margin-top: 0; padding-top: 0; border-top: 0; }
+.legal__body p { margin-top: var(--s-4); line-height: var(--lh-body); text-wrap: pretty; }
+.legal__body a { text-decoration: underline; text-underline-offset: .2em; }
+.legal__body a:hover { color: var(--magenta); }
+
+.legal__list { margin-top: var(--s-4); display: grid; gap: var(--s-3); }
+.legal__list li {
+  display: grid;
+  grid-template-columns: var(--s-5) minmax(0, 1fr);
+  line-height: var(--lh-body);
+  text-wrap: pretty;
+}
+.legal__list li::before {
+  content: "—";
+  color: var(--muted-on-acid);
+}
+.legal__list--num { counter-reset: legal; }
+.legal__list--num li::before {
+  counter-increment: legal;
+  content: counter(legal, decimal-leading-zero);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 700;
+  letter-spacing: var(--tr-label);
+  line-height: var(--lh-body);
+}
+
+.legal__contacts {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: var(--s-3) var(--s-5);
+  margin-top: var(--s-5);
+  line-height: var(--lh-small);
+}
+.legal__contacts dt {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 700;
+  letter-spacing: var(--tr-label);
+  text-transform: uppercase;
+  color: var(--muted-on-acid);
+  padding-top: .2em;
+}
+
+.legal__foot {
+  margin-top: var(--s-9);
+  padding-top: var(--s-5);
+  border-top: var(--hairline) solid var(--line-light);
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
+  color: var(--muted-on-acid);
+}
+
+/* ---------- Планшет ---------- */
+@media (max-width: 1279px) {
+  .legal__toc { grid-column: 1 / -1; position: static; margin-bottom: var(--s-8); }
+  .legal__toc-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .legal__body { grid-column: 1 / -1; }
+}
+
+/* ---------- Мобайл ---------- */
+@media (max-width: 767px) {
+  .legal__toc-list { grid-template-columns: minmax(0, 1fr); }
+}

@@ -1,0 +1,12 @@
+<!-- Cookie-уведомление (ТЗ §8). Скрыто в разметке: показывает его JS и только тем,
+     кто ещё не нажимал «Понятно». Без JS плашка не мешает читать сайт. -->
+<aside class="cookie" data-cookie role="complementary" aria-label="Уведомление о файлах cookie" hidden>
+  <p class="cookie__h">Cookie</p>
+  <p class="cookie__text">Сайт использует файлы cookie и&nbsp;сервис статистики, чтобы страницы работали быстрее, а&nbsp;я&nbsp;понимал, какие разделы полезны. Подробнее — в&nbsp;<a href="/privacy">политике конфиденциальности</a>.</p>
+  <div class="cookie__actions">
+    <button class="btn btn--primary btn--s" type="button" data-cookie-accept>
+      <span class="btn__label">Понятно</span>
+      <span class="btn__arrow">{{icon:check}}</span>
+    </button>
+  </div>
+</aside>

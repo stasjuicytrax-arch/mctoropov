@@ -4,25 +4,6 @@
    Ритм по ДС §5: открываем и закрываем в чёрном, acid не соседствуют, dark подряд ≤ 3.
    ========================================================================== */
 
-/* ---------- Хлебные крошки ---------- */
-.crumbs { grid-column: 1 / -1; margin-bottom: var(--s-7); }
-.crumbs__list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--s-2);
-  font-family: var(--font-mono);
-  font-size: var(--fs-label);
-  font-weight: 700;
-  letter-spacing: var(--tr-label);
-  text-transform: uppercase;
-  color: var(--muted-on-dark);
-}
-.crumbs__list li { display: flex; align-items: center; gap: var(--s-2); }
-.crumbs__list li + li::before { content: "/"; opacity: var(--o-soft); }
-.crumbs__link { transition: color var(--dur-fast) var(--ease-out); }
-.crumbs__link:hover { color: var(--acid); }
-.crumbs [aria-current] { color: var(--white); }
-
 /* ---------- Hero ---------- */
 .dhero {
   padding-top: calc(var(--header-h) + var(--s-7));
