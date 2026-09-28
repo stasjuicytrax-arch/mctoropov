@@ -16,6 +16,28 @@ const WARP = [
   { skewX: -12, scaleY: 1.18, y: -1 },
 ];
 
+// Волна по буквам вордмарка: буква приподнимается тем сильнее, чем ближе к курсору.
+// Правка клиента 28.09: в футере искажение skew/scale читалось как «кривые буквы».
+// Подъём в процентах от кегля — один и тот же код одинаково работает и на 28 px, и на 180 px.
+export function initWordmarkWave(el, { lift = 14, spread = 1.15 } = {}) {
+  if (!el || reduceMotion() || !media.fine.matches) return;
+  const letters = [...el.querySelectorAll('span')];
+  const to = letters.map((l) => gsap.quickTo(l, 'yPercent', { duration: sec('--dur-base'), ease: 'out' }));
+
+  el.addEventListener('pointermove', (e) => {
+    letters.forEach((l, i) => {
+      const r = l.getBoundingClientRect();
+      const d = (e.clientX - (r.left + r.width / 2)) / (r.width * spread);
+      to[i](-lift * Math.exp(-d * d));     // колокол: под курсором максимум, к краям сходит на нет
+    });
+  });
+  const rest = () => gsap.to(letters, { yPercent: 0, duration: sec('--dur-slow'), ease: 'elastic.out(1, .5)', stagger: .015, overwrite: true });
+  el.addEventListener('pointerleave', rest);
+  // с клавиатуры курсора нет — показываем ту же волну пробегом слева направо
+  el.addEventListener('focus', () => gsap.to(letters, { yPercent: -lift, duration: sec('--dur-base'), ease: 'out', stagger: { each: .05, yoyo: true, repeat: 1 }, overwrite: true }));
+  el.addEventListener('blur', rest);
+}
+
 export function initWordmarkWarp(el) {
   if (!el || reduceMotion()) return;
   const letters = el.querySelectorAll('span');
