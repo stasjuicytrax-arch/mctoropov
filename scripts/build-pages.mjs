@@ -2,7 +2,7 @@
 // Шаблон: hero с фото → что входит → кейсы → площадки (бегущая строка) → FAQ по направлению → другие направления → форма.
 // Тексты не переписываются: лиды, кейсы и ответы FAQ берутся из content/ как есть.
 // Запуск: node scripts/build-pages.mjs  →  weddings.html, cityholiday.html, korporat.html, privatparty.html, graduationday.html
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
 
 // content/ в деплой не уходит (.vercelignore) — на сервере собираются уже сгенерированные страницы
 if (!existsSync('content/04-cases.md')) {
@@ -178,6 +178,13 @@ function photoFor(slug, c) {
   return i < 0 ? null : `${slug}-${pad(i + 1)}`;
 }
 
+// Галерея кейса: кадры коллажа со старого сайта, `<кейс>-gNN.webp` (npm run case-photos).
+// Считаем по готовым файлам, а не по content/case-photos.json: в разметку должно
+// попасть то число, которое реально лежит в public/ и уедет в деплой.
+const CASE_SHOTS = 'public/img/cases';
+const shotFiles = existsSync(CASE_SHOTS) ? readdirSync(CASE_SHOTS) : [];
+const shotsOf = (img) => shotFiles.filter((f) => f.startsWith(`${img}-g`) && f.endsWith('.webp')).length;
+
 const CASE_SIZES = '(max-width: 767px) calc(100vw - 40px), (max-width: 1279px) calc(50vw - 52px), calc(33vw - 60px)';
 const caseSrcset = (img, f) => [480, 960].map((w) => `/img/cases/${img}-${w}.${f} ${w}w`).join(', ');
 
@@ -193,6 +200,7 @@ function caseItem(c, i, unit, slug) {
     c.organizers && `<p class="case__meta"><span class="case__key">Организаторы</span> ${txt(c.organizers)}</p>`,
   ].filter(Boolean).join('\n        ');
   const img = photoFor(slug, c);
+  const shots = img ? shotsOf(img) : 0;   // есть галерея — фото открывается в лайтбоксе
 
   // карточка типа C (ДС §6): фото, затемнение снизу, заголовок и теги поверх него.
   // Без фото — та же карточка, но «обложка» набрана типографикой.
@@ -211,6 +219,10 @@ function caseItem(c, i, unit, slug) {
       </picture>` : ''}
       <span class="case__num" aria-hidden="true">${pad(i + 1)}</span>
       <figcaption>${cap}</figcaption>
+      ${shots ? `<button class="case__open" type="button" data-cursor="view" data-lb="${img}" data-lb-shots="${shots}" data-lb-label="${esc(c.event)}${c.city ? ', ' + esc(c.city) : ''}">
+        <span class="visually-hidden">Смотреть ${shots} фото: ${esc(c.event)}${c.city ? ', ' + esc(c.city) : ''}</span>
+        <span class="case__shots" aria-hidden="true">${shots} фото</span>
+      </button>` : ''}
     </figure>
     ${c.tasks || extra ? `<div class="case__body">
         ${c.tasks ? `<p class="case__tasks">${txt(c.tasks)}</p>` : ''}
@@ -408,6 +420,8 @@ ${items.map(faqItem).join('\n')}
   </main>
 
   <!-- @include src/sections/19-footer.html root=/ -->
+
+  <!-- @include src/sections/_lightbox.html -->
 
   <!-- @include src/sections/_systems.html -->
 </body>

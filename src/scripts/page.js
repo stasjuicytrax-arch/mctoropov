@@ -9,6 +9,7 @@ import { initMagnetic } from './systems/interactions.js';
 import { initMarquee } from './systems/marquee.js';
 import { initGoals } from './systems/goals.js';
 import { initCookie } from './systems/cookie.js';
+import { initLightbox } from './systems/lightbox.js';
 
 import { initHeader } from './sections/00-header.js';
 import { initFaq } from './sections/15-faq.js';
@@ -30,6 +31,7 @@ initFaq();     // FAQ и форма запускают reveal своих сек�
 initLeadForm();
 initFooter();
 initMarquee(document.querySelector('.marquee') ?? undefined);
+initLightbox();
 initGoals();
 initCookie();
 initParallax();

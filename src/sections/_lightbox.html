@@ -1,0 +1,22 @@
+<!-- Лайтбокс фото кейса (ТЗ §6: у карточки типа C есть коллаж со старого сайта).
+     Нативный <dialog> в top layer: Esc, инертный фон и подложка — от браузера.
+     Кадры подставляет src/scripts/systems/lightbox.js: в разметке карточки лежит
+     только имя кейса и число кадров, адреса собираются по шаблону. -->
+<dialog class="lb" data-lightbox aria-label="Фотографии кейса">
+  <div class="lb__frame" data-lightbox-card tabindex="-1">
+    <div class="lb__bar">
+      <p class="lb__title" data-lb-title></p>
+      <button class="icon-btn lb__close" type="button" data-lb-close aria-label="Закрыть фотографии">{{icon:x}}</button>
+    </div>
+
+    <figure class="lb__stage" data-lb-stage>
+      <img class="lb__img" data-lb-img alt="" width="1100" height="733" decoding="async">
+    </figure>
+
+    <div class="lb__nav">
+      <button class="icon-btn lb__arrow" type="button" data-lb-prev aria-label="Предыдущее фото">{{icon:arrow-left}}</button>
+      <p class="lb__counter" data-lb-counter role="status"></p>
+      <button class="icon-btn lb__arrow" type="button" data-lb-next aria-label="Следующее фото">{{icon:arrow-right}}</button>
+    </div>
+  </div>
+</dialog>

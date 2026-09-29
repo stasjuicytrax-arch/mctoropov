@@ -1,0 +1,122 @@
+/* ==========================================================================
+   Лайтбокс фото кейса на страницах направлений. Нативный <dialog> в top layer:
+   он выше зерна и курсора, поэтому подложку и блюр окно несёт само — как поп-ап
+   форма (systems/modal.css). Сцена фиксированной высоты: кадры коллажа со
+   старого сайта и вертикальные, и горизонтальные, а кнопки под ними прыгать
+   от кадра к кадру не должны.
+   ========================================================================== */
+.lb {
+  width: min(1160px, calc(100vw - var(--gutter) * 2));
+  max-width: none;
+  max-height: 100dvh;
+  margin: auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  overflow: visible;
+  color: var(--white);
+}
+.lb::backdrop {
+  background: var(--scrim-modal);
+  -webkit-backdrop-filter: blur(var(--blur-modal));
+          backdrop-filter: blur(var(--blur-modal));
+}
+@media (prefers-reduced-motion: no-preference) {
+  .lb[open]::backdrop { animation: lb-in var(--dur-base) var(--ease-out) both; }
+}
+@keyframes lb-in { from { opacity: 0; } to { opacity: 1; } }
+
+/* рамка фиксированной высоты: кадры и вертикальные, и горизонтальные — кнопки
+   под сценой от кадра к кадру прыгать не должны */
+.lb__frame {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: var(--s-4);
+  height: min(calc(100dvh - var(--s-7)), 860px);
+}
+.lb__frame:focus { outline: none; }
+
+.lb__bar { display: flex; align-items: center; justify-content: space-between; gap: var(--s-5); }
+.lb__title {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 700;
+  line-height: var(--lh-small);
+  letter-spacing: var(--tr-label);
+  text-transform: uppercase;
+  color: var(--muted-on-dark);
+}
+
+.lb__stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 0;
+  touch-action: pan-y;   /* свайп в сторону перелистывает, вертикальный жест отдаём браузеру */
+}
+.lb__img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: var(--r-card);
+  transition: opacity var(--dur-fast) var(--ease-out);
+}
+/* следующий кадр ещё не декодирован: гасим текущий, чтобы подмена не била по глазам */
+.lb__stage.is-loading .lb__img { opacity: var(--o-soft); }
+
+.lb__nav { display: flex; align-items: center; justify-content: center; gap: var(--s-5); }
+.lb__counter {
+  min-width: 7ch;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 700;
+  letter-spacing: var(--tr-label);
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  color: var(--muted-on-dark);
+}
+
+@media (max-width: 767px) {
+  .lb { width: calc(100vw - var(--gutter) * 2); }
+  .lb__frame { height: calc(100dvh - var(--s-6)); }
+  .lb__title { max-width: 16ch; }
+}
+
+/* ---------- Кнопка-триггер на карточке кейса ---------- */
+/* Кадр открывается по клику в любое место фото: курсор над ним и так обещает
+   «Смотреть» (§8.10). Плашка справа сверху — чтобы обещание было видно и на тач. */
+.case__open {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  display: block;
+  cursor: pointer;
+}
+.case__shots {
+  position: absolute;
+  top: var(--s-5);
+  right: var(--s-5);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: var(--s-2) var(--s-4);
+  border: var(--hairline) solid var(--muted-on-dark);
+  border-radius: var(--r-pill);
+  background: var(--scrim-modal);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: var(--tr-label);
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: background-color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+.case__open:hover .case__shots { background: var(--acid); border-color: var(--acid); color: var(--ink-900); }
+.case__open:focus-visible { outline: 2px solid var(--acid); outline-offset: calc(var(--s-2) * -1); }
+.case__open:focus-visible .case__shots { background: var(--acid); border-color: var(--acid); color: var(--ink-900); }
+@media (prefers-reduced-motion: no-preference) {
+  .case__picture img { transition: scale var(--dur-slow) var(--ease-out); }
+  .case__media:has(.case__open:hover) .case__picture img { scale: 1.03; }
+}
