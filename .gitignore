@@ -11,6 +11,11 @@ dist
 # исходники перекачиваются скриптом download-assets.ps1.
 assets/video/
 
+# Оригиналы фото галерей кейсов (250 МБ, 618 файлов). В репозитории лежат
+# готовые кадры public/img/cases/*-gNN.webp; оригиналы перекачиваются
+# скриптом npm run case-photos по content/case-photos.json.
+assets/cases/*-g*.jpg
+
 # Служебное
 .DS_Store
 Thumbs.db
