@@ -51,7 +51,7 @@ const partials = () => ({
 });
 
 // Dev-заглушка приёма заявок: проверяет телефон и отвечает как настоящий обработчик.
-// В проде POST /api/lead должен пересылать заявку в Telegram-бот и на почту (ТЗ §4).
+// В проде заявки уходят в функцию toropov-leads в Яндекс.Облаке (server/leads/), см. 18-form.js.
 // ?fail в Referer (открыть сайт как /?fail) — вернуть 500, чтобы проверить состояние ошибки.
 const leadStub = () => ({
   name: 'lead-stub',
@@ -62,7 +62,7 @@ const leadStub = () => ({
       req.on('data', (c) => { body += c; });
       req.on('end', () => {
         let ok = false;
-        try { ok = /^\+7\d{10}$/.test(JSON.parse(body).phone); } catch { /* битый JSON */ }
+        try { ok = String(JSON.parse(body).phone).replace(/\D/g, '').length === 11; } catch { /* битый JSON */ }
         const fail = (req.headers.referer || '').includes('?fail');
         setTimeout(() => {
           res.statusCode = fail ? 500 : ok ? 200 : 422;

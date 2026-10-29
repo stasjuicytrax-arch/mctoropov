@@ -118,6 +118,8 @@
 }
 .lead__form.is-error .lead__msg { color: var(--ink-900); }
 .lead__form.is-error .lead__msg::before { content: "! "; color: var(--magenta); }
+.lead__msg a { text-decoration: underline; text-underline-offset: .2em; }
+.lead__msg a:hover { color: var(--magenta); }
 
 .lead__phone {
   font-family: var(--font-mono);

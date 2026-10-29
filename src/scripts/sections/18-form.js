@@ -1,11 +1,15 @@
 // 18 · Форма «Праздник за 7 дней»: маска +7 (___) ___-__-__, проверка на клиенте,
 // честные состояния loading / success / error, защита — honeypot + rate-limit.
-// Отправка: POST /api/lead (JSON). Бэкенд пересылает в Telegram-бот и на почту (ТЗ §4) —
-// в dev его имитирует middleware в vite.config.js, в проде нужен реальный обработчик.
+// Отправка: POST (JSON) в функцию toropov-leads в Яндекс.Облаке → релей → канал @helpppevent
+// (код функции — server/leads/). В dev заявку принимает заглушка /api/lead из vite.config.js.
 import { reachGoal } from '../systems/goals.js';
 import { initReveal } from '../systems/reveal.js';
 
-const ENDPOINT = '/api/lead';
+const ENDPOINT = import.meta.env.DEV
+  ? '/api/lead'
+  : 'https://functions.yandexcloud.net/d4e2rs20lmca21plq1uc';
+const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+const TG_URL = 'https://t.me/+491Rk3L02ItiODMy';
 const RATE_KEY = 'lead:last';
 const RATE_MS = 60_000;          // не чаще одной заявки в минуту с одного браузера
 
@@ -26,9 +30,51 @@ const format = (d) => {
   return out;
 };
 
+// ---------- Откуда пришла заявка: форма, страница, кнопка, UTM ----------
+const PAGES = {
+  '/': 'Главная', '/weddings': 'Свадьба', '/cityholiday': 'Городской праздник',
+  '/korporat': 'Корпоратив', '/privatparty': 'Частная вечеринка', '/graduationday': 'Выпускной',
+};
+const pageName = () => PAGES[location.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/'] || document.title;
+const squash = (t) => (t || '').replace(/\s+/g, ' ').trim();
+
+// Последняя кнопка, которая привела к форме (прокрутка к #form или открытие окна)
+let lastTrigger = '';
+function describeTrigger(el) {
+  const label = squash(el.querySelector('.btn__label')?.textContent || el.textContent);
+  let where = '';
+  if (el.closest('[data-menu]')) where = 'мобильное меню';
+  else if (el.closest('.hdr')) where = 'шапка';
+  else if (el.closest('.pack')) where = `тариф «${squash(el.closest('.pack').querySelector('.pack__name')?.textContent)}»`;
+  else if (el.closest('.hero, .dhero')) where = 'первый экран';
+  else {
+    const h = el.closest('section')?.querySelector('h2');
+    if (h) where = `раздел «${squash(h.textContent)}»`;
+  }
+  return `кнопка «${label}»${where ? ` (${where})` : ''}`;
+}
+
+// UTM запоминаем при заходе: человек может оставить заявку не сразу и с другой страницы
+function rememberUtm() {
+  try {
+    const params = new URLSearchParams(location.search);
+    const found = {};
+    UTM_KEYS.forEach((k) => { if (params.get(k)) found[k] = params.get(k).slice(0, 150); });
+    if (Object.keys(found).length) sessionStorage.setItem('utm', JSON.stringify(found));
+  } catch { /* приватный режим */ }
+}
+function readUtm() {
+  try { return JSON.parse(sessionStorage.getItem('utm') || '{}'); } catch { return {}; }
+}
+
 // Форм на странице может быть две: секция «Праздник за 7 дней» и модалка из hero.
 // Логика одна, состояния — у каждой свои.
 export function initLeadForm(scope = document) {
+  rememberUtm();
+  document.addEventListener('click', (e) => {
+    const el = e.target.closest('a[href$="#form"], [data-modal-open]');
+    if (el) lastTrigger = describeTrigger(el);
+  }, true);
   scope.querySelectorAll('[data-lead-form]').forEach(bindForm);
 }
 
@@ -41,11 +87,14 @@ function bindForm(form) {
   const label = form.querySelector('[data-lead-label]');
   const hp = form.querySelector('[data-lead-hp]');
   const idleLabel = label.textContent;   // у модалки своя надпись на кнопке
+  const formTitle = form.closest('[data-modal]')
+    ? 'Окно «Обсудим ваше событие»'
+    : 'Секция «Готовое мероприятие за 7 дней»';
 
   const state = (name, text = '') => {
     form.classList.remove('is-error', 'is-loading', 'is-success');
     if (name) form.classList.add(`is-${name}`);
-    msg.textContent = text;
+    if (text instanceof Node) msg.replaceChildren(text); else msg.textContent = text;
     phone.setAttribute('aria-invalid', String(name === 'error' && digitsOf(phone.value).length < 11));
   };
 
@@ -76,20 +125,48 @@ function bindForm(form) {
     state('loading', 'Отправляю…');
     label.textContent = 'Отправляю';
     try {
+      const body = {
+        phone: format(d),
+        form_name: [formTitle, pageName(), lastTrigger || 'долистали до формы сами'].join(' · '),
+        page_url: location.href.split('#')[0],
+        consent: true,
+      };
+      const utm = readUtm();
+      UTM_KEYS.forEach((k) => { if (utm[k]) body[k] = utm[k]; });
+
+      const ctrl = new AbortController();
+      const timer = setTimeout(() => ctrl.abort(), 15_000);
       const res = await fetch(ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ phone: '+' + d, consent: true, page: location.href }),
-      });
-      if (!res.ok) throw new Error(String(res.status));
+        body: JSON.stringify(body),
+        signal: ctrl.signal,
+      }).finally(() => clearTimeout(timer));
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok || json.ok === false) throw new Error(String(res.status));
       try { localStorage.setItem(RATE_KEY, String(Date.now())); } catch { /* ок */ }
       reachGoal('lead');
       success();
     } catch {
       label.textContent = idleLabel;
-      state('error', 'Не получилось отправить. Попробуйте ещё раз или позвоните: +7 919 445 96 01');
+      state('error', errorText());
     }
   });
+
+  // Ошибка — сразу даём другие способы связи: телеграм и звонок
+  function errorText() {
+    const frag = document.createDocumentFragment();
+    const link = (href, text, goal, blank) => {
+      const a = document.createElement('a');
+      a.href = href; a.textContent = text; a.dataset.goal = goal;
+      if (blank) { a.target = '_blank'; a.rel = 'noopener'; }
+      return a;
+    };
+    frag.append('Не получилось отправить заявку. Напишите мне в\u00a0',
+      link(TG_URL, 'телеграм', 'telegram', true), ' или позвоните: ',
+      link('tel:+79194459601', '+7\u00a0919\u00a0445\u00a096\u00a001', 'call'));
+    return frag;
+  }
 
   function success() {
     label.textContent = 'Готово';

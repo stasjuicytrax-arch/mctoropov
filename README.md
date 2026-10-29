@@ -33,7 +33,7 @@ npm run pages     # пересобрать страницы направлени
 
 - Живая ссылка: https://stastoropov-site.vercel.app
 - Ручной деплой, если нужен: `vercel deploy --prod --yes --scope stas8`
-- Форма заявок (`api/lead.js`) ждёт переменные окружения `TELEGRAM_BOT_TOKEN` и `TELEGRAM_CHAT_ID`; без них отвечает 503.
+- Форма заявок: обе формы (секция `#form` и окно из hero) шлют заявку в функцию **toropov-leads** в Яндекс.Облаке → релей `stevent-relay` → бот @stevent_zayavka_bot → канал @helpppevent, метка `#toropov`. Код функции — `server/leads/`, адрес — в `ENDPOINT` в `src/scripts/sections/18-form.js`. Обновить код функции: `powershell -ExecutionPolicy Bypass -File server\copy-secrets.ps1`. Журнал: `yc serverless function logs toropov-leads --since 1h`. Старый `api/lead.js` больше не используется.
 
 ## Редиректы со старых адресов
 
